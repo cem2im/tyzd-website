@@ -1,0 +1,1901 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TYZD — Tıpta Yapay Zeka Derneği</title>
+    <meta name="description" content="Türkiye'nin ilk Tıpta Yapay Zeka Derneği. Tıpta yapay zekanın geleceğini birlikte şekillendiriyoruz.">
+    <meta name="keywords" content="yapay zeka, tıp, sağlık, AI, dernek, Türkiye, medikal AI">
+    <meta property="og:title" content="TYZD — Tıpta Yapay Zeka Derneği">
+    <meta property="og:description" content="Türkiye'nin ilk Tıpta Yapay Zeka Derneği. Eğitim, araştırma ve politika alanlarında öncü.">
+    <meta property="og:type" content="website">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        :root {
+            --bg: #000000;
+            --bg-card: #0a0a0a;
+            --bg-elevated: #111111;
+            --border: rgba(255,255,255,0.08);
+            --border-hover: rgba(255,255,255,0.15);
+            --text: #ffffff;
+            --text-secondary: #a1a1aa;
+            --text-tertiary: #71717a;
+            --accent: #6366f1;
+            --accent-secondary: #8b5cf6;
+            --gradient: linear-gradient(135deg, #6366f1 0%, #8b5cf6 50%, #a855f7 100%);
+        }
+
+        html { scroll-behavior: smooth; }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            overflow-x: hidden;
+        }
+
+        ::selection { background: var(--accent); color: white; }
+        a { color: inherit; text-decoration: none; }
+
+        /* ========== ANIMATED BACKGROUNDS ========== */
+        .grid-bg {
+            position: fixed;
+            inset: 0;
+            background-image:
+                linear-gradient(rgba(255,255,255,0.025) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255,255,255,0.025) 1px, transparent 1px);
+            background-size: 80px 80px;
+            mask-image: radial-gradient(ellipse at center, black 0%, transparent 70%);
+            -webkit-mask-image: radial-gradient(ellipse at center, black 0%, transparent 70%);
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .gradient-mesh {
+            position: fixed;
+            inset: 0;
+            overflow: hidden;
+            pointer-events: none;
+            z-index: 0;
+        }
+        .gradient-mesh::before,
+        .gradient-mesh::after {
+            content: '';
+            position: absolute;
+            width: 150%;
+            height: 150%;
+            top: -25%;
+            left: -25%;
+        }
+        .gradient-mesh::before {
+            background:
+                radial-gradient(ellipse 80% 50% at 20% 40%, rgba(99,102,241,0.15) 0%, transparent 50%),
+                radial-gradient(ellipse 60% 80% at 80% 20%, rgba(139,92,246,0.12) 0%, transparent 50%),
+                radial-gradient(ellipse 50% 60% at 40% 80%, rgba(168,85,247,0.1) 0%, transparent 50%);
+            animation: meshMove1 25s ease-in-out infinite;
+        }
+        .gradient-mesh::after {
+            background:
+                radial-gradient(ellipse 70% 60% at 70% 60%, rgba(99,102,241,0.1) 0%, transparent 50%),
+                radial-gradient(ellipse 50% 70% at 30% 30%, rgba(139,92,246,0.08) 0%, transparent 50%),
+                radial-gradient(ellipse 60% 50% at 60% 70%, rgba(59,130,246,0.08) 0%, transparent 50%);
+            animation: meshMove2 30s ease-in-out infinite;
+        }
+        @keyframes meshMove1 {
+            0%, 100% { transform: translate(0, 0) rotate(0deg) scale(1); }
+            25% { transform: translate(5%, -5%) rotate(2deg) scale(1.05); }
+            50% { transform: translate(-3%, 5%) rotate(-1deg) scale(0.98); }
+            75% { transform: translate(3%, 3%) rotate(1deg) scale(1.02); }
+        }
+        @keyframes meshMove2 {
+            0%, 100% { transform: translate(0, 0) rotate(0deg) scale(1); }
+            33% { transform: translate(-5%, 3%) rotate(-2deg) scale(1.03); }
+            66% { transform: translate(4%, -4%) rotate(2deg) scale(0.97); }
+        }
+
+        .aurora {
+            position: fixed;
+            inset: 0;
+            overflow: hidden;
+            pointer-events: none;
+            z-index: 0;
+            opacity: 0.4;
+        }
+        .aurora-beam {
+            position: absolute;
+            width: 200%;
+            height: 300px;
+            background: linear-gradient(90deg,
+                transparent 0%,
+                rgba(99,102,241,0.05) 20%,
+                rgba(139,92,246,0.08) 40%,
+                rgba(168,85,247,0.05) 60%,
+                rgba(59,130,246,0.06) 80%,
+                transparent 100%
+            );
+            filter: blur(60px);
+            animation: auroraWave 20s ease-in-out infinite;
+        }
+        .aurora-beam:nth-child(1) { top: 10%; animation-delay: 0s; }
+        .aurora-beam:nth-child(2) { top: 40%; animation-delay: -7s; opacity: 0.6; }
+        .aurora-beam:nth-child(3) { top: 70%; animation-delay: -14s; opacity: 0.4; }
+        @keyframes auroraWave {
+            0%, 100% { transform: translateX(-30%) skewX(-5deg); }
+            50% { transform: translateX(-10%) skewX(5deg); }
+        }
+
+        /* ========== HEADER ========== */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 100;
+            padding: 0 2rem;
+            background: rgba(0,0,0,0.5);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--border);
+        }
+        .header-inner {
+            max-width: 1200px;
+            margin: 0 auto;
+            height: 64px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-weight: 600;
+            font-size: 15px;
+            letter-spacing: -0.01em;
+        }
+        .logo-mark {
+            width: 32px;
+            height: 32px;
+            background: var(--gradient);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+        .logo-mark::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(135deg, transparent 40%, rgba(255,255,255,0.2) 50%, transparent 60%);
+            animation: logoShine 3s ease-in-out infinite;
+        }
+        @keyframes logoShine {
+            0%, 100% { transform: translateX(-100%); }
+            50% { transform: translateX(100%); }
+        }
+        .logo-mark svg { width: 18px; height: 18px; color: white; position: relative; z-index: 1; }
+
+        nav { display: flex; align-items: center; gap: 28px; }
+        .nav-link {
+            font-size: 14px;
+            color: var(--text-secondary);
+            transition: color 0.2s;
+            letter-spacing: 0.02em;
+        }
+        .nav-link:hover { color: var(--text); }
+        .nav-cta {
+            font-size: 14px;
+            font-weight: 500;
+            padding: 8px 16px;
+            background: var(--text);
+            color: var(--bg);
+            border-radius: 8px;
+            transition: all 0.2s;
+        }
+        .nav-cta:hover { opacity: 0.9; transform: translateY(-1px); }
+
+        /* Mobile menu */
+        .mobile-toggle {
+            display: none;
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 8px;
+            color: var(--text);
+        }
+        .mobile-toggle svg { width: 24px; height: 24px; }
+
+        .mobile-nav {
+            display: none;
+            position: fixed;
+            top: 64px;
+            left: 0;
+            right: 0;
+            background: rgba(0,0,0,0.95);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--border);
+            padding: 24px 2rem;
+            z-index: 99;
+            flex-direction: column;
+            gap: 16px;
+        }
+        .mobile-nav.open { display: flex; }
+        .mobile-nav a {
+            font-size: 16px;
+            color: var(--text-secondary);
+            padding: 8px 0;
+            transition: color 0.2s;
+        }
+        .mobile-nav a:hover { color: var(--text); }
+        .mobile-nav .nav-cta {
+            display: inline-block;
+            text-align: center;
+            margin-top: 8px;
+        }
+
+        /* ========== SECTIONS ========== */
+        main { position: relative; z-index: 1; }
+
+        section {
+            padding: 120px 2rem;
+            opacity: 0;
+            transform: translateY(40px);
+            transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        section.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .section-inner { max-width: 1200px; margin: 0 auto; }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 64px;
+        }
+        .section-label {
+            font-size: 13px;
+            font-weight: 600;
+            color: var(--accent);
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            margin-bottom: 16px;
+        }
+        .section-title {
+            font-size: clamp(32px, 5vw, 48px);
+            font-weight: 600;
+            letter-spacing: -0.02em;
+            margin-bottom: 16px;
+        }
+        .section-subtitle {
+            font-size: 18px;
+            color: var(--text-secondary);
+            max-width: 560px;
+            margin: 0 auto;
+            line-height: 1.7;
+        }
+
+        /* ========== HERO ========== */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding-top: 64px;
+        }
+        .hero-content { max-width: 820px; }
+
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 6px 16px;
+            background: rgba(99,102,241,0.1);
+            border: 1px solid rgba(99,102,241,0.2);
+            border-radius: 100px;
+            font-size: 12px;
+            font-weight: 600;
+            color: var(--accent);
+            margin-bottom: 32px;
+            animation: fadeInUp 0.8s ease forwards;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+        }
+        .badge-dot {
+            width: 6px;
+            height: 6px;
+            background: #22c55e;
+            border-radius: 50%;
+            animation: pulse 2s ease-in-out infinite;
+        }
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.5; }
+        }
+
+        .hero h1 {
+            font-size: clamp(40px, 7vw, 72px);
+            font-weight: 600;
+            letter-spacing: -0.03em;
+            line-height: 1.05;
+            margin-bottom: 24px;
+        }
+        .hero h1 .word {
+            display: inline-block;
+            opacity: 0;
+            transform: translateY(20px);
+            animation: wordReveal 0.6s ease forwards;
+        }
+        @keyframes wordReveal {
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .gradient-text {
+            background: var(--gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero-description {
+            font-size: 18px;
+            color: var(--text-secondary);
+            max-width: 580px;
+            margin: 0 auto 40px;
+            line-height: 1.7;
+            animation: fadeInUp 0.8s ease 0.2s forwards;
+            opacity: 0;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 16px;
+            justify-content: center;
+            margin-bottom: 80px;
+            animation: fadeInUp 0.8s ease 0.3s forwards;
+            opacity: 0;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 14px 24px;
+            border-radius: 12px;
+            font-size: 15px;
+            font-weight: 500;
+            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+            cursor: pointer;
+            border: none;
+            font-family: inherit;
+        }
+        .btn svg { width: 16px; height: 16px; }
+
+        .btn-primary {
+            background: var(--text);
+            color: var(--bg);
+        }
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 30px rgba(255,255,255,0.15);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--text);
+            border: 1px solid var(--border);
+        }
+        .btn-secondary:hover {
+            border-color: var(--border-hover);
+            background: rgba(255,255,255,0.03);
+        }
+
+        .btn-gradient {
+            background: var(--gradient);
+            color: white;
+            border: none;
+            position: relative;
+            overflow: hidden;
+        }
+        .btn-gradient::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(135deg, transparent 40%, rgba(255,255,255,0.15) 50%, transparent 60%);
+            transform: translateX(-100%);
+            transition: transform 0.6s;
+        }
+        .btn-gradient:hover::before { transform: translateX(100%); }
+        .btn-gradient:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 30px rgba(99,102,241,0.4);
+        }
+
+        .hero-stats {
+            display: flex;
+            justify-content: center;
+            gap: 80px;
+            animation: fadeInUp 0.8s ease 0.4s forwards;
+            opacity: 0;
+        }
+        .stat { text-align: center; }
+        .stat-value {
+            font-size: 48px;
+            font-weight: 600;
+            letter-spacing: -0.02em;
+            background: var(--gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        .stat-label {
+            font-size: 13px;
+            color: var(--text-tertiary);
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            margin-top: 4px;
+        }
+
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* ========== HAKKIMIZDA ========== */
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 48px;
+        }
+        .about-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 48px;
+            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+            position: relative;
+            overflow: hidden;
+        }
+        .about-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: var(--gradient);
+            transform: scaleX(0);
+            transition: transform 0.4s;
+        }
+        .about-card:hover::before { transform: scaleX(1); }
+        .about-card:hover {
+            border-color: var(--border-hover);
+            transform: translateY(-4px);
+        }
+        .about-icon {
+            width: 48px;
+            height: 48px;
+            background: rgba(99,102,241,0.1);
+            border: 1px solid rgba(99,102,241,0.2);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 24px;
+        }
+        .about-icon svg {
+            width: 24px;
+            height: 24px;
+            color: var(--accent);
+        }
+        .about-card h3 {
+            font-size: 20px;
+            font-weight: 600;
+            margin-bottom: 16px;
+        }
+        .about-card p {
+            font-size: 15px;
+            color: var(--text-secondary);
+            line-height: 1.7;
+        }
+
+        .about-text {
+            margin-top: 48px;
+            text-align: center;
+        }
+        .about-text p {
+            font-size: 17px;
+            color: var(--text-secondary);
+            max-width: 800px;
+            margin: 0 auto;
+            line-height: 1.8;
+        }
+
+        /* ========== YÖNETİM KURULU ========== */
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 24px;
+        }
+        .team-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 32px 24px;
+            text-align: center;
+            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+            position: relative;
+            overflow: hidden;
+        }
+        .team-card::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(180deg, rgba(99,102,241,0.05) 0%, transparent 100%);
+            opacity: 0;
+            transition: opacity 0.4s;
+        }
+        .team-card:hover::before { opacity: 1; }
+        .team-card:hover {
+            transform: translateY(-4px);
+            border-color: var(--accent);
+        }
+        .team-avatar {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, rgba(99,102,241,0.2), rgba(139,92,246,0.2));
+            border: 2px solid rgba(99,102,241,0.3);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            font-size: 28px;
+            font-weight: 600;
+            color: var(--accent);
+            position: relative;
+            z-index: 1;
+        }
+        .team-card h4 {
+            font-size: 16px;
+            font-weight: 600;
+            margin-bottom: 4px;
+            position: relative;
+            z-index: 1;
+        }
+        .team-role {
+            font-size: 13px;
+            color: var(--accent);
+            font-weight: 500;
+            margin-bottom: 8px;
+            position: relative;
+            z-index: 1;
+        }
+        .team-title {
+            font-size: 13px;
+            color: var(--text-tertiary);
+            line-height: 1.5;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* ========== FAALİYET ALANLARI ========== */
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1px;
+            background: var(--border);
+            border-radius: 16px;
+            overflow: hidden;
+        }
+        .feature {
+            background: var(--bg);
+            padding: 48px 40px;
+            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+            position: relative;
+        }
+        .feature::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(180deg, rgba(99,102,241,0.05) 0%, transparent 100%);
+            opacity: 0;
+            transition: opacity 0.4s;
+        }
+        .feature:hover::before { opacity: 1; }
+        .feature:hover { transform: translateY(-4px); }
+
+        .feature-icon {
+            width: 48px;
+            height: 48px;
+            background: rgba(99,102,241,0.1);
+            border: 1px solid rgba(99,102,241,0.2);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 24px;
+        }
+        .feature-icon svg {
+            width: 24px;
+            height: 24px;
+            color: var(--accent);
+        }
+        .feature h3 {
+            font-size: 18px;
+            font-weight: 600;
+            margin-bottom: 12px;
+        }
+        .feature p {
+            font-size: 15px;
+            color: var(--text-secondary);
+            line-height: 1.6;
+        }
+
+        /* ========== ETKİNLİKLER ========== */
+        .events-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 24px;
+        }
+        .event-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 32px;
+            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+            position: relative;
+            overflow: hidden;
+        }
+        .event-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: var(--gradient);
+            transform: scaleX(0);
+            transition: transform 0.4s;
+        }
+        .event-card:hover::before { transform: scaleX(1); }
+        .event-card:hover {
+            border-color: var(--border-hover);
+            transform: translateY(-4px);
+        }
+        .event-date {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 4px 12px;
+            background: rgba(99,102,241,0.1);
+            border: 1px solid rgba(99,102,241,0.2);
+            border-radius: 100px;
+            font-size: 12px;
+            font-weight: 600;
+            color: var(--accent);
+            margin-bottom: 16px;
+            letter-spacing: 0.05em;
+        }
+        .event-card h4 {
+            font-size: 18px;
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+        .event-card p {
+            font-size: 15px;
+            color: var(--text-secondary);
+            line-height: 1.6;
+            margin-bottom: 16px;
+        }
+        .event-meta {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            font-size: 13px;
+            color: var(--text-tertiary);
+        }
+        .event-meta span {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+        .event-meta svg {
+            width: 14px;
+            height: 14px;
+        }
+        .event-badge {
+            display: inline-block;
+            padding: 2px 8px;
+            background: rgba(34,197,94,0.1);
+            border: 1px solid rgba(34,197,94,0.2);
+            border-radius: 100px;
+            font-size: 11px;
+            font-weight: 600;
+            color: #22c55e;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+        .event-badge.past {
+            background: rgba(113,113,122,0.1);
+            border-color: rgba(113,113,122,0.2);
+            color: var(--text-tertiary);
+        }
+
+        /* ========== ÜYELİK ========== */
+        .membership-content {
+            display: grid;
+            grid-template-columns: 400px 1fr;
+            gap: 48px;
+            align-items: start;
+        }
+        .membership-card {
+            background: var(--gradient);
+            border-radius: 24px;
+            padding: 48px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        .membership-card::before {
+            content: '';
+            position: absolute;
+            inset: 1px;
+            background: linear-gradient(180deg, rgba(0,0,0,0.1) 0%, rgba(0,0,0,0.3) 100%);
+            border-radius: 23px;
+        }
+        .membership-card > * { position: relative; z-index: 1; }
+        .membership-label {
+            font-size: 14px;
+            font-weight: 500;
+            opacity: 0.9;
+            margin-bottom: 8px;
+        }
+        .membership-value {
+            font-size: 36px;
+            font-weight: 700;
+            letter-spacing: -0.02em;
+            margin-bottom: 8px;
+        }
+        .membership-note {
+            font-size: 15px;
+            opacity: 0.8;
+            margin-bottom: 24px;
+        }
+        .membership-card .btn {
+            background: white;
+            color: var(--accent);
+            font-weight: 600;
+            width: 100%;
+            justify-content: center;
+        }
+
+        .benefits-list { list-style: none; }
+        .benefit-item {
+            display: flex;
+            gap: 16px;
+            padding: 20px 0;
+            border-bottom: 1px solid var(--border);
+        }
+        .benefit-item:last-child { border-bottom: none; }
+        .benefit-icon {
+            width: 20px;
+            height: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            margin-top: 2px;
+        }
+        .benefit-icon svg {
+            width: 16px;
+            height: 16px;
+            stroke: var(--accent);
+            stroke-width: 2.5;
+            fill: none;
+        }
+        .benefit-item h5 {
+            font-size: 15px;
+            font-weight: 500;
+            margin-bottom: 4px;
+        }
+        .benefit-item p {
+            font-size: 14px;
+            color: var(--text-secondary);
+        }
+
+        /* Process Steps */
+        .process-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 24px;
+            margin-top: 80px;
+        }
+        .process-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 32px;
+            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+            position: relative;
+            overflow: hidden;
+        }
+        .process-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: var(--gradient);
+            transform: scaleX(0);
+            transition: transform 0.4s;
+        }
+        .process-card:hover::before { transform: scaleX(1); }
+        .process-card:hover {
+            border-color: var(--border-hover);
+            transform: translateY(-4px);
+        }
+        .process-number {
+            width: 40px;
+            height: 40px;
+            background: rgba(99,102,241,0.1);
+            border: 1px solid rgba(99,102,241,0.2);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 16px;
+            font-weight: 700;
+            color: var(--accent);
+            margin-bottom: 20px;
+        }
+        .process-card h4 {
+            font-size: 16px;
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+        .process-card p {
+            font-size: 14px;
+            color: var(--text-secondary);
+            line-height: 1.6;
+        }
+
+        /* ========== SSS (FAQ) ========== */
+        .faq-list {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        .faq-item {
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            margin-bottom: 12px;
+            overflow: hidden;
+            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .faq-item:hover { border-color: var(--border-hover); }
+        .faq-item.active {
+            border-color: rgba(99,102,241,0.3);
+            background: rgba(99,102,241,0.03);
+        }
+        .faq-question {
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 20px 24px;
+            background: none;
+            border: none;
+            cursor: pointer;
+            text-align: left;
+            font-family: inherit;
+            font-size: 16px;
+            font-weight: 500;
+            color: var(--text);
+            transition: all 0.2s;
+        }
+        .faq-icon {
+            width: 24px;
+            height: 24px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .faq-icon svg {
+            width: 16px;
+            height: 16px;
+            stroke: var(--text-secondary);
+            stroke-width: 2;
+        }
+        .faq-item.active .faq-icon { transform: rotate(45deg); }
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .faq-item.active .faq-answer { max-height: 300px; }
+        .faq-answer-inner {
+            padding: 0 24px 24px;
+            font-size: 15px;
+            line-height: 1.7;
+            color: var(--text-secondary);
+        }
+
+        /* ========== İLETİŞİM / CTA ========== */
+        .cta {
+            text-align: center;
+            border-top: 1px solid var(--border);
+        }
+        .cta-content { max-width: 600px; margin: 0 auto; }
+        .cta h2 {
+            font-size: clamp(28px, 4vw, 40px);
+            font-weight: 600;
+            letter-spacing: -0.02em;
+            margin-bottom: 16px;
+        }
+        .cta p {
+            font-size: 17px;
+            color: var(--text-secondary);
+            margin-bottom: 32px;
+            line-height: 1.7;
+        }
+        .cta-buttons {
+            display: flex;
+            gap: 16px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+            margin-top: 64px;
+            max-width: 900px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .contact-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 32px;
+            text-align: center;
+            transition: all 0.3s;
+        }
+        .contact-card:hover {
+            border-color: var(--border-hover);
+            transform: translateY(-2px);
+        }
+        .contact-card svg {
+            width: 24px;
+            height: 24px;
+            color: var(--accent);
+            margin-bottom: 16px;
+        }
+        .contact-card h4 {
+            font-size: 14px;
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+        .contact-card p {
+            font-size: 14px;
+            color: var(--text-secondary);
+        }
+        .contact-card a {
+            color: var(--accent);
+            transition: color 0.2s;
+        }
+        .contact-card a:hover { color: var(--accent-secondary); }
+
+        /* ========== FOOTER ========== */
+        footer {
+            padding: 48px 2rem 32px;
+            border-top: 1px solid var(--border);
+        }
+        .footer-inner {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .footer-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 48px;
+            flex-wrap: wrap;
+            gap: 32px;
+        }
+        .footer-brand {
+            max-width: 320px;
+        }
+        .footer-brand .logo {
+            margin-bottom: 16px;
+        }
+        .footer-brand p {
+            font-size: 14px;
+            color: var(--text-tertiary);
+            line-height: 1.6;
+        }
+        .footer-links {
+            display: flex;
+            gap: 64px;
+        }
+        .footer-col h4 {
+            font-size: 13px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--text-secondary);
+            margin-bottom: 16px;
+        }
+        .footer-col a {
+            display: block;
+            font-size: 14px;
+            color: var(--text-tertiary);
+            padding: 4px 0;
+            transition: color 0.2s;
+        }
+        .footer-col a:hover { color: var(--text); }
+
+        .footer-bottom {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-top: 24px;
+            border-top: 1px solid var(--border);
+            flex-wrap: wrap;
+            gap: 16px;
+        }
+        .footer-copyright {
+            font-size: 13px;
+            color: var(--text-tertiary);
+        }
+        .footer-social {
+            display: flex;
+            gap: 16px;
+        }
+        .footer-social a {
+            width: 36px;
+            height: 36px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            color: var(--text-tertiary);
+            transition: all 0.2s;
+        }
+        .footer-social a:hover {
+            border-color: var(--accent);
+            color: var(--accent);
+            background: rgba(99,102,241,0.1);
+        }
+        .footer-social svg {
+            width: 16px;
+            height: 16px;
+        }
+
+        /* ========== CURSOR GLOW ========== */
+        .cursor-glow {
+            position: fixed;
+            width: 400px;
+            height: 400px;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(99,102,241,0.15) 0%, rgba(139,92,246,0.08) 30%, transparent 70%);
+            pointer-events: none;
+            z-index: 9999;
+            transform: translate(-50%, -50%);
+            transition: opacity 0.3s ease;
+            opacity: 0;
+        }
+        .cursor-glow.active { opacity: 1; }
+
+        /* ========== RESPONSIVE ========== */
+        @media (max-width: 1024px) {
+            .features-grid { grid-template-columns: 1fr; }
+            .team-grid { grid-template-columns: repeat(2, 1fr); }
+            .process-grid { grid-template-columns: repeat(2, 1fr); }
+            .membership-content { grid-template-columns: 1fr; }
+            .events-grid { grid-template-columns: 1fr; }
+            .about-grid { grid-template-columns: 1fr; }
+            .contact-grid { grid-template-columns: 1fr; }
+            .footer-links { gap: 32px; }
+        }
+        @media (max-width: 768px) {
+            nav { display: none; }
+            .mobile-toggle { display: block; }
+            section { padding: 80px 1.5rem; }
+            .hero-stats { flex-direction: column; gap: 32px; }
+            .hero-buttons { flex-direction: column; align-items: center; }
+            .process-grid { grid-template-columns: 1fr; }
+            .team-grid { grid-template-columns: 1fr; }
+            .footer-top { flex-direction: column; }
+            .footer-links { flex-direction: column; gap: 24px; }
+            .footer-bottom { flex-direction: column; text-align: center; }
+            .faq-question { padding: 16px 20px; font-size: 15px; }
+            .faq-answer-inner { padding: 0 20px 20px; }
+            .cta-buttons { flex-direction: column; align-items: center; }
+        }
+
+        /* ========== 3D CARD TILT ========== */
+        .feature, .process-card, .team-card, .event-card, .about-card {
+            transform-style: preserve-3d;
+        }
+    </style>
+</head>
+<body>
+    <div class="grid-bg"></div>
+    <div class="gradient-mesh"></div>
+    <div class="aurora">
+        <div class="aurora-beam"></div>
+        <div class="aurora-beam"></div>
+        <div class="aurora-beam"></div>
+    </div>
+
+    <!-- ==================== HEADER ==================== -->
+    <header>
+        <div class="header-inner">
+            <a href="#" class="logo">
+                <div class="logo-mark">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M22 12h-4l-3 9L9 3l-3 9H2"/>
+                    </svg>
+                </div>
+                <span>TYZD</span>
+            </a>
+            <nav>
+                <a href="#hakkimizda" class="nav-link">Hakkımızda</a>
+                <a href="#faaliyetler" class="nav-link">Faaliyetler</a>
+                <a href="#etkinlikler" class="nav-link">Etkinlikler</a>
+                <a href="#uyelik" class="nav-link">Üyelik</a>
+                <a href="#iletisim" class="nav-link">İletişim</a>
+                <a href="#uyelik" class="nav-cta">Üye Ol</a>
+            </nav>
+            <button class="mobile-toggle" onclick="document.querySelector('.mobile-nav').classList.toggle('open')" aria-label="Menü">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+                    <line x1="3" y1="6" x2="21" y2="6"/>
+                    <line x1="3" y1="12" x2="21" y2="12"/>
+                    <line x1="3" y1="18" x2="21" y2="18"/>
+                </svg>
+            </button>
+        </div>
+    </header>
+    <div class="mobile-nav">
+        <a href="#hakkimizda" onclick="this.parentElement.classList.remove('open')">Hakkımızda</a>
+        <a href="#faaliyetler" onclick="this.parentElement.classList.remove('open')">Faaliyetler</a>
+        <a href="#etkinlikler" onclick="this.parentElement.classList.remove('open')">Etkinlikler</a>
+        <a href="#uyelik" onclick="this.parentElement.classList.remove('open')">Üyelik</a>
+        <a href="#iletisim" onclick="this.parentElement.classList.remove('open')">İletişim</a>
+        <a href="#uyelik" class="nav-cta" onclick="this.parentElement.classList.remove('open')">Üye Ol</a>
+    </div>
+
+    <main>
+        <!-- ==================== HERO ==================== -->
+        <section class="hero visible">
+            <div class="hero-content">
+                <div class="hero-badge">
+                    <span class="badge-dot"></span>
+                    TÜRKİYE'NİN İLK • TIPTA YAPAY ZEKA DERNEĞİ
+                </div>
+                <h1>Tıpta <span class="gradient-text">Yapay Zekanın</span> Geleceğini Birlikte Şekillendiriyoruz</h1>
+                <p class="hero-description">Sağlık alanında yapay zeka teknolojilerinin etik, güvenilir ve erişilebilir şekilde geliştirilmesi için çalışan Türkiye'nin öncü derneği.</p>
+                <div class="hero-buttons">
+                    <a href="#uyelik" class="btn btn-primary">
+                        Üye Ol
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                    </a>
+                    <a href="#etkinlikler" class="btn btn-secondary">Etkinlikler</a>
+                </div>
+                <div class="hero-stats">
+                    <div class="stat">
+                        <div class="stat-value">150+</div>
+                        <div class="stat-label">Üye</div>
+                    </div>
+                    <div class="stat">
+                        <div class="stat-value">20+</div>
+                        <div class="stat-label">Etkinlik</div>
+                    </div>
+                    <div class="stat">
+                        <div class="stat-value">2025</div>
+                        <div class="stat-label">Kuruluş Yılı</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==================== HAKKIMIZDA ==================== -->
+        <section id="hakkimizda">
+            <div class="section-inner">
+                <div class="section-header">
+                    <div class="section-label">Hakkımızda</div>
+                    <h2 class="section-title">Vizyon & Misyon</h2>
+                    <p class="section-subtitle">Yapay zekanın tıpta güvenli ve etik kullanımını yaygınlaştırmak için bir araya geldik.</p>
+                </div>
+                <div class="about-grid">
+                    <div class="about-card">
+                        <div class="about-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <circle cx="12" cy="12" r="10"/>
+                                <path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/>
+                                <path d="M2 12h20"/>
+                            </svg>
+                        </div>
+                        <h3>Vizyonumuz</h3>
+                        <p>Türkiye'yi tıpta yapay zeka alanında bölgesel ve küresel ölçekte söz sahibi bir ülke konumuna taşımak. Yapay zeka destekli sağlık hizmetlerinin her vatandaşa eşit ve güvenli şekilde ulaşmasını sağlamak.</p>
+                    </div>
+                    <div class="about-card">
+                        <div class="about-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+                            </svg>
+                        </div>
+                        <h3>Misyonumuz</h3>
+                        <p>Sağlık profesyonellerini ve araştırmacıları yapay zeka konusunda eğitmek, disiplinler arası iş birliğini teşvik etmek, etik standartları belirlemek ve politika yapıcılara rehberlik sağlamak.</p>
+                    </div>
+                </div>
+                <div class="about-text">
+                    <p>Tıpta Yapay Zeka Derneği (TYZD), hekimler, mühendisler, araştırmacılar ve sağlık politikası uzmanlarını bir araya getirerek yapay zekanın tıp alanında sorumlu, etik ve etkili şekilde kullanılmasını desteklemek amacıyla kurulmuştur. Türkiye'nin bu alandaki ilk ve öncü sivil toplum kuruluşu olarak, eğitimden araştırmaya, politikadan uygulamaya kadar geniş bir yelpazede faaliyet göstermekteyiz.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==================== YÖNETİM KURULU ==================== -->
+        <section id="yonetim">
+            <div class="section-inner">
+                <div class="section-header">
+                    <div class="section-label">Yönetim Kurulu</div>
+                    <h2 class="section-title">Ekibimiz</h2>
+                    <p class="section-subtitle">Alanında uzman, multidisipliner bir kadro ile çalışıyoruz.</p>
+                </div>
+                <div class="team-grid">
+                    <div class="team-card">
+                        <div class="team-avatar">YK</div>
+                        <h4>Yönetim Kurulu Başkanı</h4>
+                        <div class="team-role">Başkan</div>
+                        <div class="team-title">Yakında duyurulacak</div>
+                    </div>
+                    <div class="team-card">
+                        <div class="team-avatar">YK</div>
+                        <h4>Başkan Yardımcısı</h4>
+                        <div class="team-role">Başkan Yrd.</div>
+                        <div class="team-title">Yakında duyurulacak</div>
+                    </div>
+                    <div class="team-card">
+                        <div class="team-avatar">GS</div>
+                        <h4>Genel Sekreter</h4>
+                        <div class="team-role">Genel Sekreter</div>
+                        <div class="team-title">Yakında duyurulacak</div>
+                    </div>
+                    <div class="team-card">
+                        <div class="team-avatar">SM</div>
+                        <h4>Sayman</h4>
+                        <div class="team-role">Sayman</div>
+                        <div class="team-title">Yakında duyurulacak</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==================== FAALİYET ALANLARI ==================== -->
+        <section id="faaliyetler">
+            <div class="section-inner">
+                <div class="section-header">
+                    <div class="section-label">Faaliyet Alanları</div>
+                    <h2 class="section-title">Üç temel alanda<br>fark yaratıyoruz</h2>
+                    <p class="section-subtitle">Eğitimden araştırmaya, politikadan uygulamaya bütüncül bir yaklaşım.</p>
+                </div>
+                <div class="features-grid">
+                    <div class="feature">
+                        <div class="feature-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/>
+                                <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/>
+                            </svg>
+                        </div>
+                        <h3>Eğitim & Seminerler</h3>
+                        <p>Sağlık profesyonellerine yönelik yapay zeka eğitimleri, çalıştaylar ve sertifika programları. Temel kavramlardan ileri düzey uygulamalara kadar kapsamlı bir müfredat.</p>
+                    </div>
+                    <div class="feature">
+                        <div class="feature-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/>
+                            </svg>
+                        </div>
+                        <h3>Araştırma & Projeler</h3>
+                        <p>Üniversiteler ve sağlık kuruluşlarıyla ortak araştırma projeleri. Klinik veri analitiği, medikal görüntü işleme ve karar destek sistemleri üzerine çalışmalar.</p>
+                    </div>
+                    <div class="feature">
+                        <div class="feature-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+                                <path d="M9 12l2 2 4-4"/>
+                            </svg>
+                        </div>
+                        <h3>Politika & Savunuculuk</h3>
+                        <p>Sağlıkta yapay zeka kullanımına ilişkin etik kılavuzlar, düzenleyici öneriler ve politika belgeleri hazırlamak. Karar alıcılara bilimsel temelli danışmanlık sağlamak.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==================== ETKİNLİKLER ==================== -->
+        <section id="etkinlikler">
+            <div class="section-inner">
+                <div class="section-header">
+                    <div class="section-label">Etkinlikler</div>
+                    <h2 class="section-title">Yaklaşan & Geçmiş Etkinlikler</h2>
+                    <p class="section-subtitle">Konferanslar, seminerler ve çalıştaylarla bilgi paylaşımını destekliyoruz.</p>
+                </div>
+                <div class="events-grid">
+                    <div class="event-card">
+                        <div class="event-date">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+                            Mart 2026
+                        </div>
+                        <span class="event-badge">Yaklaşan</span>
+                        <h4>Tıpta Yapay Zeka Zirvesi 2026</h4>
+                        <p>Türkiye'nin dört bir yanından uzmanların katılımıyla gerçekleştirilecek ilk ulusal zirve. Yapay zekanın sağlık sektöründeki geleceği tartışılacak.</p>
+                        <div class="event-meta">
+                            <span>
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                                İstanbul
+                            </span>
+                            <span>
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                                Tam gün
+                            </span>
+                        </div>
+                    </div>
+                    <div class="event-card">
+                        <div class="event-date">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+                            Nisan 2026
+                        </div>
+                        <span class="event-badge">Yaklaşan</span>
+                        <h4>Medikal Görüntü İşleme Çalıştayı</h4>
+                        <p>Radyoloji ve patoloji alanında yapay zeka uygulamalarına yönelik uygulamalı çalıştay. Katılımcılar kendi modellerini eğitecek.</p>
+                        <div class="event-meta">
+                            <span>
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                                Ankara
+                            </span>
+                            <span>
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                                2 gün
+                            </span>
+                        </div>
+                    </div>
+                    <div class="event-card">
+                        <div class="event-date">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+                            Mayıs 2026
+                        </div>
+                        <span class="event-badge">Yaklaşan</span>
+                        <h4>Sağlıkta Yapay Zeka Etiği Paneli</h4>
+                        <p>Yapay zeka uygulamalarında etik sorunlar, hasta mahremiyeti ve algoritmik önyargı konularında uzman paneli.</p>
+                        <div class="event-meta">
+                            <span>
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                                Çevrimiçi
+                            </span>
+                            <span>
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                                3 saat
+                            </span>
+                        </div>
+                    </div>
+                    <div class="event-card">
+                        <div class="event-date">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+                            Ocak 2026
+                        </div>
+                        <span class="event-badge past">Tamamlandı</span>
+                        <h4>Kuruluş Toplantısı</h4>
+                        <p>TYZD'nin resmi kuruluş toplantısı. Tüzük onayı, yönetim kurulu seçimi ve ilk yıl stratejik planlaması yapıldı.</p>
+                        <div class="event-meta">
+                            <span>
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                                İstanbul
+                            </span>
+                            <span>
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                                Yarım gün
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==================== ÜYELİK ==================== -->
+        <section id="uyelik">
+            <div class="section-inner">
+                <div class="section-header">
+                    <div class="section-label">Üyelik</div>
+                    <h2 class="section-title">Topluluğumuza katılın</h2>
+                    <p class="section-subtitle">Tıpta yapay zekanın geleceğini birlikte şekillendirmek için sizi de aramızda görmek istiyoruz.</p>
+                </div>
+                <div class="membership-content">
+                    <div class="membership-card">
+                        <div class="membership-label">Bireysel Üyelik</div>
+                        <div class="membership-value">Ücretsiz</div>
+                        <div class="membership-note">Sağlık profesyonelleri, araştırmacılar ve öğrenciler için</div>
+                        <a href="mailto:info@tyzd.org.tr?subject=Üyelik Başvurusu" class="btn">
+                            Başvur
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                        </a>
+                    </div>
+                    <ul class="benefits-list">
+                        <li class="benefit-item">
+                            <div class="benefit-icon">
+                                <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                            </div>
+                            <div>
+                                <h5>Etkinliklere öncelikli erişim</h5>
+                                <p>Tüm konferans, çalıştay ve seminerlere üyelere özel indirimli veya ücretsiz katılım</p>
+                            </div>
+                        </li>
+                        <li class="benefit-item">
+                            <div class="benefit-icon">
+                                <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                            </div>
+                            <div>
+                                <h5>Araştırma ağına dahil olma</h5>
+                                <p>Multidisipliner araştırma projelerine katılım fırsatı ve akademik iş birliği olanakları</p>
+                            </div>
+                        </li>
+                        <li class="benefit-item">
+                            <div class="benefit-icon">
+                                <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                            </div>
+                            <div>
+                                <h5>Eğitim materyalleri</h5>
+                                <p>Yapay zeka eğitim videoları, kılavuzlar ve kaynaklar kütüphanesine tam erişim</p>
+                            </div>
+                        </li>
+                        <li class="benefit-item">
+                            <div class="benefit-icon">
+                                <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                            </div>
+                            <div>
+                                <h5>Networking & mentörlük</h5>
+                                <p>Alanında uzman kişilerle tanışma, mentörlük programları ve kariyer gelişim desteği</p>
+                            </div>
+                        </li>
+                        <li class="benefit-item">
+                            <div class="benefit-icon">
+                                <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                            </div>
+                            <div>
+                                <h5>Politika oluşturmaya katkı</h5>
+                                <p>Sağlıkta yapay zeka düzenlemelerine ilişkin görüş bildirme ve politika belgelerine katkıda bulunma</p>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Başvuru Süreci -->
+                <div class="process-grid">
+                    <div class="process-card">
+                        <div class="process-number">1</div>
+                        <h4>Başvuru Formu</h4>
+                        <p>Online başvuru formunu doldurun. Kısa özgeçmiş ve ilgi alanlarınızı belirtin.</p>
+                    </div>
+                    <div class="process-card">
+                        <div class="process-number">2</div>
+                        <h4>Değerlendirme</h4>
+                        <p>Başvurunuz yönetim kurulu tarafından 5 iş günü içinde değerlendirilir.</p>
+                    </div>
+                    <div class="process-card">
+                        <div class="process-number">3</div>
+                        <h4>Onay & Kayıt</h4>
+                        <p>Başvurunuz onaylandıktan sonra üyelik kaydınız tamamlanır ve bilgilendirme yapılır.</p>
+                    </div>
+                    <div class="process-card">
+                        <div class="process-number">4</div>
+                        <h4>Hoş Geldiniz!</h4>
+                        <p>Topluluğumuza katılın, etkinliklere erişin ve projelerimizde yer almaya başlayın.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==================== SSS ==================== -->
+        <section id="sss">
+            <div class="section-inner">
+                <div class="section-header">
+                    <div class="section-label">SSS</div>
+                    <h2 class="section-title">Sıkça Sorulan Sorular</h2>
+                    <p class="section-subtitle">Derneğimiz hakkında merak ettikleriniz.</p>
+                </div>
+                <div class="faq-list">
+                    <div class="faq-item">
+                        <button class="faq-question">
+                            TYZD'ye kimler üye olabilir?
+                            <span class="faq-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span>
+                        </button>
+                        <div class="faq-answer">
+                            <div class="faq-answer-inner">Hekimler, diş hekimleri, eczacılar, hemşireler ve tüm sağlık profesyonelleri; biyomedikal mühendisleri, bilgisayar bilimcileri ve veri bilimcileri; tıp ve mühendislik öğrencileri; sağlık politikası araştırmacıları ve yapay zekaya ilgi duyan herkes üyelik başvurusunda bulunabilir.</div>
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <button class="faq-question">
+                            Üyelik ücreti var mı?
+                            <span class="faq-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span>
+                        </button>
+                        <div class="faq-answer">
+                            <div class="faq-answer-inner">Bireysel üyelik şu an için ücretsizdir. Amacımız topluluğumuzu büyütmek ve yapay zeka bilgisini yaygınlaştırmaktır. Kurumsal üyelik ve sponsorluk paketleri hakkında bilgi almak için bizimle iletişime geçebilirsiniz.</div>
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <button class="faq-question">
+                            Etkinlikler yüz yüze mi yoksa çevrimiçi mi?
+                            <span class="faq-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span>
+                        </button>
+                        <div class="faq-answer">
+                            <div class="faq-answer-inner">Her ikisi de! Büyük konferans ve zirvelerimiz yüz yüze düzenlenirken, webinarlar ve paneller çevrimiçi olarak da sunulmaktadır. Hibrit format sayesinde Türkiye'nin her yerinden katılım mümkündür.</div>
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <button class="faq-question">
+                            Araştırma projelerine nasıl dahil olabilirim?
+                            <span class="faq-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span>
+                        </button>
+                        <div class="faq-answer">
+                            <div class="faq-answer-inner">Üye olduktan sonra aktif araştırma projelerini görüntüleyebilir ve ilgi alanlarınıza uygun projelere başvurabilirsiniz. Ayrıca kendi proje önerilerinizi de yönetim kuruluna sunabilirsiniz. Disiplinler arası iş birliğini teşvik ediyoruz.</div>
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <button class="faq-question">
+                            Dernek hangi konularda politika çalışması yapıyor?
+                            <span class="faq-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span>
+                        </button>
+                        <div class="faq-answer">
+                            <div class="faq-answer-inner">Yapay zeka tabanlı tıbbi cihazların düzenlenmesi, klinik karar destek sistemlerinin sertifikasyonu, veri gizliliği ve hasta mahremiyeti, algoritmik önyargı ve adalet, yapay zeka eğitiminin tıp müfredatına entegrasyonu gibi konularda politika belgeleri hazırlıyor ve ilgili kurumlara sunuyoruz.</div>
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <button class="faq-question">
+                            Sağlık profesyoneli değilim, yine de üye olabilir miyim?
+                            <span class="faq-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span>
+                        </button>
+                        <div class="faq-answer">
+                            <div class="faq-answer-inner">Evet! Derneğimiz multidisipliner bir yaklaşımı benimsemektedir. Mühendisler, veri bilimcileri, hukukçular, etik uzmanları ve tıpta yapay zekaya ilgi duyan herkes üyelik başvurusunda bulunabilir. Farklı bakış açıları alanımızı zenginleştirir.</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==================== İLETİŞİM / CTA ==================== -->
+        <section id="iletisim" class="cta">
+            <div class="section-inner">
+                <div class="cta-content">
+                    <div class="section-label">İletişim</div>
+                    <h2>Birlikte <span class="gradient-text">geleceği</span><br>şekillendirelim</h2>
+                    <p>Sorularınız, iş birliği önerileriniz veya üyelik başvurunuz için bizimle iletişime geçin.</p>
+                    <div class="cta-buttons">
+                        <a href="mailto:info@tyzd.org.tr" class="btn btn-gradient">
+                            Bize Yazın
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+                        </a>
+                        <a href="#uyelik" class="btn btn-secondary">Üye Ol</a>
+                    </div>
+                </div>
+                <div class="contact-grid">
+                    <div class="contact-card">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+                            <polyline points="22,6 12,13 2,6"/>
+                        </svg>
+                        <h4>E-posta</h4>
+                        <p><a href="mailto:info@tyzd.org.tr">info@tyzd.org.tr</a></p>
+                    </div>
+                    <div class="contact-card">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
+                            <circle cx="12" cy="10" r="3"/>
+                        </svg>
+                        <h4>Adres</h4>
+                        <p>İstanbul, Türkiye</p>
+                    </div>
+                    <div class="contact-card">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"/>
+                        </svg>
+                        <h4>Sosyal Medya</h4>
+                        <p>Yakında</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- ==================== FOOTER ==================== -->
+    <footer>
+        <div class="footer-inner">
+            <div class="footer-top">
+                <div class="footer-brand">
+                    <a href="#" class="logo">
+                        <div class="logo-mark">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M22 12h-4l-3 9L9 3l-3 9H2"/>
+                            </svg>
+                        </div>
+                        <span>TYZD</span>
+                    </a>
+                    <p>Tıpta Yapay Zeka Derneği — Türkiye'nin ilk ve öncü tıpta yapay zeka sivil toplum kuruluşu.</p>
+                </div>
+                <div class="footer-links">
+                    <div class="footer-col">
+                        <h4>Dernek</h4>
+                        <a href="#hakkimizda">Hakkımızda</a>
+                        <a href="#yonetim">Yönetim Kurulu</a>
+                        <a href="#faaliyetler">Faaliyetler</a>
+                        <a href="#etkinlikler">Etkinlikler</a>
+                    </div>
+                    <div class="footer-col">
+                        <h4>Kaynaklar</h4>
+                        <a href="#uyelik">Üyelik</a>
+                        <a href="#sss">SSS</a>
+                        <a href="#iletisim">İletişim</a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <span class="footer-copyright">© 2026 Tıpta Yapay Zeka Derneği. Tüm hakları saklıdır.</span>
+                <div class="footer-social">
+                    <a href="#" aria-label="Twitter">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"/>
+                        </svg>
+                    </a>
+                    <a href="#" aria-label="LinkedIn">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/>
+                            <rect x="2" y="9" width="4" height="12"/>
+                            <circle cx="4" cy="4" r="2"/>
+                        </svg>
+                    </a>
+                    <a href="mailto:info@tyzd.org.tr" aria-label="E-posta">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+                            <polyline points="22,6 12,13 2,6"/>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // ============================================
+        // INTERSECTION OBSERVER — Section Reveal
+        // ============================================
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+
+        document.querySelectorAll('section:not(.hero)').forEach(section => {
+            observer.observe(section);
+        });
+
+        // ============================================
+        // SMOOTH SCROLL
+        // ============================================
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            });
+        });
+
+        // ============================================
+        // CURSOR GLOW
+        // ============================================
+        const cursorGlow = document.createElement('div');
+        cursorGlow.className = 'cursor-glow';
+        document.body.appendChild(cursorGlow);
+
+        let mouseX = 0, mouseY = 0;
+        let glowX = 0, glowY = 0;
+
+        document.addEventListener('mousemove', (e) => {
+            mouseX = e.clientX;
+            mouseY = e.clientY;
+            cursorGlow.classList.add('active');
+        });
+
+        document.addEventListener('mouseleave', () => {
+            cursorGlow.classList.remove('active');
+        });
+
+        function animateGlow() {
+            glowX += (mouseX - glowX) * 0.1;
+            glowY += (mouseY - glowY) * 0.1;
+            cursorGlow.style.left = glowX + 'px';
+            cursorGlow.style.top = glowY + 'px';
+            requestAnimationFrame(animateGlow);
+        }
+        animateGlow();
+
+        // ============================================
+        // MAGNETIC BUTTONS
+        // ============================================
+        document.querySelectorAll('.btn, .nav-cta').forEach(el => {
+            el.addEventListener('mousemove', (e) => {
+                const rect = el.getBoundingClientRect();
+                const x = e.clientX - rect.left - rect.width / 2;
+                const y = e.clientY - rect.top - rect.height / 2;
+                el.style.transform = `translate(${x * 0.3}px, ${y * 0.3}px)`;
+            });
+            el.addEventListener('mouseleave', () => {
+                el.style.transform = 'translate(0, 0)';
+            });
+        });
+
+        // ============================================
+        // 3D CARD TILT
+        // ============================================
+        document.querySelectorAll('.feature, .process-card, .team-card, .event-card, .about-card').forEach(card => {
+            card.addEventListener('mousemove', (e) => {
+                const rect = card.getBoundingClientRect();
+                const x = e.clientX - rect.left;
+                const y = e.clientY - rect.top;
+                const rotateX = (y - rect.height / 2) / rect.height * -8;
+                const rotateY = (x - rect.width / 2) / rect.width * 8;
+                card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale3d(1.02, 1.02, 1.02)`;
+            });
+            card.addEventListener('mouseleave', () => {
+                card.style.transform = 'perspective(1000px) rotateX(0) rotateY(0) scale3d(1, 1, 1)';
+            });
+        });
+
+        // ============================================
+        // HERO TEXT REVEAL
+        // ============================================
+        (function() {
+            const heroH1 = document.querySelector('.hero h1');
+            if (!heroH1) return;
+
+            const html = heroH1.innerHTML;
+            const words = [];
+            let buffer = '';
+            let inTag = false;
+
+            for (let i = 0; i < html.length; i++) {
+                const char = html[i];
+                if (char === '<') inTag = true;
+                if (char === '>') { inTag = false; buffer += char; continue; }
+
+                if (!inTag && char === ' ') {
+                    if (buffer) words.push(buffer);
+                    words.push(' ');
+                    buffer = '';
+                } else {
+                    buffer += char;
+                }
+            }
+            if (buffer) words.push(buffer);
+
+            let wordIndex = 0;
+            heroH1.innerHTML = words.map(w => {
+                if (w === ' ') return ' ';
+                const delay = wordIndex * 0.1;
+                wordIndex++;
+                return `<span class="word" style="animation-delay: ${delay}s">${w}</span>`;
+            }).join('');
+        })();
+
+        // ============================================
+        // ANIMATED STATS COUNTER
+        // ============================================
+        (function() {
+            const statValues = document.querySelectorAll('.stat-value');
+            let statsAnimated = false;
+
+            function parseStatValue(text) {
+                const cleaned = text.trim();
+                if (cleaned.includes('+')) {
+                    return { type: 'plus', value: parseInt(cleaned) };
+                } else if (cleaned.includes('%')) {
+                    return { type: 'percent', value: parseInt(cleaned) };
+                } else {
+                    return { type: 'number', value: parseInt(cleaned) };
+                }
+            }
+
+            function animateCounter(element, parsed, duration) {
+                const startTime = performance.now();
+                function easeOutCubic(t) { return 1 - Math.pow(1 - t, 3); }
+
+                function update(currentTime) {
+                    const progress = Math.min((currentTime - startTime) / duration, 1);
+                    const eased = easeOutCubic(progress);
+
+                    if (parsed.type === 'plus') {
+                        element.textContent = `${Math.round(eased * parsed.value)}+`;
+                    } else if (parsed.type === 'percent') {
+                        element.textContent = `${Math.round(eased * parsed.value)}%`;
+                    } else {
+                        element.textContent = Math.round(eased * parsed.value);
+                    }
+
+                    if (progress < 1) requestAnimationFrame(update);
+                }
+                requestAnimationFrame(update);
+            }
+
+            statValues.forEach(el => {
+                el.dataset.original = el.textContent;
+                el.textContent = '0';
+            });
+
+            const statsObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting && !statsAnimated) {
+                        statsAnimated = true;
+                        statValues.forEach((el, index) => {
+                            const parsed = parseStatValue(el.dataset.original);
+                            setTimeout(() => animateCounter(el, parsed, 1800), index * 200);
+                        });
+                    }
+                });
+            }, { threshold: 0.5 });
+
+            const heroStats = document.querySelector('.hero-stats');
+            if (heroStats) statsObserver.observe(heroStats);
+        })();
+
+        // ============================================
+        // FAQ ACCORDION
+        // ============================================
+        document.querySelectorAll('.faq-question').forEach(button => {
+            button.addEventListener('click', () => {
+                const item = button.parentElement;
+                const isActive = item.classList.contains('active');
+                document.querySelectorAll('.faq-item.active').forEach(activeItem => {
+                    if (activeItem !== item) activeItem.classList.remove('active');
+                });
+                item.classList.toggle('active', !isActive);
+            });
+        });
+
+        // ============================================
+        // HEADER SCROLL EFFECT
+        // ============================================
+        (function() {
+            const header = document.querySelector('header');
+            let lastScroll = 0;
+
+            window.addEventListener('scroll', () => {
+                const scrollY = window.scrollY;
+                if (scrollY > 100) {
+                    header.style.background = 'rgba(0,0,0,0.8)';
+                } else {
+                    header.style.background = 'rgba(0,0,0,0.5)';
+                }
+                lastScroll = scrollY;
+            }, { passive: true });
+        })();
+    </script>
+</body>
+</html>
