@@ -731,6 +731,132 @@
             color: var(--text-tertiary);
         }
 
+        /* ========== BLOG ========== */
+        .blog-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+        }
+        .blog-grid .event-card:first-child {
+            grid-column: 1 / -1;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 32px;
+            align-items: center;
+        }
+        .blog-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 32px;
+            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+            position: relative;
+            overflow: hidden;
+        }
+        .blog-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: var(--gradient);
+            transform: scaleX(0);
+            transition: transform 0.4s;
+        }
+        .blog-card:hover::before { transform: scaleX(1); }
+        .blog-card:hover {
+            border-color: var(--border-hover);
+            transform: translateY(-4px);
+        }
+        .blog-tag {
+            display: inline-block;
+            padding: 3px 10px;
+            background: rgba(99,102,241,0.1);
+            border: 1px solid rgba(99,102,241,0.2);
+            border-radius: 100px;
+            font-size: 11px;
+            font-weight: 600;
+            color: var(--accent);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: 12px;
+        }
+        .blog-card h4 {
+            font-size: 18px;
+            font-weight: 600;
+            margin-bottom: 10px;
+            line-height: 1.4;
+        }
+        .blog-card p {
+            font-size: 14px;
+            color: var(--text-secondary);
+            line-height: 1.7;
+            margin-bottom: 16px;
+        }
+        .blog-meta {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-size: 12px;
+            color: var(--text-tertiary);
+        }
+        .blog-meta svg {
+            width: 14px;
+            height: 14px;
+        }
+        .blog-meta span {
+            display: flex;
+            align-items: center;
+            gap: 4px;
+        }
+
+        /* ========== PROJELER ========== */
+        .project-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 48px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 48px;
+            align-items: center;
+            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .project-card:hover {
+            border-color: var(--border-hover);
+        }
+        .project-info h3 {
+            font-size: 24px;
+            font-weight: 600;
+            margin-bottom: 16px;
+        }
+        .project-info p {
+            font-size: 15px;
+            color: var(--text-secondary);
+            line-height: 1.7;
+            margin-bottom: 24px;
+        }
+        .project-stats {
+            display: flex;
+            gap: 32px;
+            margin-bottom: 24px;
+        }
+        .project-stat {
+            text-align: center;
+        }
+        .project-stat .stat-value {
+            font-size: 28px;
+        }
+        .project-stat .stat-label {
+            font-size: 12px;
+        }
+
+        @media (max-width: 1024px) {
+            .blog-grid { grid-template-columns: 1fr; }
+            .project-card { grid-template-columns: 1fr; }
+        }
+
         /* ========== ÜYELİK ========== */
         .membership-content {
             display: grid;
@@ -1129,7 +1255,7 @@
         }
 
         /* ========== 3D CARD TILT ========== */
-        .feature, .process-card, .team-card, .event-card, .about-card {
+        .feature, .process-card, .blog-card, .event-card, .about-card {
             transform-style: preserve-3d;
         }
     </style>
@@ -1158,6 +1284,7 @@
                 <a href="#hakkimizda" class="nav-link">Hakkımızda</a>
                 <a href="#faaliyetler" class="nav-link">Faaliyetler</a>
                 <a href="#etkinlikler" class="nav-link">Etkinlikler</a>
+                <a href="#blog" class="nav-link">Blog</a>
                 <a href="#uyelik" class="nav-link">Üyelik</a>
                 <a href="#iletisim" class="nav-link">İletişim</a>
                 <a href="#uyelik" class="nav-cta">Üye Ol</a>
@@ -1175,6 +1302,7 @@
         <a href="#hakkimizda" onclick="this.parentElement.classList.remove('open')">Hakkımızda</a>
         <a href="#faaliyetler" onclick="this.parentElement.classList.remove('open')">Faaliyetler</a>
         <a href="#etkinlikler" onclick="this.parentElement.classList.remove('open')">Etkinlikler</a>
+        <a href="#blog" onclick="this.parentElement.classList.remove('open')">Blog</a>
         <a href="#uyelik" onclick="this.parentElement.classList.remove('open')">Üyelik</a>
         <a href="#iletisim" onclick="this.parentElement.classList.remove('open')">İletişim</a>
         <a href="#uyelik" class="nav-cta" onclick="this.parentElement.classList.remove('open')">Üye Ol</a>
@@ -1250,43 +1378,6 @@
             </div>
         </section>
 
-        <!-- ==================== YÖNETİM KURULU ==================== -->
-        <section id="yonetim">
-            <div class="section-inner">
-                <div class="section-header">
-                    <div class="section-label">Yönetim Kurulu</div>
-                    <h2 class="section-title">Ekibimiz</h2>
-                    <p class="section-subtitle">Alanında uzman, multidisipliner bir kadro ile çalışıyoruz.</p>
-                </div>
-                <div class="team-grid">
-                    <div class="team-card">
-                        <div class="team-avatar">YK</div>
-                        <h4>Yönetim Kurulu Başkanı</h4>
-                        <div class="team-role">Başkan</div>
-                        <div class="team-title">Yakında duyurulacak</div>
-                    </div>
-                    <div class="team-card">
-                        <div class="team-avatar">YK</div>
-                        <h4>Başkan Yardımcısı</h4>
-                        <div class="team-role">Başkan Yrd.</div>
-                        <div class="team-title">Yakında duyurulacak</div>
-                    </div>
-                    <div class="team-card">
-                        <div class="team-avatar">GS</div>
-                        <h4>Genel Sekreter</h4>
-                        <div class="team-role">Genel Sekreter</div>
-                        <div class="team-title">Yakında duyurulacak</div>
-                    </div>
-                    <div class="team-card">
-                        <div class="team-avatar">SM</div>
-                        <h4>Sayman</h4>
-                        <div class="team-role">Sayman</div>
-                        <div class="team-title">Yakında duyurulacak</div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
         <!-- ==================== FAALİYET ALANLARI ==================== -->
         <section id="faaliyetler">
             <div class="section-inner">
@@ -1338,6 +1429,26 @@
                     <p class="section-subtitle">Konferanslar, seminerler ve çalıştaylarla bilgi paylaşımını destekliyoruz.</p>
                 </div>
                 <div class="events-grid">
+                    <!-- GELECEK ETKİNLİKLER -->
+                    <div class="event-card">
+                        <div class="event-date">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+                            Temmuz 2026
+                        </div>
+                        <span class="event-badge">Yaklaşan</span>
+                        <h4>Asistanlar İçin Yapay Zeka Kursu</h4>
+                        <p>Tıpta uzmanlık öğrencilerine yönelik uygulamalı yapay zeka eğitimi. Klinik veri analizi, medikal görüntü işleme ve LLM kullanımı konularında kapsamlı bir program.</p>
+                        <div class="event-meta">
+                            <span>
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                                İstanbul
+                            </span>
+                            <span>
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                                3 gün
+                            </span>
+                        </div>
+                    </div>
                     <div class="event-card">
                         <div class="event-date">
                             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
@@ -1357,41 +1468,23 @@
                             </span>
                         </div>
                     </div>
+                    <!-- GEÇMİŞ ETKİNLİKLER -->
                     <div class="event-card">
                         <div class="event-date">
                             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
-                            Nisan 2026
+                            Şubat 2026
                         </div>
-                        <span class="event-badge">Yaklaşan</span>
-                        <h4>Medikal Görüntü İşleme Çalıştayı</h4>
-                        <p>Radyoloji ve patoloji alanında yapay zeka uygulamalarına yönelik uygulamalı çalıştay. Katılımcılar kendi modellerini eğitecek.</p>
+                        <span class="event-badge past">Tamamlandı</span>
+                        <h4>UEG AI in GI Course</h4>
+                        <p>United European Gastroenterology (UEG) iş birliğiyle düzenlenen "AI in Gastroenterology" kursu. Endoskopide yapay zeka, araştırmada AI araçları ve klinik karar destek sistemleri konularında eğitim verildi.</p>
                         <div class="event-meta">
                             <span>
                                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
-                                Ankara
+                                Avrupa / Çevrimiçi
                             </span>
                             <span>
                                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
                                 2 gün
-                            </span>
-                        </div>
-                    </div>
-                    <div class="event-card">
-                        <div class="event-date">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
-                            Mayıs 2026
-                        </div>
-                        <span class="event-badge">Yaklaşan</span>
-                        <h4>Sağlıkta Yapay Zeka Etiği Paneli</h4>
-                        <p>Yapay zeka uygulamalarında etik sorunlar, hasta mahremiyeti ve algoritmik önyargı konularında uzman paneli.</p>
-                        <div class="event-meta">
-                            <span>
-                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
-                                Çevrimiçi
-                            </span>
-                            <span>
-                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
-                                3 saat
                             </span>
                         </div>
                     </div>
@@ -1412,6 +1505,115 @@
                                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
                                 Yarım gün
                             </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==================== BLOG ==================== -->
+        <section id="blog">
+            <div class="section-inner">
+                <div class="section-header">
+                    <div class="section-label">Blog</div>
+                    <h2 class="section-title">Yazılar & Görüşler</h2>
+                    <p class="section-subtitle">Tıpta yapay zeka alanındaki güncel gelişmeler, araştırmalar ve değerlendirmelerimiz.</p>
+                </div>
+                <div class="blog-grid">
+                    <div class="blog-card">
+                        <span class="blog-tag">Endoskopi</span>
+                        <h4>Yapay Zeka Destekli Kolonoskopi: Polip Tespitinde Yeni Dönem</h4>
+                        <p>Gerçek zamanlı yapay zeka sistemleri kolonoskopide polip tespit oranlarını %30'a kadar artırabiliyor. SCAI ve benzeri sistemlerin klinik performansını ve Türkiye'deki uygulama potansiyelini değerlendirdik.</p>
+                        <div class="blog-meta">
+                            <span>
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+                                15 Şubat 2026
+                            </span>
+                            <span>8 dk okuma</span>
+                        </div>
+                    </div>
+                    <div class="blog-card">
+                        <span class="blog-tag">Radyoloji</span>
+                        <h4>Radyolojide Derin Öğrenme: Neredeyiz?</h4>
+                        <p>Akciğer nodüllerinden meme kanseri taramasına, derin öğrenme modellerinin radyoloji pratiğindeki yeri ve FDA onaylı ürünlerin güncel durumu.</p>
+                        <div class="blog-meta">
+                            <span>
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+                                28 Ocak 2026
+                            </span>
+                            <span>6 dk okuma</span>
+                        </div>
+                    </div>
+                    <div class="blog-card">
+                        <span class="blog-tag">Etik</span>
+                        <h4>Tıpta YZ Etiği: Önyargı ve Adalet</h4>
+                        <p>Algoritmik önyargının sağlık eşitsizliklerini derinleştirme riski ve Türkiye'de etik çerçeve oluşturulması için öneriler.</p>
+                        <div class="blog-meta">
+                            <span>
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+                                12 Aralık 2025
+                            </span>
+                            <span>5 dk okuma</span>
+                        </div>
+                    </div>
+                    <div class="blog-card">
+                        <span class="blog-tag">LLM</span>
+                        <h4>Büyük Dil Modelleri Klinik Pratikte</h4>
+                        <p>GPT-4, Med-PaLM ve benzeri modellerin hasta anamnezi, klinik notlar ve tıbbi metin üretimindeki kullanım alanları ve sınırlamaları.</p>
+                        <div class="blog-meta">
+                            <span>
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+                                20 Kasım 2025
+                            </span>
+                            <span>7 dk okuma</span>
+                        </div>
+                    </div>
+                    <div class="blog-card">
+                        <span class="blog-tag">Eğitim</span>
+                        <h4>Tıp Fakültelerinde YZ Müfredatı</h4>
+                        <p>Dünyadan örneklerle tıp eğitiminde yapay zeka müfredatının nasıl entegre edilebileceği ve Türkiye için bir yol haritası önerisi.</p>
+                        <div class="blog-meta">
+                            <span>
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+                                5 Ekim 2025
+                            </span>
+                            <span>6 dk okuma</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==================== PROJELER ==================== -->
+        <section id="projeler">
+            <div class="section-inner">
+                <div class="section-header">
+                    <div class="section-label">Projelerimiz</div>
+                    <h2 class="section-title">Topluma Yönelik Projeler</h2>
+                    <p class="section-subtitle">Derneğimizin desteklediği ve yürüttüğü projeler.</p>
+                </div>
+                <div class="project-card">
+                    <div class="project-info">
+                        <h3><span class="gradient-text">UzunYaşa</span></h3>
+                        <p>Türkiye'nin kanıta dayalı kilo yönetimi ve sağlıklı yaşam platformu. Harvard araştırmalarına dayanan bilimsel içerikler, kişiselleştirilmiş beslenme rehberleri ve sağlık değerlendirme araçları ile herkesin sağlıklı ve uzun yaşamasını hedefliyoruz.</p>
+                        <div class="project-stats">
+                            <div class="project-stat">
+                                <div class="stat-value">10K+</div>
+                                <div class="stat-label">Aylık Okuyucu</div>
+                            </div>
+                            <div class="project-stat">
+                                <div class="stat-value">50+</div>
+                                <div class="stat-label">Ücretsiz Rehber</div>
+                            </div>
+                        </div>
+                        <a href="https://uzunyasa.com" target="_blank" class="btn btn-gradient">
+                            UzunYaşa.com'u Ziyaret Et
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+                        </a>
+                    </div>
+                    <div class="project-visual" style="display: flex; align-items: center; justify-content: center;">
+                        <div style="width: 100%; aspect-ratio: 16/9; background: linear-gradient(135deg, rgba(99,102,241,0.1), rgba(139,92,246,0.05)); border: 1px solid var(--border); border-radius: 16px; display: flex; align-items: center; justify-content: center; font-size: 48px; font-weight: 700; color: var(--accent); letter-spacing: -0.02em;">
+                            🫀 UzunYaşa
                         </div>
                     </div>
                 </div>
@@ -1641,15 +1843,20 @@
                     <div class="footer-col">
                         <h4>Dernek</h4>
                         <a href="#hakkimizda">Hakkımızda</a>
-                        <a href="#yonetim">Yönetim Kurulu</a>
                         <a href="#faaliyetler">Faaliyetler</a>
                         <a href="#etkinlikler">Etkinlikler</a>
+                        <a href="#blog">Blog</a>
                     </div>
                     <div class="footer-col">
                         <h4>Kaynaklar</h4>
                         <a href="#uyelik">Üyelik</a>
+                        <a href="#projeler">Projeler</a>
                         <a href="#sss">SSS</a>
                         <a href="#iletisim">İletişim</a>
+                    </div>
+                    <div class="footer-col">
+                        <h4>Projeler</h4>
+                        <a href="https://uzunyasa.com" target="_blank">UzunYaşa.com</a>
                     </div>
                 </div>
             </div>
@@ -1755,7 +1962,7 @@
         // ============================================
         // 3D CARD TILT
         // ============================================
-        document.querySelectorAll('.feature, .process-card, .team-card, .event-card, .about-card').forEach(card => {
+        document.querySelectorAll('.feature, .process-card, .blog-card, .event-card, .about-card').forEach(card => {
             card.addEventListener('mousemove', (e) => {
                 const rect = card.getBoundingClientRect();
                 const x = e.clientX - rect.left;
