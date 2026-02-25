@@ -1,0 +1,67 @@
+[
+  {
+    "slug": "yapay-zeka-destekli-kolonoskopi-polip-tespiti",
+    "title": "Yapay Zeka Destekli Kolonoskopi: Polip Tespitinde Yeni Dönem",
+    "description": "Gerçek zamanlı yapay zeka sistemleri kolonoskopide polip tespit oranlarını nasıl artırıyor? CADe/CADx teknolojileri ve Türkiye'deki potansiyel.",
+    "category": "endoskopi",
+    "categoryName": "Endoskopi",
+    "categoryIcon": "🔬",
+    "categoryColor": "#14b8a6",
+    "date": "2026-02-15",
+    "readTime": 8,
+    "author": "TYZD Editör",
+    "url": "blog/yapay-zeka-destekli-kolonoskopi-polip-tespiti.html"
+  },
+  {
+    "slug": "radyolojide-derin-ogrenme-neredeyiz",
+    "title": "Radyolojide Derin Öğrenme: Neredeyiz?",
+    "description": "Akciğer nodüllerinden meme kanseri taramasına, derin öğrenme modellerinin radyoloji pratiğindeki yeri ve FDA onaylı ürünlerin güncel durumu.",
+    "category": "radyoloji",
+    "categoryName": "Radyoloji",
+    "categoryIcon": "📡",
+    "categoryColor": "#06b6d4",
+    "date": "2026-01-28",
+    "readTime": 7,
+    "author": "TYZD Editör",
+    "url": "blog/radyolojide-derin-ogrenme-neredeyiz.html"
+  },
+  {
+    "slug": "tipta-yapay-zeka-etigi-onyargi-adalet",
+    "title": "Tıpta YZ Etiği: Önyargı ve Adalet",
+    "description": "Algoritmik önyargının sağlık eşitsizliklerini derinleştirme riski, veri temsili sorunları, EU AI Act ve Türkiye perspektifinden etik değerlendirme.",
+    "category": "etik",
+    "categoryName": "Etik",
+    "categoryIcon": "⚖️",
+    "categoryColor": "#0ea5e9",
+    "date": "2025-12-12",
+    "readTime": 7,
+    "author": "TYZD Editör",
+    "url": "blog/tipta-yapay-zeka-etigi-onyargi-adalet.html"
+  },
+  {
+    "slug": "buyuk-dil-modelleri-klinik-pratikte",
+    "title": "Büyük Dil Modelleri Klinik Pratikte",
+    "description": "GPT-4, Med-PaLM ve benzeri büyük dil modellerinin klinik pratikte kullanım alanları, tıbbi sınav performansı, sınırlamalar ve halüsinasyonlar.",
+    "category": "llm",
+    "categoryName": "Büyük Dil Modelleri",
+    "categoryIcon": "🤖",
+    "categoryColor": "#14b8a6",
+    "date": "2025-11-20",
+    "readTime": 8,
+    "author": "TYZD Editör",
+    "url": "blog/buyuk-dil-modelleri-klinik-pratikte.html"
+  },
+  {
+    "slug": "tip-fakultelerinde-yapay-zeka-mufredati",
+    "title": "Tıp Fakültelerinde YZ Müfredatı",
+    "description": "Dünyadan örneklerle tıp eğitiminde yapay zeka müfredatının nasıl entegre edilebileceği ve Türkiye için bir yol haritası önerisi.",
+    "category": "egitim",
+    "categoryName": "Eğitim",
+    "categoryIcon": "🎓",
+    "categoryColor": "#06b6d4",
+    "date": "2025-10-05",
+    "readTime": 7,
+    "author": "TYZD Editör",
+    "url": "blog/tip-fakultelerinde-yapay-zeka-mufredati.html"
+  }
+]

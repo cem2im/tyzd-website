@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=1080, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body style="margin: 0; padding: 0; width: 1080px; height: 1350px; overflow: hidden; background: #000000; font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; -webkit-font-smoothing: antialiased;">
+
+    <!-- Background gradient mesh -->
+    <div style="position: absolute; inset: 0; overflow: hidden;">
+        <div style="position: absolute; width: 1000px; height: 1000px; top: 50%; left: 50%; transform: translate(-50%, -50%); background: radial-gradient(circle, rgba(20,184,166,0.2) 0%, rgba(6,182,212,0.1) 30%, transparent 60%); filter: blur(100px);"></div>
+        <div style="position: absolute; width: 600px; height: 600px; top: -100px; left: -100px; background: radial-gradient(circle, rgba(14,165,233,0.1) 0%, transparent 60%); filter: blur(80px);"></div>
+        <div style="position: absolute; width: 600px; height: 600px; bottom: -100px; right: -100px; background: radial-gradient(circle, rgba(20,184,166,0.1) 0%, transparent 60%); filter: blur(80px);"></div>
+    </div>
+
+    <!-- Grid background -->
+    <div style="position: absolute; inset: 0; background-image: linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px); background-size: 60px 60px; mask-image: radial-gradient(ellipse at center, black 0%, transparent 70%); -webkit-mask-image: radial-gradient(ellipse at center, black 0%, transparent 70%);"></div>
+
+    <!-- Content container -->
+    <div style="position: relative; z-index: 1; width: 1080px; height: 1350px; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; padding: 60px;">
+
+        <!-- Logo large -->
+        <div style="width: 80px; height: 80px; background: linear-gradient(135deg, #14b8a6 0%, #06b6d4 50%, #0ea5e9 100%); border-radius: 20px; display: flex; align-items: center; justify-content: center; margin-bottom: 48px; box-shadow: 0 20px 60px rgba(20,184,166,0.3);">
+            <svg width="44" height="44" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M22 12h-4l-3 9L9 3l-3 9H2"/>
+            </svg>
+        </div>
+
+        <!-- "Daha fazlası için" -->
+        <p style="margin: 0 0 20px 0; font-size: 22px; font-weight: 500; color: #a1a1aa; letter-spacing: 0.05em; text-transform: uppercase;">Daha fazlası için</p>
+
+        <!-- tyzd.org big -->
+        <h1 style="margin: 0 0 16px 0; font-size: 72px; font-weight: 800; letter-spacing: -0.03em; background: linear-gradient(135deg, #14b8a6 0%, #06b6d4 50%, #0ea5e9 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">tyzd.org</h1>
+
+        <!-- Divider line -->
+        <div style="width: 120px; height: 3px; background: linear-gradient(90deg, #14b8a6, #06b6d4, #0ea5e9); border-radius: 2px; margin: 32px 0;"></div>
+
+        <!-- CTA -->
+        <p style="margin: 0 0 48px 0; font-size: 32px; font-weight: 600; color: #ffffff;">Takip et 👆</p>
+
+        <!-- Tagline -->
+        <div style="padding: 16px 32px; background: rgba(20,184,166,0.1); border: 1px solid rgba(20,184,166,0.2); border-radius: 100px;">
+            <span style="font-size: 18px; font-weight: 500; color: #14b8a6;">🏛️ Tıpta Yapay Zeka Derneği</span>
+        </div>
+
+        <!-- Spacer -->
+        <div style="flex: 1;"></div>
+
+        <!-- Bottom: Dots -->
+        <div style="display: flex; gap: 8px; align-items: center;">
+            <div style="width: 8px; height: 8px; border-radius: 50%; background: rgba(255,255,255,0.2);"></div>
+            <div style="width: 8px; height: 8px; border-radius: 50%; background: rgba(255,255,255,0.2);"></div>
+            <div style="width: 8px; height: 8px; border-radius: 50%; background: rgba(255,255,255,0.2);"></div>
+            <div style="width: 24px; height: 8px; border-radius: 4px; background: linear-gradient(135deg, #14b8a6, #06b6d4);"></div>
+        </div>
+
+    </div>
+
+    <!-- Accent line at top -->
+    <div style="position: absolute; top: 0; left: 0; right: 0; height: 4px; background: linear-gradient(90deg, #14b8a6 0%, #06b6d4 50%, #0ea5e9 100%);"></div>
+
+</body>
+</html>

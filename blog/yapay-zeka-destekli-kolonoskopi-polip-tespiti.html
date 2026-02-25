@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Yapay Zeka Destekli Kolonoskopi: Polip Tespitinde Yeni Dönem | TYZD Blog</title>
+    <meta name="description" content="Gerçek zamanlı yapay zeka sistemleri kolonoskopide polip tespit oranlarını nasıl artırıyor? CADe/CADx teknolojileri ve Türkiye'deki potansiyel.">
+    <meta property="og:title" content="Yapay Zeka Destekli Kolonoskopi: Polip Tespitinde Yeni Dönem | TYZD">
+    <meta property="og:description" content="Gerçek zamanlı yapay zeka sistemleri kolonoskopide polip tespit oranlarını nasıl artırıyor? CADe/CADx teknolojileri ve Türkiye'deki potansiyel.">
+    <meta property="og:type" content="article">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg: #000000;
+            --bg-card: #0a0a0a;
+            --bg-elevated: #111111;
+            --border: rgba(255,255,255,0.08);
+            --border-hover: rgba(255,255,255,0.15);
+            --text: #ffffff;
+            --text-secondary: #a1a1aa;
+            --text-tertiary: #71717a;
+            --accent: #14b8a6;
+            --accent-secondary: #06b6d4;
+            --gradient: linear-gradient(135deg, #14b8a6 0%, #06b6d4 50%, #0ea5e9 100%);
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.8;
+            -webkit-font-smoothing: antialiased;
+        }
+        ::selection { background: var(--accent); color: white; }
+        a { color: var(--accent); text-decoration: none; }
+        a:hover { color: var(--accent-secondary); }
+
+        /* Header */
+        .header {
+            position: fixed;
+            top: 0; left: 0; right: 0;
+            z-index: 100;
+            background: rgba(0,0,0,0.8);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--border);
+            padding: 0 2rem;
+        }
+        .header-inner {
+            max-width: 1200px;
+            margin: 0 auto;
+            height: 64px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-weight: 600;
+            font-size: 15px;
+            color: var(--text);
+        }
+        .logo-mark {
+            width: 32px;
+            height: 32px;
+            background: var(--gradient);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .logo-mark svg { width: 18px; height: 18px; color: white; }
+        .back-link {
+            color: var(--text-secondary);
+            font-size: 14px;
+            font-weight: 500;
+            transition: color 0.2s;
+        }
+        .back-link:hover { color: var(--text); }
+
+        /* Article */
+        article {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 7rem 2rem 4rem;
+        }
+        .post-header { margin-bottom: 2rem; }
+        .post-category {
+            display: inline-block;
+            background: rgba(20,184,166,0.1);
+            border: 1px solid rgba(20,184,166,0.2);
+            color: var(--accent);
+            padding: 0.3rem 0.8rem;
+            border-radius: 100px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: 1rem;
+        }
+        h1 {
+            font-size: clamp(1.8rem, 4vw, 2.5rem);
+            font-weight: 600;
+            line-height: 1.2;
+            letter-spacing: -0.02em;
+            margin-bottom: 1rem;
+        }
+        .post-meta {
+            color: var(--text-tertiary);
+            font-size: 0.85rem;
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+        .post-image {
+            width: 100%;
+            height: 360px;
+            background: linear-gradient(135deg, rgba(20,184,166,0.15), rgba(6,182,212,0.1));
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            margin: 2rem 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 4rem;
+        }
+
+        /* Content */
+        .post-content { font-size: 1.05rem; line-height: 1.85; }
+        .post-content h2 {
+            font-size: 1.4rem;
+            font-weight: 600;
+            margin: 2.5rem 0 1rem;
+            letter-spacing: -0.01em;
+            background: var(--gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        .post-content h3 {
+            font-size: 1.15rem;
+            font-weight: 600;
+            margin: 1.5rem 0 0.75rem;
+        }
+        .post-content p {
+            margin-bottom: 1.25rem;
+            color: var(--text-secondary);
+        }
+        .post-content strong { color: var(--text); }
+        .post-content ul, .post-content ol {
+            margin: 1rem 0 1.5rem 1.5rem;
+            color: var(--text-secondary);
+        }
+        .post-content li { margin-bottom: 0.5rem; }
+        .post-content blockquote {
+            border-left: 3px solid var(--accent);
+            padding: 1rem 1.5rem;
+            margin: 1.5rem 0;
+            background: rgba(20,184,166,0.05);
+            border-radius: 0 8px 8px 0;
+            color: var(--text-secondary);
+            font-style: italic;
+        }
+
+        /* Key Points Box */
+        .key-points {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 1.5rem 2rem;
+            margin: 2rem 0;
+        }
+        .key-points h4 {
+            color: var(--accent);
+            margin-bottom: 1rem;
+            font-size: 1rem;
+        }
+        .key-points ul { margin: 0; padding-left: 1.2rem; }
+        .key-points li { color: var(--text-secondary); margin-bottom: 0.4rem; }
+
+        /* Sources */
+        .sources {
+            margin-top: 3rem;
+            padding-top: 2rem;
+            border-top: 1px solid var(--border);
+        }
+        .sources h4 { font-size: 0.95rem; margin-bottom: 0.75rem; color: var(--text-secondary); }
+        .sources ul { list-style: none; margin: 0; padding: 0; }
+        .sources li { font-size: 0.85rem; color: var(--text-tertiary); margin-bottom: 0.4rem; }
+
+        /* Share */
+        .share-section {
+            margin-top: 3rem;
+            padding: 2rem;
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            text-align: center;
+        }
+        .share-section p { color: var(--text-secondary); margin-bottom: 1rem; }
+        .share-buttons { display: flex; gap: 0.75rem; justify-content: center; flex-wrap: wrap; }
+        .share-btn {
+            padding: 0.6rem 1.2rem;
+            border-radius: 8px;
+            color: white;
+            font-weight: 500;
+            font-size: 0.85rem;
+            transition: transform 0.2s, opacity 0.2s;
+        }
+        .share-btn:hover { transform: translateY(-2px); opacity: 0.9; color: white; }
+        .share-btn.twitter { background: #1DA1F2; }
+        .share-btn.linkedin { background: #0A66C2; }
+        .share-btn.whatsapp { background: #25D366; }
+
+        /* Footer */
+        footer {
+            padding: 2rem;
+            border-top: 1px solid var(--border);
+            text-align: center;
+            margin-top: 4rem;
+        }
+        footer p { font-size: 0.85rem; color: var(--text-tertiary); }
+        footer a { color: var(--accent); }
+
+        @media (max-width: 640px) {
+            h1 { font-size: 1.5rem; }
+            article { padding: 5rem 1rem 2rem; }
+            .post-image { height: 200px; font-size: 3rem; }
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="header-inner">
+            <a href="../index.html" class="logo">
+                <div class="logo-mark">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M22 12h-4l-3 9L9 3l-3 9H2"/>
+                    </svg>
+                </div>
+                <span>TYZD</span>
+            </a>
+            <a href="../index.html#blog" class="back-link">← Blog'a Dön</a>
+        </div>
+    </header>
+
+    <article>
+        <div class="post-header">
+            <span class="post-category">🔬 Endoskopi</span>
+            <h1>Yapay Zeka Destekli Kolonoskopi: Polip Tespitinde Yeni Dönem</h1>
+            <div class="post-meta">
+                <span>📅 15 Şubat 2026</span>
+                <span>⏱️ 8 dk okuma</span>
+                <span>✍️ TYZD Editör</span>
+            </div>
+        </div>
+
+        <div class="post-image">🔬</div>
+
+        <div class="post-content">
+            <h2>Giriş: Kolorektal Kanser Taramasında Paradigma Değişimi</h2>
+            <p>Kolorektal kanser (KRK), dünya genelinde en sık görülen kanser türleri arasında üçüncü sırada yer almaktadır. Dünya Sağlık Örgütü verilerine göre her yıl yaklaşık 1,9 milyon yeni vaka teşhis edilmekte ve 900.000'den fazla ölüm gerçekleşmektedir. Türkiye'de ise kolorektal kanser hem erkeklerde hem kadınlarda en sık görülen ilk beş kanser türü arasındadır. Kolonoskopi, KRK taramasının altın standardı olmaya devam ederken, <strong>yapay zeka (YZ) teknolojileri bu alandaki en heyecan verici gelişmelerin başında gelmektedir</strong>.</p>
+
+            <p>Geleneksel kolonoskopide polip kaçırma oranı %6-27 arasında değişmektedir. Bu oran, endoskopistin deneyimi, işlem süresi, bağırsak temizliğinin kalitesi ve hasta ile ilgili anatomik faktörlere bağlı olarak ciddi farklılıklar gösterebilmektedir. İşte tam bu noktada yapay zeka destekli bilgisayar destekli tespit (CADe) ve bilgisayar destekli tanı (CADx) sistemleri devreye girmektedir.</p>
+
+            <h2>CADe ve CADx: İki Farklı Yaklaşım</h2>
+            <p>Yapay zeka destekli kolonoskopi sistemleri temel olarak iki kategoriye ayrılmaktadır:</p>
+
+            <h3>CADe (Computer-Aided Detection) — Bilgisayar Destekli Tespit</h3>
+            <p>CADe sistemleri, kolonoskopi sırasında gerçek zamanlı olarak polipleri tespit eder ve endoskopisti uyarır. Bu sistemler genellikle ekranda bir kutu veya işaretçi ile polip lokalizasyonunu gösterir. Temel amaç, <strong>adenoma tespit oranını (ADR) artırmak</strong> ve kaçırılan polip sayısını minimuma indirmektir.</p>
+
+            <h3>CADx (Computer-Aided Diagnosis) — Bilgisayar Destekli Tanı</h3>
+            <p>CADx sistemleri bir adım daha ileri giderek tespit edilen polipin histolojik tipini tahmin eder. Hiperplastik mi, adenomatöz mü, yoksa serratlı bir lezyon mu olduğunu gerçek zamanlı olarak değerlendirir. Bu yaklaşım, "diagnose-and-leave" (tanı koy ve bırak) veya "resect-and-discard" (çıkar ve at) stratejilerine olanak tanıyarak gereksiz patoloji maliyetlerini azaltma potansiyeline sahiptir.</p>
+
+            <h2>SCAI ve Öncü Sistemler</h2>
+            <p>Son yıllarda piyasaya çıkan ve klinik çalışmalarla desteklenen çeşitli YZ sistemleri bulunmaktadır. Bunlardan biri olan <strong>SCAI (Smart Clinical AI)</strong> benzeri sistemler, derin öğrenme algoritmalarını kullanarak kolonoskopi görüntülerini gerçek zamanlı analiz etmektedir.</p>
+
+            <blockquote>
+                "Yapay zeka destekli kolonoskopi, endoskopistin 'ikinci bir göz' olarak görev yapan dijital bir asistanla çalışmasını sağlar. Bu, özellikle uzun prosedürlerde dikkat dağınıklığının artabileceği anlarda kritik bir destek sunar."
+            </blockquote>
+
+            <p>FDA onaylı sistemler arasında <strong>GI Genius (Medtronic)</strong>, <strong>EndoScreener (Wision AI)</strong>, <strong>CAD EYE (Fujifilm)</strong> ve <strong>DISCOVERY (Pentax Medical)</strong> öne çıkmaktadır. Bu sistemlerin ortak özelliği, konvolüsyonel sinir ağları (CNN) tabanlı derin öğrenme modellerini kullanmaları ve milisaniye düzeyinde yanıt süreleri sunmalarıdır.</p>
+
+            <h2>Randomize Kontrollü Çalışmalar: Kanıt Düzeyi</h2>
+            <p>Yapay zeka destekli kolonoskopinin etkinliğini değerlendiren çok sayıda randomize kontrollü çalışma (RKÇ) yayımlanmıştır:</p>
+
+            <ul>
+                <li><strong>Wang ve ark. (2019, Gut):</strong> İlk büyük ölçekli RKÇ'de, CADe kullanımı ADR'yi %20'den %29'a yükseltti (p&lt;0.001). Özellikle küçük (&lt;10mm) poliplerin tespitinde anlamlı artış gözlendi.</li>
+                <li><strong>Repici ve ark. (2020, Gastroenterology):</strong> GI Genius sistemiyle yapılan çalışmada, ADR %40,4'ten %54,8'e yükseldi. Serrated polip tespit oranı da anlamlı şekilde arttı.</li>
+                <li><strong>Liu ve ark. (2020, Lancet Gastroenterology & Hepatology):</strong> Çok merkezli çalışmada, YZ desteği ile adenoma başına düşen ortalama tespit oranında %30'luk bir iyileşme raporlandı.</li>
+                <li><strong>Spadaccini ve ark. (2021, meta-analiz):</strong> 5 RKÇ'yi kapsayan meta-analizde, CADe kullanımının ADR'yi ortalama %10 puan artırdığı ve bunun istatistiksel olarak anlamlı olduğu gösterildi.</li>
+            </ul>
+
+            <h2>Teknik Altyapı: Nasıl Çalışıyor?</h2>
+            <p>YZ destekli kolonoskopi sistemlerinin teknik altyapısı karmaşık ama temel prensipleri anlaşılırdır:</p>
+
+            <h3>Veri ve Eğitim</h3>
+            <p>Bu sistemler, yüz binlerce etiketlenmiş kolonoskopi görüntüsü üzerinde eğitilmektedir. Eğitim veri setleri, uzman endoskopistler tarafından annotate edilmiş polip görüntüleri, normal mukoza görüntüleri ve çeşitli artefaktları içermektedir. <strong>Transfer öğrenme</strong> yaklaşımı ile ImageNet gibi büyük veri setlerinde önceden eğitilmiş modeller, tıbbi görüntülere ince ayar (fine-tuning) yapılarak uyarlanmaktadır.</p>
+
+            <h3>Model Mimarileri</h3>
+            <p>En yaygın kullanılan mimariler arasında <strong>ResNet, EfficientNet, YOLO (You Only Look Once)</strong> ve <strong>U-Net</strong> tabanlı segmentasyon modelleri bulunmaktadır. Gerçek zamanlı performans için model optimizasyonu kritik öneme sahiptir — tipik olarak 25-30 fps (frame per second) hız gereklidir.</p>
+
+            <h3>Entegrasyon</h3>
+            <p>Sistemler genellikle endoskopi işlemcisine doğrudan bağlanan bir donanım modülü veya bulut tabanlı bir yazılım olarak çalışmaktadır. Gecikme süresi (latency) 100 milisaniyenin altında tutulmalıdır ki endoskopist gerçek zamanlı geri bildirim alabilsin.</p>
+
+            <h2>Sınırlamalar ve Zorluklar</h2>
+            <p>Yapay zeka destekli kolonoskopinin bazı önemli sınırlamaları bulunmaktadır:</p>
+
+            <ul>
+                <li><strong>Yanlış pozitif oranları:</strong> Bazı sistemler mukoza kıvrımlarını, kabarcıkları veya dışkı kalıntılarını polip olarak işaretleyebilmektedir. Bu durum "alarm yorgunluğuna" yol açabilir.</li>
+                <li><strong>Düz (flat) lezyonlar:</strong> Özellikle sessil serrated lezyonlar ve düz adenomların tespiti hâlâ zorlayıcıdır.</li>
+                <li><strong>Bağırsak temizliği:</strong> Kötü bağırsak hazırlığı, YZ sistemlerinin performansını da olumsuz etkilemektedir.</li>
+                <li><strong>Maliyet:</strong> Sistem başına 30.000-100.000 USD arasında değişen maliyetler, yaygın benimsemeyi engelleyebilir.</li>
+                <li><strong>Regülasyon:</strong> Farklı ülkelerin farklı onay süreçleri, global ölçeklenmeyi yavaşlatmaktadır.</li>
+            </ul>
+
+            <h2>Türkiye'deki Potansiyel ve Gelecek Perspektifi</h2>
+            <p>Türkiye, gastroenteroloji ve endoskopi alanında güçlü bir geleneğe sahiptir. Ülkemizde yıllık yaklaşık 1 milyon kolonoskopi işlemi gerçekleştirildiği tahmin edilmektedir. Yapay zeka destekli sistemlerin Türkiye'deki potansiyeli değerlendirildiğinde:</p>
+
+            <ul>
+                <li><strong>Eğitim hastanelerinde:</strong> Asistan eğitiminde YZ desteği, öğrenme eğrisini hızlandırabilir ve standardizasyonu artırabilir.</li>
+                <li><strong>Tarama programlarında:</strong> Ulusal kolorektal kanser tarama programının etkinliği YZ ile güçlendirilebilir.</li>
+                <li><strong>Kalite güvencesinde:</strong> Endoskopi ünitelerinin performans göstergelerinin (özellikle ADR) objektif olarak izlenmesi mümkün hale gelebilir.</li>
+                <li><strong>Yerli teknoloji geliştirme:</strong> Türk endoskopi verilerinde eğitilmiş YZ modelleri, yerel hasta popülasyonuna uygun çözümler sunabilir.</li>
+            </ul>
+
+            <p>TYZD olarak, Türkiye'deki endoskopi merkezlerinde YZ teknolojilerinin benimsenmesini desteklemek, klinik çalışmaları teşvik etmek ve bu alandaki farkındalığı artırmak için çalışmalarımızı sürdürmekteyiz. Yapay zeka destekli kolonoskopi, kolorektal kanser taramasında yeni bir dönemin kapılarını aralıyor — ve bu dönüşümün öncülerinden biri olmak hepimizin elinde.</p>
+
+            <blockquote>
+                "Yapay zeka endoskopistin yerini almayacak, ancak yapay zeka kullanan endoskopistler kullanmayanların yerini alacaktır." — Bu önerme, alandaki genel konsensüsü yansıtmaktadır.
+            </blockquote>
+        </div>
+
+        <div class="key-points">
+            <h4>📌 Önemli Noktalar</h4>
+            <ul>
+                <li>CADe sistemleri adenoma tespit oranını (ADR) ortalama %10 puan artırmaktadır</li>
+                <li>FDA onaylı birçok sistem (GI Genius, EndoScreener, CAD EYE) klinik kullanıma sunulmuştur</li>
+                <li>Randomize kontrollü çalışmalar, özellikle küçük poliplerin tespitinde anlamlı iyileşme göstermektedir</li>
+                <li>Türkiye'de yıllık ~1 milyon kolonoskopi yapılmakta olup YZ entegrasyonu büyük potansiyel taşımaktadır</li>
+                <li>Maliyet, yanlış pozitifler ve düz lezyon tespiti hâlâ çözülmesi gereken önemli zorluklardır</li>
+            </ul>
+        </div>
+
+        <div class="sources">
+            <h4>📚 Kaynaklar</h4>
+            <ul>
+                <li><a href="https://gut.bmj.com/content/68/10/1813" target="_blank">Wang P, et al. Real-time automatic detection system increases colonoscopic polyp and adenoma detection rates. Gut. 2019;68(10):1813-1819.</a></li>
+                <li><a href="https://www.gastrojournal.org/article/S0016-5085(20)30168-8/fulltext" target="_blank">Repici A, et al. Efficacy of Real-Time Computer-Aided Detection of Colorectal Neoplasia in a Randomized Trial. Gastroenterology. 2020;159(2):512-520.</a></li>
+                <li><a href="https://www.thelancet.com/journals/langas/article/PIIS2468-1253(19)30413-3/fulltext" target="_blank">Liu W, et al. Study on detection rate of polyps and adenomas in artificial-intelligence-aided colonoscopy. Lancet Gastroenterol Hepatol. 2020;5(4):352-361.</a></li>
+                <li><a href="https://pubmed.ncbi.nlm.nih.gov/33962682/" target="_blank">Spadaccini M, et al. Computer-aided detection versus advanced imaging for detection of colorectal neoplasia: a systematic review and network meta-analysis. Lancet Gastroenterol Hepatol. 2021;6(10):793-802.</a></li>
+                <li><a href="https://www.nature.com/articles/s41575-022-00672-w" target="_blank">Mori Y, et al. Artificial intelligence in colonoscopy — now on the market. What's next? Nat Rev Gastroenterol Hepatol. 2022;19:567-568.</a></li>
+            </ul>
+        </div>
+
+        <div class="share-section">
+            <p><strong>Bu yazıyı paylaşın</strong></p>
+            <div class="share-buttons">
+                <a href="https://twitter.com/intent/tweet?text=Yapay%20Zeka%20Destekli%20Kolonoskopi%3A%20Polip%20Tespitinde%20Yeni%20D%C3%B6nem&url=https%3A%2F%2Ftyzd.org%2Fblog%2Fyapay-zeka-destekli-kolonoskopi-polip-tespiti.html" class="share-btn twitter" target="_blank">Twitter</a>
+                <a href="https://www.linkedin.com/shareArticle?mini=true&url=https%3A%2F%2Ftyzd.org%2Fblog%2Fyapay-zeka-destekli-kolonoskopi-polip-tespiti.html&title=Yapay%20Zeka%20Destekli%20Kolonoskopi%3A%20Polip%20Tespitinde%20Yeni%20D%C3%B6nem" class="share-btn linkedin" target="_blank">LinkedIn</a>
+                <a href="https://wa.me/?text=Yapay%20Zeka%20Destekli%20Kolonoskopi%3A%20Polip%20Tespitinde%20Yeni%20D%C3%B6nem%20https%3A%2F%2Ftyzd.org%2Fblog%2Fyapay-zeka-destekli-kolonoskopi-polip-tespiti.html" class="share-btn whatsapp" target="_blank">WhatsApp</a>
+            </div>
+        </div>
+    </article>
+
+    <footer>
+        <p>© 2026 <a href="../index.html">Tıpta Yapay Zeka Derneği</a> · Tüm hakları saklıdır.</p>
+    </footer>
+</body>
+</html>

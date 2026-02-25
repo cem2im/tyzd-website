@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Büyük Dil Modelleri Klinik Pratikte | TYZD Blog</title>
+    <meta name="description" content="GPT-4, Med-PaLM ve benzeri büyük dil modellerinin klinik pratikte kullanım alanları, tıbbi sınav performansı, sınırlamalar ve halüsinasyonlar.">
+    <meta property="og:title" content="Büyük Dil Modelleri Klinik Pratikte | TYZD">
+    <meta property="og:description" content="GPT-4, Med-PaLM ve benzeri büyük dil modellerinin klinik pratikte kullanım alanları, tıbbi sınav performansı, sınırlamalar ve halüsinasyonlar.">
+    <meta property="og:type" content="article">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg: #000000; --bg-card: #0a0a0a; --bg-elevated: #111111;
+            --border: rgba(255,255,255,0.08); --border-hover: rgba(255,255,255,0.15);
+            --text: #ffffff; --text-secondary: #a1a1aa; --text-tertiary: #71717a;
+            --accent: #14b8a6; --accent-secondary: #06b6d4;
+            --gradient: linear-gradient(135deg, #14b8a6 0%, #06b6d4 50%, #0ea5e9 100%);
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; background: var(--bg); color: var(--text); line-height: 1.8; -webkit-font-smoothing: antialiased; }
+        ::selection { background: var(--accent); color: white; }
+        a { color: var(--accent); text-decoration: none; } a:hover { color: var(--accent-secondary); }
+        .header { position: fixed; top: 0; left: 0; right: 0; z-index: 100; background: rgba(0,0,0,0.8); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); border-bottom: 1px solid var(--border); padding: 0 2rem; }
+        .header-inner { max-width: 1200px; margin: 0 auto; height: 64px; display: flex; align-items: center; justify-content: space-between; }
+        .logo { display: flex; align-items: center; gap: 10px; font-weight: 600; font-size: 15px; color: var(--text); }
+        .logo-mark { width: 32px; height: 32px; background: var(--gradient); border-radius: 8px; display: flex; align-items: center; justify-content: center; }
+        .logo-mark svg { width: 18px; height: 18px; color: white; }
+        .back-link { color: var(--text-secondary); font-size: 14px; font-weight: 500; transition: color 0.2s; } .back-link:hover { color: var(--text); }
+        article { max-width: 800px; margin: 0 auto; padding: 7rem 2rem 4rem; }
+        .post-header { margin-bottom: 2rem; }
+        .post-category { display: inline-block; background: rgba(20,184,166,0.1); border: 1px solid rgba(20,184,166,0.2); color: var(--accent); padding: 0.3rem 0.8rem; border-radius: 100px; font-size: 0.8rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 1rem; }
+        h1 { font-size: clamp(1.8rem, 4vw, 2.5rem); font-weight: 600; line-height: 1.2; letter-spacing: -0.02em; margin-bottom: 1rem; }
+        .post-meta { color: var(--text-tertiary); font-size: 0.85rem; display: flex; gap: 1rem; flex-wrap: wrap; }
+        .post-image { width: 100%; height: 360px; background: linear-gradient(135deg, rgba(20,184,166,0.15), rgba(6,182,212,0.1)); border: 1px solid var(--border); border-radius: 16px; margin: 2rem 0; display: flex; align-items: center; justify-content: center; font-size: 4rem; }
+        .post-content { font-size: 1.05rem; line-height: 1.85; }
+        .post-content h2 { font-size: 1.4rem; font-weight: 600; margin: 2.5rem 0 1rem; background: var(--gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+        .post-content h3 { font-size: 1.15rem; font-weight: 600; margin: 1.5rem 0 0.75rem; }
+        .post-content p { margin-bottom: 1.25rem; color: var(--text-secondary); }
+        .post-content strong { color: var(--text); }
+        .post-content ul, .post-content ol { margin: 1rem 0 1.5rem 1.5rem; color: var(--text-secondary); }
+        .post-content li { margin-bottom: 0.5rem; }
+        .post-content blockquote { border-left: 3px solid var(--accent); padding: 1rem 1.5rem; margin: 1.5rem 0; background: rgba(20,184,166,0.05); border-radius: 0 8px 8px 0; color: var(--text-secondary); font-style: italic; }
+        .key-points { background: var(--bg-card); border: 1px solid var(--border); border-radius: 16px; padding: 1.5rem 2rem; margin: 2rem 0; }
+        .key-points h4 { color: var(--accent); margin-bottom: 1rem; font-size: 1rem; }
+        .key-points ul { margin: 0; padding-left: 1.2rem; } .key-points li { color: var(--text-secondary); margin-bottom: 0.4rem; }
+        .sources { margin-top: 3rem; padding-top: 2rem; border-top: 1px solid var(--border); }
+        .sources h4 { font-size: 0.95rem; margin-bottom: 0.75rem; color: var(--text-secondary); }
+        .sources ul { list-style: none; margin: 0; padding: 0; } .sources li { font-size: 0.85rem; color: var(--text-tertiary); margin-bottom: 0.4rem; }
+        .share-section { margin-top: 3rem; padding: 2rem; background: var(--bg-card); border: 1px solid var(--border); border-radius: 16px; text-align: center; }
+        .share-section p { color: var(--text-secondary); margin-bottom: 1rem; }
+        .share-buttons { display: flex; gap: 0.75rem; justify-content: center; flex-wrap: wrap; }
+        .share-btn { padding: 0.6rem 1.2rem; border-radius: 8px; color: white; font-weight: 500; font-size: 0.85rem; transition: transform 0.2s, opacity 0.2s; }
+        .share-btn:hover { transform: translateY(-2px); opacity: 0.9; color: white; }
+        .share-btn.twitter { background: #1DA1F2; } .share-btn.linkedin { background: #0A66C2; } .share-btn.whatsapp { background: #25D366; }
+        footer { padding: 2rem; border-top: 1px solid var(--border); text-align: center; margin-top: 4rem; }
+        footer p { font-size: 0.85rem; color: var(--text-tertiary); } footer a { color: var(--accent); }
+        @media (max-width: 640px) { h1 { font-size: 1.5rem; } article { padding: 5rem 1rem 2rem; } .post-image { height: 200px; font-size: 3rem; } }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="header-inner">
+            <a href="../index.html" class="logo">
+                <div class="logo-mark">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
+                </div>
+                <span>TYZD</span>
+            </a>
+            <a href="../index.html#blog" class="back-link">← Blog'a Dön</a>
+        </div>
+    </header>
+
+    <article>
+        <div class="post-header">
+            <span class="post-category">🤖 Büyük Dil Modelleri</span>
+            <h1>Büyük Dil Modelleri Klinik Pratikte</h1>
+            <div class="post-meta">
+                <span>📅 20 Kasım 2025</span>
+                <span>⏱️ 8 dk okuma</span>
+                <span>✍️ TYZD Editör</span>
+            </div>
+        </div>
+
+        <div class="post-image">🤖</div>
+
+        <div class="post-content">
+            <h2>Büyük Dil Modelleri: Tıbbın Yeni Çok Yönlü Aracı</h2>
+            <p>Büyük dil modelleri (Large Language Models — LLM), son iki yılda yapay zekanın en heyecan verici ve en tartışmalı gelişmesi oldu. ChatGPT'nin Kasım 2022'de piyasaya çıkmasıyla başlayan dalga, tıp dünyasını da derinden etkiledi. GPT-4'ün USMLE (Amerikan Tıp Lisans Sınavı) sorularını %90'ın üzerinde doğrulukla cevaplaması, <strong>bu modellerin klinik pratikte gerçek bir potansiyele sahip olduğunu</strong> ortaya koydu.</p>
+
+            <p>Peki büyük dil modelleri klinik pratikte tam olarak ne yapabilir? Nerede güçlüdürler, nerede yetersiz kalırlar? Ve en önemlisi — ne zaman tehlikeli olabilirler?</p>
+
+            <h2>Tıbbi LLM'lerin Panoraması</h2>
+
+            <h3>GPT-4 ve OpenAI Ekosistemi</h3>
+            <p>OpenAI'ın <strong>GPT-4</strong> modeli, genel amaçlı bir LLM olmasına rağmen tıbbi sorularda şaşırtıcı bir performans göstermiştir. USMLE Step 1, 2 ve 3 sınavlarında geçer not alan GPT-4, birçok tıbbi uzmanlık sınavında da başarılı sonuçlar elde etmiştir. OpenAI, sağlık sektörüne özel çözümler geliştirmek için büyük sağlık kuruluşlarıyla ortaklıklar kurmuştur.</p>
+
+            <h3>Med-PaLM ve Med-PaLM 2 (Google)</h3>
+            <p>Google'ın <strong>Med-PaLM</strong> serisi, özellikle tıbbi soru-cevap görevleri için optimize edilmiştir. Med-PaLM 2, MedQA benchmark'ında %86,5 doğruluk oranıyla USMLE geçer not barajını aşmıştır. Daha da önemlisi, modelin ürettiği yanıtların uzman hekimler tarafından yapılan değerlendirmesinde, <strong>yanıtların %92,9'u potansiyel zarara yol açmayan nitelikte bulunmuştur</strong>.</p>
+
+            <h3>Diğer Tıbbi LLM'ler</h3>
+            <ul>
+                <li><strong>BioMedLM (Stanford):</strong> PubMed verileri üzerinde eğitilmiş, biyomedikal metinlere özelleştirilmiş bir model.</li>
+                <li><strong>Clinical Camel ve Meditron:</strong> Klinik notlar üzerinde fine-tune edilmiş açık kaynaklı modeller.</li>
+                <li><strong>AMIE (Google):</strong> Hasta simülasyonlarında hekim performansına yaklaşan bir diyalog modeli.</li>
+            </ul>
+
+            <h2>Klinik Kullanım Alanları</h2>
+
+            <h3>1. Klinik Not Üretimi ve Dokümantasyon</h3>
+            <p>Hekimlerin zamanının büyük bir kısmı dokümantasyona ayrılmaktadır. LLM'ler, hasta-hekim görüşmesini otomatik olarak yapılandırılmış klinik notlara dönüştürebilir. <strong>DAX Copilot (Microsoft/Nuance)</strong>, bu alanda öncü ürünlerden biridir — ortam dinleme ile konuşmayı SOAP formatında notlara çevirir. Bu teknoloji, hekimlerin hasta ile göz temasını ve klinik ilişkiyi iyileştirmesine olanak tanımaktadır.</p>
+
+            <h3>2. Hasta Anamnezi ve Triyaj</h3>
+            <p>LLM tabanlı chatbot'lar, hastaların semptomlarını sistematik olarak sorgulayarak ön değerlendirme yapabilir. Bu yaklaşım özellikle acil servis triyajında, birinci basamak sağlık hizmetlerinde ve telemedisinde umut vericidir. Ancak, modellerin <strong>nadir hastalıkları atlama eğilimi</strong> ve hasta ile empati kurma kapasitesinin sınırlılığı önemli kısıtlamalardır.</p>
+
+            <h3>3. Klinik Karar Destek</h3>
+            <p>LLM'ler, karmaşık hasta senaryolarında ayırıcı tanı listesi oluşturma, ilaç etkileşimlerini değerlendirme ve güncel kılavuzlara dayalı tedavi önerileri sunma konularında kullanılabilir. Ancak bu, en riskli uygulama alanıdır — modelin yanlış bir öneri sunması doğrudan hasta güvenliğini tehdit edebilir.</p>
+
+            <h3>4. Tıbbi Eğitim</h3>
+            <p>LLM'ler, tıp öğrencileri için sanal hasta simülasyonları, vaka tabanlı öğrenme senaryoları ve sınav hazırlık materyalleri oluşturabilir. <strong>USMLE sorularını doğru cevaplayabilen bir model, aynı zamanda bu soruları üretebilir</strong> — bu da tıbbi eğitimde yeni bir araç seti sunar.</p>
+
+            <h3>5. Tıbbi Metin Çevirisi ve Erişilebilirlik</h3>
+            <p>Karmaşık tıbbi raporların hasta dostu bir dile çevrilmesi, LLM'lerin önemli bir uygulama alanıdır. Patoloji raporları, radyoloji bulguları veya genetik test sonuçlarının anlaşılır bir şekilde açıklanması, hasta okuryazarlığını ve tedaviye uyumu artırabilir.</p>
+
+            <h2>Tıbbi Sınav Performansı: Rakamlarla</h2>
+            <p>LLM'lerin tıbbi sınavlardaki performansı, sektörde büyük ilgi çekmiştir:</p>
+
+            <ul>
+                <li><strong>GPT-4:</strong> USMLE Step 1-3'te %86-90 doğruluk</li>
+                <li><strong>Med-PaLM 2:</strong> MedQA'da %86,5 doğruluk</li>
+                <li><strong>GPT-4 (2024):</strong> UKMLA (İngiltere) sınavında %88 doğruluk</li>
+                <li><strong>Claude 3:</strong> Tıbbi muhakeme (medical reasoning) testlerinde güçlü performans</li>
+            </ul>
+
+            <p>Ancak bu rakamlar dikkatli yorumlanmalıdır. Sınav soruları, gerçek klinik pratiğin karmaşıklığını tam olarak yansıtmamaktadır. Bir modelin çoktan seçmeli soruları doğru cevaplaması, hastayı muayene edebilmesi veya empati kurabilmesi anlamına gelmez.</p>
+
+            <h2>Sınırlamalar ve Halüsinasyonlar</h2>
+            <p>LLM'lerin tıbbi uygulamalardaki en kritik sınırlaması <strong>halüsinasyon</strong> problemidir. Model, tamamen uydurma bilgileri güvenilir bir şekilde sunabilir — var olmayan ilaçlar, hayali çalışmalar veya yanlış dozajlar önerebilir.</p>
+
+            <h3>Halüsinasyon Türleri</h3>
+            <ul>
+                <li><strong>Olgusal halüsinasyon:</strong> Yanlış tıbbi bilgi sunma (örn. var olmayan ilaç etkileşimi)</li>
+                <li><strong>Kaynak halüsinasyonu:</strong> Var olmayan dergi makaleleri veya kılavuzlara atıfta bulunma</li>
+                <li><strong>Mantıksal halüsinasyon:</strong> Doğru öncüllerden yanlış sonuçlar çıkarma</li>
+                <li><strong>Tutarsızlık:</strong> Aynı soru farklı zamanlarda sorulduğunda farklı yanıtlar verme</li>
+            </ul>
+
+            <blockquote>
+                "Bir LLM'nin en tehlikeli özelliği, yanlış bilgiyi doğru bilgiyle aynı güvenle sunabilmesidir. Tıpta bu, ölümcül olabilir."
+            </blockquote>
+
+            <h3>Diğer Sınırlamalar</h3>
+            <ul>
+                <li><strong>Güncellik:</strong> Modeller, eğitim verilerinin kesilme tarihinden sonraki gelişmeleri bilemez.</li>
+                <li><strong>Bağlam penceresi:</strong> Uzun hasta geçmişlerini tam olarak değerlendiremeyebilir.</li>
+                <li><strong>Hasta mahremiyeti:</strong> Klinik verilerin bulut tabanlı modellere gönderilmesi ciddi gizlilik endişeleri yaratır.</li>
+                <li><strong>Sorumluluk belirsizliği:</strong> Modelin yanlış önerisi sonucu oluşan zarardan kim sorumlu olacak?</li>
+                <li><strong>Dil sınırlılığı:</strong> Modellerin Türkçe tıbbi terminolojideki performansı İngilizceye kıyasla düşüktür.</li>
+            </ul>
+
+            <h2>Türkiye ve LLM: Fırsatlar</h2>
+            <p>Türkiye'de LLM'lerin klinik pratikte kullanımı henüz araştırma ve pilot aşamasındadır. Ancak önemli fırsatlar mevcuttur:</p>
+
+            <ul>
+                <li><strong>Türkçe tıbbi NLP:</strong> Türkçe klinik notlar ve tıbbi metinler üzerinde eğitilmiş modeller, büyük bir ihtiyacı karşılayabilir.</li>
+                <li><strong>Dokümantasyon yükü:</strong> Türkiye'de de hekimler ağır dokümantasyon yüküyle karşı karşıyadır; LLM tabanlı not üretimi ciddi zaman tasarrufu sağlayabilir.</li>
+                <li><strong>Birinci basamak desteği:</strong> Aile hekimliğinde LLM destekli klinik karar desteği, özellikle kırsal bölgelerde uzmana erişimi artırabilir.</li>
+                <li><strong>Tıp eğitimi:</strong> Türkçe tıp eğitim materyallerinin LLM ile zenginleştirilmesi mümkündür.</li>
+            </ul>
+
+            <p>Büyük dil modelleri, tıpta devrim değil evrim vaat etmektedir. Doğru kullanıldığında, klinisyenlerin verimliliğini artıran güçlü araçlardır. Ancak klinik pratiğe entegrasyonları, titiz doğrulama, şeffaf raporlama ve sürekli insan denetimi gerektirmektedir. TYZD olarak, LLM'lerin tıpta sorumlu kullanımı konusunda rehberlik sağlamaya devam edeceğiz.</p>
+        </div>
+
+        <div class="key-points">
+            <h4>📌 Önemli Noktalar</h4>
+            <ul>
+                <li>GPT-4 ve Med-PaLM 2, USMLE gibi tıbbi sınavlarda %86-90 doğruluk oranına ulaşmıştır</li>
+                <li>Klinik not üretimi, hasta anamnezi ve tıbbi eğitim, LLM'lerin en umut verici uygulama alanlarıdır</li>
+                <li>Halüsinasyon problemi, tıpta LLM kullanımının en kritik güvenlik riskidir</li>
+                <li>Hasta mahremiyeti, sorumluluk belirsizliği ve Türkçe performans sınırlılığı önemli zorluklardır</li>
+                <li>LLM'ler klinisyenin yerini almayacak, ancak doğru kullanıldığında güçlü bir destek aracı olacaktır</li>
+            </ul>
+        </div>
+
+        <div class="sources">
+            <h4>📚 Kaynaklar</h4>
+            <ul>
+                <li><a href="https://www.nature.com/articles/s41586-023-06291-2" target="_blank">Nori H, et al. Capabilities of GPT-4 on Medical Challenge Problems. arXiv:2303.13375. Microsoft Research, 2023.</a></li>
+                <li><a href="https://www.nature.com/articles/s41586-023-06291-2" target="_blank">Singhal K, et al. Large language models encode clinical knowledge. Nature. 2023;620:172-180.</a></li>
+                <li><a href="https://www.nejm.org/doi/full/10.1056/NEJMsr2214184" target="_blank">Lee P, et al. Benefits, Limits, and Risks of GPT-4 as an AI Chatbot for Medicine. N Engl J Med. 2023;388:1233-1239.</a></li>
+                <li><a href="https://www.thelancet.com/journals/landig/article/PIIS2589-7500(23)00249-2/fulltext" target="_blank">Tu T, et al. Towards Conversational Diagnostic AI (AMIE). arXiv:2401.05654. Google Research, 2024.</a></li>
+                <li><a href="https://jamanetwork.com/journals/jama/fullarticle/2808300" target="_blank">Thirunavukarasu AJ, et al. Large language models in medicine. Nat Med. 2023;29:1930-1940.</a></li>
+            </ul>
+        </div>
+
+        <div class="share-section">
+            <p><strong>Bu yazıyı paylaşın</strong></p>
+            <div class="share-buttons">
+                <a href="https://twitter.com/intent/tweet?text=B%C3%BCy%C3%BCk%20Dil%20Modelleri%20Klinik%20Pratikte&url=https%3A%2F%2Ftyzd.org%2Fblog%2Fbuyuk-dil-modelleri-klinik-pratikte.html" class="share-btn twitter" target="_blank">Twitter</a>
+                <a href="https://www.linkedin.com/shareArticle?mini=true&url=https%3A%2F%2Ftyzd.org%2Fblog%2Fbuyuk-dil-modelleri-klinik-pratikte.html&title=B%C3%BCy%C3%BCk%20Dil%20Modelleri%20Klinik%20Pratikte" class="share-btn linkedin" target="_blank">LinkedIn</a>
+                <a href="https://wa.me/?text=B%C3%BCy%C3%BCk%20Dil%20Modelleri%20Klinik%20Pratikte%20https%3A%2F%2Ftyzd.org%2Fblog%2Fbuyuk-dil-modelleri-klinik-pratikte.html" class="share-btn whatsapp" target="_blank">WhatsApp</a>
+            </div>
+        </div>
+    </article>
+
+    <footer>
+        <p>© 2026 <a href="../index.html">Tıpta Yapay Zeka Derneği</a> · Tüm hakları saklıdır.</p>
+    </footer>
+</body>
+</html>

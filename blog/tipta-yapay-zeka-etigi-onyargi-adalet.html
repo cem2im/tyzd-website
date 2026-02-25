@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tıpta YZ Etiği: Önyargı ve Adalet | TYZD Blog</title>
+    <meta name="description" content="Algoritmik önyargının sağlık eşitsizliklerini derinleştirme riski, veri temsili sorunları, EU AI Act ve Türkiye perspektifinden etik değerlendirme.">
+    <meta property="og:title" content="Tıpta YZ Etiği: Önyargı ve Adalet | TYZD">
+    <meta property="og:description" content="Algoritmik önyargının sağlık eşitsizliklerini derinleştirme riski, veri temsili sorunları, EU AI Act ve Türkiye perspektifinden etik değerlendirme.">
+    <meta property="og:type" content="article">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg: #000000; --bg-card: #0a0a0a; --bg-elevated: #111111;
+            --border: rgba(255,255,255,0.08); --border-hover: rgba(255,255,255,0.15);
+            --text: #ffffff; --text-secondary: #a1a1aa; --text-tertiary: #71717a;
+            --accent: #14b8a6; --accent-secondary: #06b6d4;
+            --gradient: linear-gradient(135deg, #14b8a6 0%, #06b6d4 50%, #0ea5e9 100%);
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; background: var(--bg); color: var(--text); line-height: 1.8; -webkit-font-smoothing: antialiased; }
+        ::selection { background: var(--accent); color: white; }
+        a { color: var(--accent); text-decoration: none; }
+        a:hover { color: var(--accent-secondary); }
+        .header { position: fixed; top: 0; left: 0; right: 0; z-index: 100; background: rgba(0,0,0,0.8); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); border-bottom: 1px solid var(--border); padding: 0 2rem; }
+        .header-inner { max-width: 1200px; margin: 0 auto; height: 64px; display: flex; align-items: center; justify-content: space-between; }
+        .logo { display: flex; align-items: center; gap: 10px; font-weight: 600; font-size: 15px; color: var(--text); }
+        .logo-mark { width: 32px; height: 32px; background: var(--gradient); border-radius: 8px; display: flex; align-items: center; justify-content: center; }
+        .logo-mark svg { width: 18px; height: 18px; color: white; }
+        .back-link { color: var(--text-secondary); font-size: 14px; font-weight: 500; transition: color 0.2s; }
+        .back-link:hover { color: var(--text); }
+        article { max-width: 800px; margin: 0 auto; padding: 7rem 2rem 4rem; }
+        .post-header { margin-bottom: 2rem; }
+        .post-category { display: inline-block; background: rgba(20,184,166,0.1); border: 1px solid rgba(20,184,166,0.2); color: var(--accent); padding: 0.3rem 0.8rem; border-radius: 100px; font-size: 0.8rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 1rem; }
+        h1 { font-size: clamp(1.8rem, 4vw, 2.5rem); font-weight: 600; line-height: 1.2; letter-spacing: -0.02em; margin-bottom: 1rem; }
+        .post-meta { color: var(--text-tertiary); font-size: 0.85rem; display: flex; gap: 1rem; flex-wrap: wrap; }
+        .post-image { width: 100%; height: 360px; background: linear-gradient(135deg, rgba(20,184,166,0.15), rgba(6,182,212,0.1)); border: 1px solid var(--border); border-radius: 16px; margin: 2rem 0; display: flex; align-items: center; justify-content: center; font-size: 4rem; }
+        .post-content { font-size: 1.05rem; line-height: 1.85; }
+        .post-content h2 { font-size: 1.4rem; font-weight: 600; margin: 2.5rem 0 1rem; background: var(--gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+        .post-content h3 { font-size: 1.15rem; font-weight: 600; margin: 1.5rem 0 0.75rem; }
+        .post-content p { margin-bottom: 1.25rem; color: var(--text-secondary); }
+        .post-content strong { color: var(--text); }
+        .post-content ul, .post-content ol { margin: 1rem 0 1.5rem 1.5rem; color: var(--text-secondary); }
+        .post-content li { margin-bottom: 0.5rem; }
+        .post-content blockquote { border-left: 3px solid var(--accent); padding: 1rem 1.5rem; margin: 1.5rem 0; background: rgba(20,184,166,0.05); border-radius: 0 8px 8px 0; color: var(--text-secondary); font-style: italic; }
+        .key-points { background: var(--bg-card); border: 1px solid var(--border); border-radius: 16px; padding: 1.5rem 2rem; margin: 2rem 0; }
+        .key-points h4 { color: var(--accent); margin-bottom: 1rem; font-size: 1rem; }
+        .key-points ul { margin: 0; padding-left: 1.2rem; }
+        .key-points li { color: var(--text-secondary); margin-bottom: 0.4rem; }
+        .sources { margin-top: 3rem; padding-top: 2rem; border-top: 1px solid var(--border); }
+        .sources h4 { font-size: 0.95rem; margin-bottom: 0.75rem; color: var(--text-secondary); }
+        .sources ul { list-style: none; margin: 0; padding: 0; }
+        .sources li { font-size: 0.85rem; color: var(--text-tertiary); margin-bottom: 0.4rem; }
+        .share-section { margin-top: 3rem; padding: 2rem; background: var(--bg-card); border: 1px solid var(--border); border-radius: 16px; text-align: center; }
+        .share-section p { color: var(--text-secondary); margin-bottom: 1rem; }
+        .share-buttons { display: flex; gap: 0.75rem; justify-content: center; flex-wrap: wrap; }
+        .share-btn { padding: 0.6rem 1.2rem; border-radius: 8px; color: white; font-weight: 500; font-size: 0.85rem; transition: transform 0.2s, opacity 0.2s; }
+        .share-btn:hover { transform: translateY(-2px); opacity: 0.9; color: white; }
+        .share-btn.twitter { background: #1DA1F2; } .share-btn.linkedin { background: #0A66C2; } .share-btn.whatsapp { background: #25D366; }
+        footer { padding: 2rem; border-top: 1px solid var(--border); text-align: center; margin-top: 4rem; }
+        footer p { font-size: 0.85rem; color: var(--text-tertiary); } footer a { color: var(--accent); }
+        @media (max-width: 640px) { h1 { font-size: 1.5rem; } article { padding: 5rem 1rem 2rem; } .post-image { height: 200px; font-size: 3rem; } }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="header-inner">
+            <a href="../index.html" class="logo">
+                <div class="logo-mark">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
+                </div>
+                <span>TYZD</span>
+            </a>
+            <a href="../index.html#blog" class="back-link">← Blog'a Dön</a>
+        </div>
+    </header>
+
+    <article>
+        <div class="post-header">
+            <span class="post-category">⚖️ Etik</span>
+            <h1>Tıpta YZ Etiği: Önyargı ve Adalet</h1>
+            <div class="post-meta">
+                <span>📅 12 Aralık 2025</span>
+                <span>⏱️ 7 dk okuma</span>
+                <span>✍️ TYZD Editör</span>
+            </div>
+        </div>
+
+        <div class="post-image">⚖️</div>
+
+        <div class="post-content">
+            <h2>Giriş: Yapay Zeka Adaletli mi?</h2>
+            <p>Yapay zeka sağlık hizmetlerinde devrim vaat ediyor. Ancak her teknolojik dönüşüm gibi, yapay zekanın da karanlık bir yüzü var: <strong>algoritmik önyargı</strong>. Eğitim verilerindeki eşitsizlikler, model tasarımındaki seçimler ve dağıtım sürecindeki kararlar, mevcut sağlık eşitsizliklerini derinleştirebilir veya yeni eşitsizlikler yaratabilir. Bu yazıda, tıpta yapay zeka etiğinin en kritik boyutlarından biri olan önyargı ve adalet konusunu derinlemesine inceliyoruz.</p>
+
+            <h2>Algoritmik Önyargı Nedir?</h2>
+            <p>Algoritmik önyargı, bir yapay zeka sisteminin belirli grupları sistematik olarak dezavantajlı konuma düşürmesidir. Tıpta bu durum hayati sonuçlar doğurabilir. Önyargı üç temel kaynaktan beslenmektedir:</p>
+
+            <h3>1. Veri Önyargısı (Data Bias)</h3>
+            <p>Eğitim verilerindeki dengesizlikler, en yaygın önyargı kaynağıdır. Örneğin, dermatoloji YZ modelleri ağırlıklı olarak açık tenli bireylerin görüntüleriyle eğitilmiştir. Bu durum, <strong>koyu tenli bireylerde melanom tespitinin doğruluğunu ciddi şekilde düşürmektedir</strong>.</p>
+
+            <p>2019'da yayımlanan çarpıcı bir çalışma, ABD sağlık sisteminde kullanılan bir algoritmanın, aynı hastalık düzeyindeki siyah hastaları beyaz hastalardan sistematik olarak daha düşük risk kategorisine yerleştirdiğini ortaya koymuştur. Bu algoritma yaklaşık 200 milyon hastanın bakımını etkileyen kararları yönlendirmekteydi.</p>
+
+            <blockquote>
+                "Algoritma, sağlık harcamalarını hastalık şiddeti için bir vekil (proxy) olarak kullanıyordu. Ancak siyah hastalar, aynı hastalık düzeyinde bile sistemik nedenlerle daha az sağlık harcamasına sahipti. Sonuç: algoritma 'daha az hasta' gibi görünen siyah bireyleri bakımdan mahrum bırakıyordu." — Obermeyer Z, et al., Science, 2019
+            </blockquote>
+
+            <h3>2. Temsil Önyargısı (Representation Bias)</h3>
+            <p>Klinik çalışmalarda ve veri setlerinde belirli grupların yetersiz temsil edilmesi, YZ modellerinin bu gruplarda düşük performans göstermesine yol açmaktadır. Kadınlar, yaşlılar, az temsil edilen etnik gruplar ve düşük sosyoekonomik düzeydeki bireyler genellikle tıbbi veri setlerinde eksik kalmaktadır.</p>
+
+            <h3>3. Ölçüm Önyargısı (Measurement Bias)</h3>
+            <p>Sağlık verilerinin toplanma biçimi bile önyargı içerebilir. <strong>Pulse oksimetre cihazlarının koyu tenli bireylerde oksijen satürasyonunu yanlış ölçtüğü</strong> artık bilinen bir gerçektir. Bu hatalı veriler üzerinde eğitilen YZ modelleri de aynı önyargıyı devam ettirecektir.</p>
+
+            <h2>Sağlık Eşitsizlikleri ve Yapay Zeka</h2>
+            <p>Yapay zekanın sağlık eşitsizliklerini hem azaltma hem de derinleştirme potansiyeli bulunmaktadır:</p>
+
+            <h3>Derinleştirme Riski</h3>
+            <ul>
+                <li><strong>Dijital uçurum:</strong> YZ destekli sağlık hizmetlerine erişim, teknolojik altyapıya sahip bölgelerde yoğunlaşabilir.</li>
+                <li><strong>Dil ve kültür bariyerleri:</strong> İngilizce ağırlıklı NLP modellerinin Türkçe veya diğer dillerde düşük performans göstermesi.</li>
+                <li><strong>Sosyoekonomik vekiller:</strong> Algoritmalar, posta kodu, sigorta türü gibi değişkenleri kullanarak dolaylı ayrımcılık yapabilir.</li>
+                <li><strong>Geri bildirim döngüleri:</strong> Önyargılı bir algoritma yanlış kararlar üretirse, bu kararlardan elde edilen veriler daha fazla önyargı üretir.</li>
+            </ul>
+
+            <h3>Azaltma Potansiyeli</h3>
+            <ul>
+                <li><strong>Uzman erişimi:</strong> YZ, uzman hekim bulunmayan bölgelerde teşhis desteği sağlayarak eşitsizliği azaltabilir.</li>
+                <li><strong>Standartizasyon:</strong> Objektif algoritmalar, bireysel önyargılardan arınmış kararlar üretebilir (eğer doğru tasarlanırsa).</li>
+                <li><strong>Erken tespit:</strong> Düşük maliyetli YZ araçları, kaynakları kısıtlı topluluklarda tarama kapasitesini artırabilir.</li>
+            </ul>
+
+            <h2>EU AI Act: Avrupa'nın Düzenleyici Yaklaşımı</h2>
+            <p>Avrupa Birliği'nin 2024'te yürürlüğe giren <strong>Yapay Zeka Yasası (AI Act)</strong>, dünyanın ilk kapsamlı YZ düzenlemesidir. Tıbbi yapay zeka sistemleri "yüksek riskli" kategorisinde sınıflandırılmakta ve şu gerekliliklere tabi tutulmaktadır:</p>
+
+            <ul>
+                <li><strong>Risk yönetim sistemi:</strong> Sürekli risk değerlendirmesi ve azaltma önlemleri</li>
+                <li><strong>Veri yönetişimi:</strong> Eğitim verilerinin kalitesi, temsiliyeti ve önyargı testi zorunluluğu</li>
+                <li><strong>Şeffaflık:</strong> Kullanıcılara ve etkilenen bireylere bilgilendirme yükümlülüğü</li>
+                <li><strong>İnsan gözetimi:</strong> Kritik kararlarda insan denetimi zorunluluğu</li>
+                <li><strong>Doğruluk ve sağlamlık:</strong> Performans metriklerinin belgelenmesi ve sürekli izleme</li>
+            </ul>
+
+            <p>EU AI Act, tıbbi YZ geliştiren şirketler ve kullanıcılar için önemli yükümlülükler getirmektedir. Özellikle önyargı testi (bias audit) ve şeffaflık gereklilikleri, daha adil sistemlerin geliştirilmesini teşvik edecektir.</p>
+
+            <h2>Türkiye Perspektifi</h2>
+            <p>Türkiye'de tıpta yapay zeka etiği konusunda farkındalık artmakla birlikte, henüz kapsamlı bir düzenleyici çerçeve oluşturulamamıştır. Mevcut durum ve ihtiyaçlar değerlendirildiğinde:</p>
+
+            <ul>
+                <li><strong>Yasal çerçeve:</strong> Türkiye'de yapay zekaya özgü bir yasa bulunmamaktadır. Kişisel Verilerin Korunması Kanunu (KVKK) veri gizliliği için temel çerçeveyi sağlamaktadır, ancak YZ'ye özgü düzenlemeler eksiktir.</li>
+                <li><strong>Veri çeşitliliği:</strong> Türkiye'nin çok kültürlü yapısı, çeşitli eğitim veri setleri oluşturmak için bir avantaj olabilir. Ancak bu verinin sistematik olarak toplanması ve standardize edilmesi gerekmektedir.</li>
+                <li><strong>Etik kurullar:</strong> Tıbbi YZ projelerinin etik değerlendirmesinde standart bir süreç henüz tanımlanmamıştır.</li>
+                <li><strong>Eğitim:</strong> Tıp fakültelerinde ve mühendislik bölümlerinde YZ etiği eğitimi yaygınlaştırılmalıdır.</li>
+            </ul>
+
+            <h2>Adil Yapay Zeka İçin Öneriler</h2>
+            <p>Tıpta adil ve etik yapay zeka sistemleri geliştirmek için şu adımlar kritik önem taşımaktadır:</p>
+
+            <ul>
+                <li><strong>Çeşitli ve temsili veri setleri:</strong> Farklı etnik, sosyoekonomik ve coğrafi grupları yeterince temsil eden eğitim verileri kullanılmalıdır.</li>
+                <li><strong>Önyargı denetimleri:</strong> Model geliştirme sürecinin her aşamasında, farklı alt gruplar için performans metrikleri raporlanmalıdır.</li>
+                <li><strong>Şeffaflık ve açıklanabilirlik:</strong> Klinisyenlerin ve hastaların algoritma kararlarını anlayabilmesi sağlanmalıdır.</li>
+                <li><strong>Katılımcı tasarım:</strong> Etkilenen toplulukların YZ sistemlerinin tasarım ve değerlendirme süreçlerine dahil edilmesi gereklidir.</li>
+                <li><strong>Sürekli izleme:</strong> Dağıtıma geçen YZ sistemlerinin performansı, farklı popülasyonlarda düzenli olarak izlenmelidir.</li>
+            </ul>
+
+            <blockquote>
+                "Yapay zeka adaletsizliği otomatikleştirme aracı değil, sağlık eşitliğini ilerletmenin bir yolu olmalıdır. Bu, bilinçli tasarım, titiz değerlendirme ve sürekli gözetim gerektirir."
+            </blockquote>
+
+            <p>TYZD olarak, tıpta yapay zeka etiği konusunda farkındalık yaratmak, politika önerileri geliştirmek ve Türkiye'ye özgü etik kılavuzlar oluşturmak öncelikli hedeflerimiz arasındadır. Teknolojinin gücü, ancak adaletli kullanıldığında gerçek anlamına kavuşur.</p>
+        </div>
+
+        <div class="key-points">
+            <h4>📌 Önemli Noktalar</h4>
+            <ul>
+                <li>Algoritmik önyargı, veri, temsil ve ölçüm kaynaklı olabilir ve sağlık eşitsizliklerini derinleştirebilir</li>
+                <li>ABD'de 200 milyon hastayı etkileyen bir algoritma, siyah hastaları sistematik olarak dezavantajlı konuma düşürmüştür</li>
+                <li>EU AI Act, tıbbi YZ için önyargı testi, şeffaflık ve insan gözetimi zorunlulukları getirmektedir</li>
+                <li>Türkiye'de YZ'ye özgü yasal çerçeve henüz oluşturulmamıştır; KVKK temel koruma sağlamaktadır</li>
+                <li>Adil YZ için çeşitli veri setleri, katılımcı tasarım ve sürekli izleme kritik öneme sahiptir</li>
+            </ul>
+        </div>
+
+        <div class="sources">
+            <h4>📚 Kaynaklar</h4>
+            <ul>
+                <li><a href="https://www.science.org/doi/10.1126/science.aax2342" target="_blank">Obermeyer Z, et al. Dissecting racial bias in an algorithm used to manage the health of populations. Science. 2019;366(6464):447-453.</a></li>
+                <li><a href="https://www.nature.com/articles/s41591-021-01595-0" target="_blank">Vokinger KN, et al. Mitigating bias in machine learning for medicine. Nat Med. 2021;27:2079-2080.</a></li>
+                <li><a href="https://www.thelancet.com/journals/landig/article/PIIS2589-7500(22)00063-2/fulltext" target="_blank">Chen IY, et al. Ethical machine learning in healthcare. Lancet Digital Health. 2021;3(3):e166-e175.</a></li>
+                <li><a href="https://www.nejm.org/doi/full/10.1056/NEJMms2004740" target="_blank">Sjoding MW, et al. Racial Bias in Pulse Oximetry Measurement. N Engl J Med. 2020;383:2477-2478.</a></li>
+                <li><a href="https://artificialintelligenceact.eu/" target="_blank">European Commission. Artificial Intelligence Act — Official Text and Implementation Timeline. 2024.</a></li>
+            </ul>
+        </div>
+
+        <div class="share-section">
+            <p><strong>Bu yazıyı paylaşın</strong></p>
+            <div class="share-buttons">
+                <a href="https://twitter.com/intent/tweet?text=T%C4%B1pta%20YZ%20Eti%C4%9Fi%3A%20%C3%96nyarg%C4%B1%20ve%20Adalet&url=https%3A%2F%2Ftyzd.org%2Fblog%2Ftipta-yapay-zeka-etigi-onyargi-adalet.html" class="share-btn twitter" target="_blank">Twitter</a>
+                <a href="https://www.linkedin.com/shareArticle?mini=true&url=https%3A%2F%2Ftyzd.org%2Fblog%2Ftipta-yapay-zeka-etigi-onyargi-adalet.html&title=T%C4%B1pta%20YZ%20Eti%C4%9Fi%3A%20%C3%96nyarg%C4%B1%20ve%20Adalet" class="share-btn linkedin" target="_blank">LinkedIn</a>
+                <a href="https://wa.me/?text=T%C4%B1pta%20YZ%20Eti%C4%9Fi%3A%20%C3%96nyarg%C4%B1%20ve%20Adalet%20https%3A%2F%2Ftyzd.org%2Fblog%2Ftipta-yapay-zeka-etigi-onyargi-adalet.html" class="share-btn whatsapp" target="_blank">WhatsApp</a>
+            </div>
+        </div>
+    </article>
+
+    <footer>
+        <p>© 2026 <a href="../index.html">Tıpta Yapay Zeka Derneği</a> · Tüm hakları saklıdır.</p>
+    </footer>
+</body>
+</html>

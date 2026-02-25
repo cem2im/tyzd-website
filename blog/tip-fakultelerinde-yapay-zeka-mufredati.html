@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tıp Fakültelerinde YZ Müfredatı | TYZD Blog</title>
+    <meta name="description" content="Dünyadan örneklerle tıp eğitiminde yapay zeka müfredatının nasıl entegre edilebileceği ve Türkiye için bir yol haritası önerisi.">
+    <meta property="og:title" content="Tıp Fakültelerinde YZ Müfredatı | TYZD">
+    <meta property="og:description" content="Dünyadan örneklerle tıp eğitiminde yapay zeka müfredatının nasıl entegre edilebileceği ve Türkiye için bir yol haritası önerisi.">
+    <meta property="og:type" content="article">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root { --bg: #000000; --bg-card: #0a0a0a; --bg-elevated: #111111; --border: rgba(255,255,255,0.08); --border-hover: rgba(255,255,255,0.15); --text: #ffffff; --text-secondary: #a1a1aa; --text-tertiary: #71717a; --accent: #14b8a6; --accent-secondary: #06b6d4; --gradient: linear-gradient(135deg, #14b8a6 0%, #06b6d4 50%, #0ea5e9 100%); }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; background: var(--bg); color: var(--text); line-height: 1.8; -webkit-font-smoothing: antialiased; }
+        ::selection { background: var(--accent); color: white; }
+        a { color: var(--accent); text-decoration: none; } a:hover { color: var(--accent-secondary); }
+        .header { position: fixed; top: 0; left: 0; right: 0; z-index: 100; background: rgba(0,0,0,0.8); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); border-bottom: 1px solid var(--border); padding: 0 2rem; }
+        .header-inner { max-width: 1200px; margin: 0 auto; height: 64px; display: flex; align-items: center; justify-content: space-between; }
+        .logo { display: flex; align-items: center; gap: 10px; font-weight: 600; font-size: 15px; color: var(--text); }
+        .logo-mark { width: 32px; height: 32px; background: var(--gradient); border-radius: 8px; display: flex; align-items: center; justify-content: center; }
+        .logo-mark svg { width: 18px; height: 18px; color: white; }
+        .back-link { color: var(--text-secondary); font-size: 14px; font-weight: 500; transition: color 0.2s; } .back-link:hover { color: var(--text); }
+        article { max-width: 800px; margin: 0 auto; padding: 7rem 2rem 4rem; }
+        .post-header { margin-bottom: 2rem; }
+        .post-category { display: inline-block; background: rgba(20,184,166,0.1); border: 1px solid rgba(20,184,166,0.2); color: var(--accent); padding: 0.3rem 0.8rem; border-radius: 100px; font-size: 0.8rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 1rem; }
+        h1 { font-size: clamp(1.8rem, 4vw, 2.5rem); font-weight: 600; line-height: 1.2; letter-spacing: -0.02em; margin-bottom: 1rem; }
+        .post-meta { color: var(--text-tertiary); font-size: 0.85rem; display: flex; gap: 1rem; flex-wrap: wrap; }
+        .post-image { width: 100%; height: 360px; background: linear-gradient(135deg, rgba(20,184,166,0.15), rgba(6,182,212,0.1)); border: 1px solid var(--border); border-radius: 16px; margin: 2rem 0; display: flex; align-items: center; justify-content: center; font-size: 4rem; }
+        .post-content { font-size: 1.05rem; line-height: 1.85; }
+        .post-content h2 { font-size: 1.4rem; font-weight: 600; margin: 2.5rem 0 1rem; background: var(--gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+        .post-content h3 { font-size: 1.15rem; font-weight: 600; margin: 1.5rem 0 0.75rem; }
+        .post-content p { margin-bottom: 1.25rem; color: var(--text-secondary); }
+        .post-content strong { color: var(--text); }
+        .post-content ul, .post-content ol { margin: 1rem 0 1.5rem 1.5rem; color: var(--text-secondary); }
+        .post-content li { margin-bottom: 0.5rem; }
+        .post-content blockquote { border-left: 3px solid var(--accent); padding: 1rem 1.5rem; margin: 1.5rem 0; background: rgba(20,184,166,0.05); border-radius: 0 8px 8px 0; color: var(--text-secondary); font-style: italic; }
+        .key-points { background: var(--bg-card); border: 1px solid var(--border); border-radius: 16px; padding: 1.5rem 2rem; margin: 2rem 0; }
+        .key-points h4 { color: var(--accent); margin-bottom: 1rem; font-size: 1rem; }
+        .key-points ul { margin: 0; padding-left: 1.2rem; } .key-points li { color: var(--text-secondary); margin-bottom: 0.4rem; }
+        .sources { margin-top: 3rem; padding-top: 2rem; border-top: 1px solid var(--border); }
+        .sources h4 { font-size: 0.95rem; margin-bottom: 0.75rem; color: var(--text-secondary); }
+        .sources ul { list-style: none; margin: 0; padding: 0; } .sources li { font-size: 0.85rem; color: var(--text-tertiary); margin-bottom: 0.4rem; }
+        .share-section { margin-top: 3rem; padding: 2rem; background: var(--bg-card); border: 1px solid var(--border); border-radius: 16px; text-align: center; }
+        .share-section p { color: var(--text-secondary); margin-bottom: 1rem; }
+        .share-buttons { display: flex; gap: 0.75rem; justify-content: center; flex-wrap: wrap; }
+        .share-btn { padding: 0.6rem 1.2rem; border-radius: 8px; color: white; font-weight: 500; font-size: 0.85rem; transition: transform 0.2s, opacity 0.2s; }
+        .share-btn:hover { transform: translateY(-2px); opacity: 0.9; color: white; }
+        .share-btn.twitter { background: #1DA1F2; } .share-btn.linkedin { background: #0A66C2; } .share-btn.whatsapp { background: #25D366; }
+        footer { padding: 2rem; border-top: 1px solid var(--border); text-align: center; margin-top: 4rem; }
+        footer p { font-size: 0.85rem; color: var(--text-tertiary); } footer a { color: var(--accent); }
+        @media (max-width: 640px) { h1 { font-size: 1.5rem; } article { padding: 5rem 1rem 2rem; } .post-image { height: 200px; font-size: 3rem; } }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="header-inner">
+            <a href="../index.html" class="logo">
+                <div class="logo-mark">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
+                </div>
+                <span>TYZD</span>
+            </a>
+            <a href="../index.html#blog" class="back-link">← Blog'a Dön</a>
+        </div>
+    </header>
+
+    <article>
+        <div class="post-header">
+            <span class="post-category">🎓 Eğitim</span>
+            <h1>Tıp Fakültelerinde YZ Müfredatı</h1>
+            <div class="post-meta">
+                <span>📅 5 Ekim 2025</span>
+                <span>⏱️ 7 dk okuma</span>
+                <span>✍️ TYZD Editör</span>
+            </div>
+        </div>
+
+        <div class="post-image">🎓</div>
+
+        <div class="post-content">
+            <h2>Neden Tıp Eğitiminde Yapay Zeka Müfredatı Gerekli?</h2>
+            <p>Yapay zeka, sağlık sektörünü hızla dönüştürüyor. Radyolojiden patolojiye, endoskopiden genomiğe kadar neredeyse her tıbbi disiplin YZ teknolojileriyle tanışıyor. Ancak bu teknolojileri kullanacak, değerlendirecek ve hastalarla iletişimde yorumlayacak olan hekimler, çoğunlukla <strong>tıp eğitimi sırasında yapay zeka konusunda hiçbir formel eğitim almamaktadır</strong>.</p>
+
+            <p>2019'da yapılan bir ankette, tıp fakültesi öğrencilerinin %70'inden fazlası yapay zekanın tıp pratiğini önemli ölçüde etkileyeceğine inanırken, sadece %30'u bu konuda yeterli bilgiye sahip olduğunu düşünüyordu. Bu "bilgi açığı", gelecekteki hekimlerin YZ araçlarını etkili ve güvenli bir şekilde kullanmasının önünde ciddi bir engel oluşturmaktadır.</p>
+
+            <blockquote>
+                "Gelecekte her hekim bir YZ kullanıcısı olacak. Sorun şu ki, çoğu buna hazır değil. Tıp fakülteleri bu konuda harekete geçmeli." — Topol EJ, Deep Medicine, 2019
+            </blockquote>
+
+            <h2>Dünyadan Örnekler</h2>
+
+            <h3>Stanford Üniversitesi</h3>
+            <p>Stanford Tıp Fakültesi, <strong>"AI in Healthcare"</strong> serisini müfredatına entegre etmiş lider kurumlardan biridir. Program, tıp öğrencilerine temel makine öğrenmesi kavramlarını, klinik uygulama örneklerini ve etik boyutları kapsayan modüler bir yapı sunmaktadır. Stanford ayrıca <strong>AIMI (Center for Artificial Intelligence in Medicine and Imaging)</strong> merkezi aracılığıyla öğrencilere araştırma ve staj imkânları sağlamaktadır.</p>
+
+            <h3>Harvard Tıp Fakültesi</h3>
+            <p>Harvard, <strong>"Clinical Data Science"</strong> dersini zorunlu müfredata eklemiş ve "AI for Healthcare" sertifika programını başlatmıştır. Program, veri okuryazarlığı, istatistiksel düşünce ve YZ araçlarının klinik değerlendirmesi üzerine odaklanmaktadır. Harvard ayrıca MIT ile ortak <strong>"Health Sciences and Technology (HST)"</strong> programı kapsamında ileri düzey YZ eğitimi sunmaktadır.</p>
+
+            <h3>MIT — Sağlık Mühendisliği ve Yapay Zeka</h3>
+            <p>MIT'nin <strong>"Machine Learning for Healthcare (6.S897)"</strong> dersi, tıp ve mühendislik öğrencilerini bir araya getiren disiplinlerarası bir yaklaşım benimsemektedir. Klinik notların NLP analizi, tıbbi görüntü işleme ve hastane operasyonlarında YZ uygulamaları gibi konuları kapsamaktadır.</p>
+
+            <h3>Duke Üniversitesi</h3>
+            <p>Duke, <strong>"AI Health"</strong> programı ile tıp öğrencilerine uygulamalı YZ eğitimi vermektedir. Program, Python programlama, veri analizi ve klinik karar destek sistemleri tasarımı içermektedir. Öğrenciler, gerçek klinik veriler üzerinde proje geliştirmektedir.</p>
+
+            <h3>Avrupa Örnekleri</h3>
+            <ul>
+                <li><strong>Karolinska Institutet (İsveç):</strong> "Digital Health and AI" modülünü zorunlu müfredata eklemiştir.</li>
+                <li><strong>Imperial College London:</strong> "AI in Medicine" seçmeli dersi ve araştırma fırsatları sunmaktadır.</li>
+                <li><strong>Charité — Berlin:</strong> "Digital Health" müfredatı ile Almanya'da öncü konumdadır.</li>
+            </ul>
+
+            <h2>Türkiye'de Mevcut Durum</h2>
+            <p>Türkiye'deki tıp fakültelerinde yapay zeka eğitimi henüz <strong>sistematik ve yaygın bir şekilde müfredata entegre edilmemiştir</strong>. Mevcut durumu özetlemek gerekirse:</p>
+
+            <ul>
+                <li><strong>Formel ders eksikliği:</strong> Tıp fakültelerinin büyük çoğunluğunda yapay zekaya özgü bir ders veya modül bulunmamaktadır.</li>
+                <li><strong>Biyoistatistik dersleri:</strong> Mevcut biyoistatistik dersleri, makine öğrenmesi ve YZ konularını yeterince kapsamamaktadır.</li>
+                <li><strong>Bireysel girişimler:</strong> Bazı öğretim üyeleri seçmeli dersler veya seminerler aracılığıyla YZ konularını ele almaktadır, ancak bunlar standart değildir.</li>
+                <li><strong>Öğrenci toplulukları:</strong> Tıp fakültesi öğrenci toplulukları, YZ konusunda etkinlikler ve eğitimler düzenlemektedir — bu, aşağıdan yukarı bir hareket olarak dikkat çekicidir.</li>
+                <li><strong>Uzmanlık eğitimi:</strong> Radyoloji, patoloji gibi bazı uzmanlık dallarında YZ uygulamalarına yönelik informal eğitimler verilmektedir.</li>
+            </ul>
+
+            <h2>Önerilen Müfredat Yapısı: Üç Katmanlı Model</h2>
+            <p>TYZD olarak, tıp fakültelerinde yapay zeka eğitimi için üç katmanlı bir müfredat modeli öneriyoruz:</p>
+
+            <h3>Katman 1: Temel Düzey (Tüm Tıp Öğrencileri — 1.-3. Sınıf)</h3>
+            <p>Bu katman, tüm tıp öğrencilerinin alması gereken zorunlu temel bilgileri içerir:</p>
+            <ul>
+                <li><strong>YZ ve makine öğrenmesine giriş:</strong> Temel kavramlar, terminoloji, algoritmik düşünce</li>
+                <li><strong>Veri okuryazarlığı:</strong> Sağlık verisi türleri, veri kalitesi, temel istatistiksel kavramlar</li>
+                <li><strong>YZ etiği ve hukuku:</strong> Algoritmik önyargı, hasta mahremiyeti, sorumluluk, düzenleyici çerçeve</li>
+                <li><strong>Klinik YZ uygulamalarına genel bakış:</strong> Radyoloji, patoloji, genomik, klinik karar destek örnekleri</li>
+                <li><strong>Eleştirel değerlendirme:</strong> YZ araştırmalarının sonuçlarını nasıl yorumlayacağımız, STARD-AI, TRIPOD gibi raporlama standartları</li>
+            </ul>
+
+            <h3>Katman 2: Klinik Uygulama Düzeyi (3.-5. Sınıf)</h3>
+            <p>Klinik stajlarla entegre edilmiş uygulamalı eğitim:</p>
+            <ul>
+                <li><strong>Uygulamalı YZ araç kullanımı:</strong> Radyolojide YZ destekli görüntü analizi, endoskopide CADe/CADx kullanımı</li>
+                <li><strong>Klinik karar destek sistemleri:</strong> LLM tabanlı araçlar, CDSS (Clinical Decision Support Systems) deneyimi</li>
+                <li><strong>Hasta iletişimi:</strong> YZ destekli tanıları hastalara nasıl açıklayacağız?</li>
+                <li><strong>Vaka çalışmaları:</strong> YZ başarısızlıklarından dersler, yanlış pozitif/negatif senaryoları</li>
+            </ul>
+
+            <h3>Katman 3: İleri Düzey (Seçmeli / Araştırma Odaklı)</h3>
+            <p>YZ alanında derinleşmek isteyen öğrenciler için:</p>
+            <ul>
+                <li><strong>Python ve veri bilimi temelleri:</strong> Pandas, scikit-learn, TensorFlow/PyTorch girişi</li>
+                <li><strong>Tıbbi görüntü işleme:</strong> CNN, U-Net, transfer öğrenme uygulamaları</li>
+                <li><strong>NLP ve klinik metin analizi:</strong> Klinik not işleme, tıbbi metin madenciliği</li>
+                <li><strong>Araştırma projesi:</strong> Klinik YZ projesi tasarımı, veri toplama, model geliştirme, etik kurul süreci</li>
+                <li><strong>Disiplinlerarası iş birliği:</strong> Mühendislik fakültesiyle ortak projeler</li>
+            </ul>
+
+            <h2>Uygulama Önerileri</h2>
+            <p>Bu müfredatın başarılı bir şekilde uygulanması için şu adımlar kritik öneme sahiptir:</p>
+
+            <ul>
+                <li><strong>Öğretim üyesi eğitimi:</strong> Öncelikle öğretim üyelerinin YZ konusunda eğitilmesi gerekmektedir. "Train the trainers" yaklaşımı benimsenmelidir.</li>
+                <li><strong>Disiplinlerarası yaklaşım:</strong> Tıp fakülteleri, bilgisayar mühendisliği ve biyomedikal mühendisliği bölümleriyle iş birliği yapmalıdır.</li>
+                <li><strong>Uygulamalı öğrenme:</strong> Teorik derslerin yanında, gerçek klinik veriler ve YZ araçları üzerinde uygulamalı deneyim sağlanmalıdır.</li>
+                <li><strong>Sürdürülebilirlik:</strong> Müfredat, teknolojik gelişmelere paralel olarak düzenli güncellenmelidir.</li>
+                <li><strong>Ulusal standartlar:</strong> YÖK ve Tıpta Uzmanlık Kurulu (TUK) koordinasyonuyla ulusal düzeyde standartlar belirlenmeli ve Ulusal Çekirdek Eğitim Programına (UÇEP) entegre edilmelidir.</li>
+            </ul>
+
+            <blockquote>
+                "Yapay zeka müfredatı, kodlama dersi değildir. Asıl hedef, gelecekteki hekimlerin YZ araçlarını eleştirel olarak değerlendirme, güvenli kullanma ve hastalarla iletişim kurma becerisini kazanmasıdır."
+            </blockquote>
+
+            <h2>TYZD'nin Rolü</h2>
+            <p>Tıpta Yapay Zeka Derneği olarak bu alanda şu çalışmaları yürütüyoruz:</p>
+            <ul>
+                <li><strong>Müfredat önerisi:</strong> Tıp fakülteleri için model müfredat dokümanı hazırlanmaktadır.</li>
+                <li><strong>Öğretim üyesi eğitimi:</strong> "AI for Medical Educators" çalıştayı serisi planlanmaktadır.</li>
+                <li><strong>Öğrenci etkinlikleri:</strong> Tıp fakültesi öğrenci topluluklarıyla iş birliği içinde hackathon ve seminerler düzenlenmektedir.</li>
+                <li><strong>Asistanlar İçin YZ Kursu:</strong> 2026 yılında gerçekleştirilecek kapsamlı bir eğitim programı planlanmaktadır.</li>
+            </ul>
+
+            <p>Tıp eğitiminde yapay zeka müfredatı, artık bir lüks değil zorunluluktur. Gelecekteki hekimleri YZ çağına hazırlamak, hasta güvenliği, sağlık hizmeti kalitesi ve Türkiye'nin küresel rekabetçiliği için kritik öneme sahiptir. Bu dönüşümü birlikte gerçekleştirelim.</p>
+        </div>
+
+        <div class="key-points">
+            <h4>📌 Önemli Noktalar</h4>
+            <ul>
+                <li>Tıp öğrencilerinin %70'i YZ'nin tıbbı değiştireceğine inanırken, sadece %30'u yeterli bilgiye sahip hissediyor</li>
+                <li>Stanford, Harvard ve MIT gibi lider kurumlar YZ'yi tıp müfredatına entegre etmiş durumda</li>
+                <li>Türkiye'de sistematik bir YZ tıp eğitimi müfredatı henüz bulunmuyor</li>
+                <li>Üç katmanlı model: Temel (tüm öğrenciler), Klinik Uygulama (stajlar), İleri Düzey (araştırma)</li>
+                <li>Öğretim üyesi eğitimi ve disiplinlerarası iş birliği başarının anahtarıdır</li>
+            </ul>
+        </div>
+
+        <div class="sources">
+            <h4>📚 Kaynaklar</h4>
+            <ul>
+                <li><a href="https://journals.lww.com/academicmedicine/fulltext/2019/08000/reimagining_medical_education_in_the_age_of_ai.21.aspx" target="_blank">Wartman SA, Combs CD. Reimagining Medical Education in the Age of AI. Acad Med. 2019;94(8):1107-1109.</a></li>
+                <li><a href="https://mededu.jmir.org/2019/2/e16048" target="_blank">Paranjape K, et al. Introducing Artificial Intelligence Training in Medical Education. JMIR Med Educ. 2019;5(2):e16048.</a></li>
+                <li><a href="https://peerj.com/articles/cs-723/" target="_blank">Banerjee M, et al. The impact of artificial intelligence on clinical education. PeerJ Comput Sci. 2021;7:e723.</a></li>
+                <li><a href="https://www.nature.com/articles/s41591-018-0300-7" target="_blank">Topol EJ. High-performance medicine: the convergence of human and artificial intelligence. Nat Med. 2019;25:44-56.</a></li>
+                <li><a href="https://journals.lww.com/academicmedicine/fulltext/2021/11001/artificial_intelligence_in_undergraduate_medical.10.aspx" target="_blank">Lee J, et al. Artificial intelligence in undergraduate medical education: a scoping review. Acad Med. 2021;96(11S):S62-S70.</a></li>
+            </ul>
+        </div>
+
+        <div class="share-section">
+            <p><strong>Bu yazıyı paylaşın</strong></p>
+            <div class="share-buttons">
+                <a href="https://twitter.com/intent/tweet?text=T%C4%B1p%20Fak%C3%BCltelerinde%20YZ%20M%C3%BCfredat%C4%B1&url=https%3A%2F%2Ftyzd.org%2Fblog%2Ftip-fakultelerinde-yapay-zeka-mufredati.html" class="share-btn twitter" target="_blank">Twitter</a>
+                <a href="https://www.linkedin.com/shareArticle?mini=true&url=https%3A%2F%2Ftyzd.org%2Fblog%2Ftip-fakultelerinde-yapay-zeka-mufredati.html&title=T%C4%B1p%20Fak%C3%BCltelerinde%20YZ%20M%C3%BCfredat%C4%B1" class="share-btn linkedin" target="_blank">LinkedIn</a>
+                <a href="https://wa.me/?text=T%C4%B1p%20Fak%C3%BCltelerinde%20YZ%20M%C3%BCfredat%C4%B1%20https%3A%2F%2Ftyzd.org%2Fblog%2Ftip-fakultelerinde-yapay-zeka-mufredati.html" class="share-btn whatsapp" target="_blank">WhatsApp</a>
+            </div>
+        </div>
+    </article>
+
+    <footer>
+        <p>© 2026 <a href="../index.html">Tıpta Yapay Zeka Derneği</a> · Tüm hakları saklıdır.</p>
+    </footer>
+</body>
+</html>
