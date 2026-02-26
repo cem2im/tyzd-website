@@ -1,5 +1,51 @@
 [
   {
+    "slug": "fda-onayli-aidoc-care-btde-14-akut-bulgunun-triaji",
+    "title": "Aidoc CARE: Tek Bir AI ile BT'de 14 Akut Bulgunun Eş Zamanlı Triajı",
+    "description": "FDA onaylı Aidoc CARE foundation modeli, tek bir yapay zeka ile abdominal BT'de 14 akut bulguyu eş zamanlı triaj ediyor. %97 sensitivite, %98 spesifisite.",
+    "category": "radyoloji",
+    "categoryName": "Radyoloji",
+    "categoryIcon": "📡",
+    "categoryColor": "#06b6d4",
+    "date": "2026-02-26",
+    "readTime": 8,
+    "priority": "normal",
+    "area": "custom",
+    "url": "blog/fda-onayli-aidoc-care-btde-14-akut-bulgunun-triaji.html",
+    "instagram": {
+      "caption": "🩻 FDA onaylı Aidoc CARE modeli, BT taramalarında 14 akut bulguyu eş zamanlı triaj ederek radyolojiyi hızlandırıyor! Hekimler için hızlı teşhis, mühendisler için AI inovasyonu. Türkiye’de bu teknolojinin klinik kullanımı artıyor. Bilgi paylaşımı için takipte kalın! #TıptaYapayZeka #TYZD #RadyolojiAI #SağlıkTeknolojisi #YapayZekaSağlık #AIDoc #BTTriaj",
+      "slides": [
+        {
+          "type": "cover",
+          "headline": "Aidoc CARE ve BT Triajı",
+          "subheadline": "14 akut bulguyu eş zamanlı tespit eden AI modeli"
+        },
+        {
+          "type": "content",
+          "title": "Modelin Özellikleri",
+          "bullets": [
+            "Eş zamanlı triaj ile hızlı teşhis",
+            "CNN tabanlı görüntü analizi",
+            "FDA onayı güvenilirlik sağlıyor"
+          ]
+        },
+        {
+          "type": "content",
+          "title": "Türkiye'de Uygulaması",
+          "bullets": [
+            "Radyoloji eğitiminde AI entegrasyonu",
+            "Hızlı triajın hasta bakımını iyileştirmesi",
+            "Hekim-mühendis işbirliği fırsatları"
+          ]
+        },
+        {
+          "type": "cta",
+          "text": "tyzd.org"
+        }
+      ]
+    }
+  },
+  {
     "slug": "yapay-zeka-destekli-kolonoskopi-polip-tespiti",
     "title": "Yapay Zeka Destekli Kolonoskopi: Polip Tespitinde Yeni Dönem",
     "description": "Gerçek zamanlı yapay zeka sistemleri kolonoskopide polip tespit oranlarını nasıl artırıyor? CADe/CADx teknolojileri ve Türkiye'deki potansiyel.",

@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aidoc CARE: Tek Bir AI ile BT'de 14 Akut Bulgunun Eş Zamanlı Triajı | TYZD Blog</title>
+    <meta name="description" content="FDA onaylı Aidoc CARE foundation modeli, tek bir yapay zeka ile abdominal BT'de 14 akut bulguyu eş zamanlı triaj ediyor. %97 sensitivite, %98 spesifisite.">
+    <meta property="og:title" content="Aidoc CARE: Tek Bir AI ile BT'de 14 Akut Bulgunun Eş Zamanlı Triajı | TYZD">
+    <meta property="og:description" content="FDA onaylı Aidoc CARE foundation modeli, tek bir yapay zeka ile abdominal BT'de 14 akut bulguyu eş zamanlı triaj ediyor. %97 sensitivite, %98 spesifisite.">
+    <meta property="og:type" content="article">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg: #000000;
+            --bg-card: #0a0a0a;
+            --bg-elevated: #111111;
+            --border: rgba(255,255,255,0.08);
+            --border-hover: rgba(255,255,255,0.15);
+            --text: #ffffff;
+            --text-secondary: #a1a1aa;
+            --text-tertiary: #71717a;
+            --accent: #14b8a6;
+            --accent-secondary: #06b6d4;
+            --gradient: linear-gradient(135deg, #14b8a6 0%, #06b6d4 50%, #0ea5e9 100%);
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.8;
+            -webkit-font-smoothing: antialiased;
+        }
+        ::selection { background: var(--accent); color: white; }
+        a { color: var(--accent); text-decoration: none; }
+        a:hover { color: var(--accent-secondary); }
+
+        /* Header */
+        .header {
+            position: fixed;
+            top: 0; left: 0; right: 0;
+            z-index: 100;
+            background: rgba(0,0,0,0.8);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--border);
+            padding: 0 2rem;
+        }
+        .header-inner {
+            max-width: 1200px;
+            margin: 0 auto;
+            height: 64px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-weight: 600;
+            font-size: 15px;
+            color: var(--text);
+        }
+        .logo-mark {
+            width: 32px;
+            height: 32px;
+            background: var(--gradient);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .logo-mark svg { width: 18px; height: 18px; color: white; }
+        .back-link {
+            color: var(--text-secondary);
+            font-size: 14px;
+            font-weight: 500;
+            transition: color 0.2s;
+        }
+        .back-link:hover { color: var(--text); }
+
+        /* Article */
+        article {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 7rem 2rem 4rem;
+        }
+        .post-header { margin-bottom: 2rem; }
+        .post-category {
+            display: inline-block;
+            background: rgba(20,184,166,0.1);
+            border: 1px solid rgba(20,184,166,0.2);
+            color: var(--accent);
+            padding: 0.3rem 0.8rem;
+            border-radius: 100px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: 1rem;
+        }
+        h1 {
+            font-size: clamp(1.8rem, 4vw, 2.5rem);
+            font-weight: 600;
+            line-height: 1.2;
+            letter-spacing: -0.02em;
+            margin-bottom: 1rem;
+        }
+        .post-meta {
+            color: var(--text-tertiary);
+            font-size: 0.85rem;
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+        .post-image {
+            width: 100%;
+            height: 360px;
+            background: linear-gradient(135deg, rgba(20,184,166,0.15), rgba(6,182,212,0.1));
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            margin: 2rem 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 4rem;
+        }
+
+        /* Content */
+        .post-content { font-size: 1.05rem; line-height: 1.85; }
+        .post-content h2 {
+            font-size: 1.4rem;
+            font-weight: 600;
+            margin: 2.5rem 0 1rem;
+            letter-spacing: -0.01em;
+            background: var(--gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        .post-content h3 {
+            font-size: 1.15rem;
+            font-weight: 600;
+            margin: 1.5rem 0 0.75rem;
+        }
+        .post-content p {
+            margin-bottom: 1.25rem;
+            color: var(--text-secondary);
+        }
+        .post-content strong { color: var(--text); }
+        .post-content ul, .post-content ol {
+            margin: 1rem 0 1.5rem 1.5rem;
+            color: var(--text-secondary);
+        }
+        .post-content li { margin-bottom: 0.5rem; }
+        .post-content blockquote {
+            border-left: 3px solid var(--accent);
+            padding: 1rem 1.5rem;
+            margin: 1.5rem 0;
+            background: rgba(20,184,166,0.05);
+            border-radius: 0 8px 8px 0;
+            color: var(--text-secondary);
+            font-style: italic;
+        }
+
+        /* Key Points Box */
+        .key-points {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 1.5rem 2rem;
+            margin: 2rem 0;
+        }
+        .key-points h4 {
+            color: var(--accent);
+            margin-bottom: 1rem;
+            font-size: 1rem;
+        }
+        .key-points ul { margin: 0; padding-left: 1.2rem; }
+        .key-points li { color: var(--text-secondary); margin-bottom: 0.4rem; }
+
+        /* Sources */
+        .sources {
+            margin-top: 3rem;
+            padding-top: 2rem;
+            border-top: 1px solid var(--border);
+        }
+        .sources h4 { font-size: 0.95rem; margin-bottom: 0.75rem; color: var(--text-secondary); }
+        .sources ul { list-style: none; margin: 0; padding: 0; }
+        .sources li { font-size: 0.85rem; color: var(--text-tertiary); margin-bottom: 0.4rem; }
+
+        /* Share */
+        .share-section {
+            margin-top: 3rem;
+            padding: 2rem;
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            text-align: center;
+        }
+        .share-section p { color: var(--text-secondary); margin-bottom: 1rem; }
+        .share-buttons { display: flex; gap: 0.75rem; justify-content: center; flex-wrap: wrap; }
+        .share-btn {
+            padding: 0.6rem 1.2rem;
+            border-radius: 8px;
+            color: white;
+            font-weight: 500;
+            font-size: 0.85rem;
+            transition: transform 0.2s, opacity 0.2s;
+        }
+        .share-btn:hover { transform: translateY(-2px); opacity: 0.9; color: white; }
+        .share-btn.twitter { background: #1DA1F2; }
+        .share-btn.linkedin { background: #0A66C2; }
+        .share-btn.whatsapp { background: #25D366; }
+
+        /* Footer */
+        footer {
+            padding: 2rem;
+            border-top: 1px solid var(--border);
+            text-align: center;
+            margin-top: 4rem;
+        }
+        footer p { font-size: 0.85rem; color: var(--text-tertiary); }
+        footer a { color: var(--accent); }
+
+        @media (max-width: 640px) {
+            h1 { font-size: 1.5rem; }
+            article { padding: 5rem 1rem 2rem; }
+            .post-image { height: 200px; font-size: 3rem; }
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="header-inner">
+            <a href="../index.html" class="logo">
+                <div class="logo-mark">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M22 12h-4l-3 9L9 3l-3 9H2"/>
+                    </svg>
+                </div>
+                <span>TYZD</span>
+            </a>
+            <a href="../index.html#blog" class="back-link">← Blog'a Dön</a>
+        </div>
+    </header>
+
+    <article>
+        <div class="post-header">
+            <span class="post-category">📡 Radyoloji</span>
+            <h1>Aidoc CARE: Tek Bir AI ile BT'de 14 Akut Bulgunun Eş Zamanlı Triajı</h1>
+            <div class="post-meta">
+                <span>📅 26 Şubat 2026</span>
+                <span>⏱️ 8 dk okuma</span>
+                <span>✍️ TYZD Editör</span>
+            </div>
+        </div>
+
+        <div class="post-image">📡</div>
+
+        <div class="post-content">
+            <h2>Neden Önemli? Acil Servislerde "Sıra" Sorunu</h2>
+<p>Acil servislerde bilgisayarlı tomografi (BT) iş yükü her yıl artmaktadır. Geleneksel iş akışında görüntüler "ilk giren ilk çıkar" (FIFO) mantığıyla sıralanır; kritik bulgular rutin taramalar arasında kaybolabilir. Her dakikanın önem taşıdığı akut patolojilerde — karaciğer yaralanması, dalak rüptürü, bağırsak obstrüksiyonu, apandisit — bu gecikme klinik sonuçları doğrudan etkiler. Yapay zeka destekli triaj sistemleri, bu darboğazı çözmek için geliştirilmiştir.</p>
+<p>Ocak 2026'da bu alanda önemli bir gelişme yaşandı: <strong>Aidoc</strong>, FDA'dan tek bir yapay zeka <strong>foundation modeli</strong> ile abdominal BT'de <strong>14 farklı akut endikasyonu</strong> eş zamanlı triaj edebilen bir çözüm için 510(k) onayı aldı. Bu, sektörde <strong>çift haneli akut endikasyonu tek bir model altında birleştiren ilk FDA onayı</strong> olarak kayıtlara geçti.</p>
+<p><em>Bu içerik bilgi amaçlıdır ve tıbbi tavsiye niteliği taşımaz.</em></p>
+
+<h2>Aidoc CARE Foundation Modeli: Ne, Nasıl?</h2>
+<p><strong>Foundation model</strong> (temel model), büyük ve çeşitli veri setleri üzerinde önceden eğitilmiş, ardından spesifik görevlere uyarlanabilen geniş kapsamlı bir yapay zeka modelidir. ChatGPT gibi büyük dil modellerinin (LLM) metin alanında yaptığını, Aidoc CARE tıbbi görüntüleme alanında yapmaktadır.</p>
+<p>CARE modeli, <strong>11 yeni FDA onayı alan endikasyonu</strong> ve <strong>3 daha önce onaylanmış endikasyonu</strong> tek bir iş akışında birleştirir. Bunlar arasında karaciğer yaralanması, dalak yaralanması, bağırsak obstrüksiyonu, apandisit gibi acil patolojiler bulunur. Model, bir BT taramasını saniyeler içinde analiz ederek, acil vakaları otomatik olarak radyologun iş listesinin en üstüne taşır.</p>
+
+<h3>Teknik Altyapı: aiOS Ekosistemi</h3>
+<p>CARE modeli, Aidoc'un <strong>aiOS</strong> (AI Operating System) adını verdiği kurumsal yapay zeka platformu üzerinden sunulmaktadır. aiOS, veri normalizasyonu, sürekli performans izleme ve yönetişim (governance) işlevlerini üstlenir. Bu sayede sağlık kuruluşları, mevcut altyapılarını yeniden yapılandırmak zorunda kalmadan çoklu endikasyon AI'sını devreye alabilir.</p>
+<p>Geleneksel yaklaşımda her patoloji için ayrı bir AI modeli gerekir — bu da entegrasyon karmaşıklığını, lisans maliyetlerini ve yanlış alarm sayısını artırır. Foundation model yaklaşımı, bu sorunları <strong>tek bir kapsamlı model</strong> ile çözerek, önceki nesil tekli çözümlere göre <strong>yanlış alarm oranını yaklaşık 10 kat azalttığını</strong> iddia etmektedir.</p>
+
+<h2>Klinik Performans: Çok Merkezli Pivot Çalışma</h2>
+<p>FDA onayı, çok merkezli bir pivot çalışma ile desteklenmiştir. Çalışma sonuçları:</p>
+<ul>
+  <li>🟢 <strong>Sensitivite:</strong> Ortalama <strong>%97</strong> (endikasyona göre %98,5'e kadar)</li>
+  <li>🟢 <strong>Spesifisite:</strong> Ortalama <strong>%98</strong> (endikasyona göre %99,7'ye kadar)</li>
+</ul>
+<p>🟢 <strong>Güçlü kanıt:</strong> Bu metrikler, FDA onay sürecinde değerlendirilmiş ve doğrulanmış çok merkezli pivot çalışma verileridir.</p>
+<blockquote>"Yüksek spesifisite, bir vaka iş listesinin en üstüne çıktığında gerçekten orada olması gerektiği anlamına gelir. Önceliklendirme ancak sinyal temiz ve hekimler sisteme güveniyorsa işe yarar."
+— Aidoc, FDA başvuru verileri</blockquote>
+<p>Bu performans düzeyi klinik pratikte kritik öneme sahiptir: düşük yanlış pozitif oranı, radyologların "alarm yorgunluğu" (alert fatigue) yaşamadan sisteme güvenmesini sağlar.</p>
+
+<h3>Breakthrough Device Designation</h3>
+<p>CARE modeli, FDA tarafından <strong>Breakthrough Device</strong> (Çığır Açan Cihaz) statüsü verilmiştir. Bu özel statü, daha hızlı değerlendirme süreci ve FDA ile daha yoğun etkileşim imkânı sağlar; ancak güvenlik ve etkinlik standartlarından herhangi bir taviz verilmez. Bu statü, modelin mevcut tedavi ve tanı yöntemlerine göre anlamlı bir klinik üstünlük sunma potansiyelini göstermektedir.</p>
+
+<h2>Gerçek Dünya Etkisi: Rakamlar</h2>
+<p>FDA onayı bir başlangıç noktasıdır; asıl ölçüt gerçek dünya etkisidir. Aidoc'un mevcut dağılım ağı:</p>
+<ul>
+  <li><strong>1.600+</strong> sağlık merkezinde aktif kullanım</li>
+  <li>Yılda <strong>60 milyon</strong> hasta vakası analiz ediliyor</li>
+  <li>Acil servis ve ayaktan bakım ortamlarında yaygın kullanım</li>
+</ul>
+<p>🟡 <strong>Orta kanıt:</strong> Gerçek dünya kullanım verileri, kontrollü klinik çalışma verisi olmasa da, sistemin klinik ortamda sürdürülebilir şekilde çalıştığını gösteren önemli bir göstergedir.</p>
+
+<h3>ISC 2026 Konferans Sonuçları</h3>
+<p>Şubat 2026'da International Stroke Conference (ISC) 2026'da sunulan yeni klinik sonuçlar, Aidoc'un AI destekli triaj performansını daha da desteklemektedir. Büyük ve orta damar oklüzyonlarının (LVO/MeVO) triajında, sistem MeVO segment oklüzyonlarını tespit etmede <strong>%92,3 sensitivite</strong> göstermiştir — geleneksel AI çözümünün %17,3'üne karşı dikkat çekici bir fark.</p>
+
+<h2>Radyolojide AI: Daha Geniş Bağlam</h2>
+<p>FDA, bugüne kadar 900'den fazla AI/makine öğrenmesi tabanlı tıbbi cihaza onay vermiştir ve bunların büyük çoğunluğu radyoloji alanındadır. Ancak bu cihazların çoğu tek bir patolojiyi tespit eden "nokta çözümler" (point solutions) olarak tasarlanmıştır. CARE modeli, bu parçalı yaklaşımdan <strong>kapsamlı platform</strong> yaklaşımına geçişi temsil etmektedir.</p>
+<p>Aidoc'un gelecek planları:</p>
+<ul>
+  <li>Önümüzdeki <strong>18 ay içinde</strong> CARE'i tüm BT ve X-ray iş akışlarına genişletme</li>
+  <li><strong>Otomatik taslak rapor oluşturma</strong> (automated draft report generation) gibi uçtan uca klinik AI iş akışları geliştirme</li>
+</ul>
+
+<h3>Türkiye Perspektifi</h3>
+<p>Türkiye'de radyoloji alanında yapay zeka kullanımı hızla yaygınlaşmaktadır. TÜBİTAK destekli projeler, üniversite-sanayi işbirlikleri ve Sağlık Bakanlığı'nın dijital sağlık politikaları bu gelişmeyi desteklemektedir. Aidoc CARE gibi kapsamlı triaj çözümleri, özellikle yoğun acil servislerde ve radyolog sayısının yetersiz kaldığı bölgelerde önemli bir fayda potansiyeli taşımaktadır.</p>
+<p>Ancak dikkat edilmesi gereken noktalar da mevcuttur:</p>
+<ul>
+  <li><strong>Veri gizliliği:</strong> KVKK çerçevesinde hasta verilerinin işlenmesi</li>
+  <li><strong>Regülasyon:</strong> TİTCK'nin (Türkiye İlaç ve Tıbbi Cihaz Kurumu) AI bazlı cihazlar için değerlendirme süreçleri</li>
+  <li><strong>Eğitim:</strong> Radyoloji asistanlarının AI araçlarıyla çalışma yetkinliğinin geliştirilmesi</li>
+  <li><strong>Yerelleştirme:</strong> Modellerin Türkiye popülasyonuna uygunluğunun klinik doğrulanması</li>
+</ul>
+
+<h2>Sonuç: "Her Şey STAT Olunca, Hiçbir Şey Öncelikli Değildir"</h2>
+<p>Aidoc CARE'nin FDA onayı, radyolojide yapay zekanın "tekli araçlar" döneminden "kapsamlı platform" dönemine geçişinin somut bir göstergesidir. %97 sensitivite ve %98 spesifisite ile 14 akut endikasyonun eş zamanlı triajı, acil servislerde "ilk giren ilk çıkar" mantığının yerini akıllı önceliklendirmeye bırakmasına olanak tanımaktadır.</p>
+<p>Bu gelişme, Türkiye'deki tıpta yapay zeka ekosistemi için de önemli dersler barındırmaktadır: kapsamlı, doğrulanmış ve iş akışına entegre AI çözümleri, nokta çözümlerden daha sürdürülebilir bir model sunabilir.</p>
+<p><em>Unutulmamalıdır ki yapay zeka karar verici değil, karar destekçisidir. Nihai klinik kararlar her zaman uzman hekimler tarafından verilmelidir.</em></p>
+        </div>
+
+        <div class="key-points">
+            <h4>📌 Önemli Noktalar</h4>
+            <ul><li>Aidoc CARE, tek bir foundation model ile abdominal BT'de 14 akut endikasyonu eş zamanlı triaj eden ilk FDA onaylı çözüm.</li>
+            <li>Çok merkezli pivot çalışmada ortalama %97 sensitivite, %98 spesifisite (endikasyona göre %99,7'ye kadar).</li>
+            <li>1.600+ sağlık merkezinde aktif, yılda 60 milyon vaka analizi — gerçek dünya ölçeğinde doğrulanmış platform.</li>
+            <li>Yanlış alarm oranını önceki nesil tekli çözümlere göre ~10 kat azaltarak "alarm yorgunluğu" sorununu hedefliyor.</li></ul>
+        </div>
+
+        <div class="sources">
+            <h4>📚 Kaynaklar</h4>
+            <ul><li><a href="https://www.aidoc.com/comprehensive-abdomen-ct-triage/" target="_blank">Aidoc. "FDA-Cleared Comprehensive Abdomen CT Triage Powered by CARE™ Foundation Model." Aidoc.com, Ocak 2026.</a></li>
+            <li><a href="https://www.statnews.com/2026/01/22/fda-clears-aidoc-ai-14-conditions-ct-scan/" target="_blank">STAT News. "FDA clears Aidoc tool to detect 14 different conditions from a CT scan." STATnews.com, 22 Ocak 2026.</a></li>
+            <li><a href="https://hlth.com/insights/news/aidoc-wins-fda-nod-for-comprehensive-foundation-model-ai-2026-01-26" target="_blank">HLTH. "Aidoc Wins FDA Nod for Comprehensive Foundation Model AI." HLTH.com, 26 Ocak 2026.</a></li>
+            <li><a href="https://www.prnewswire.com/news-releases/new-clinical-outcomes-at-isc-2026-demonstrate-aidocs-superior-ai-powered-triage-of-large-and-medium-vessel-occlusions-302678860.html" target="_blank">PRNewswire. "New Clinical Outcomes at ISC 2026 Demonstrate Aidoc's AI-Powered Triage of LVO/MeVO." Şubat 2026.</a></li>
+            <li><a href="https://doi.org/10.1148/radiol.2021210064" target="_blank">van Leeuwen KG, et al. "Artificial intelligence in radiology: 100 commercially available products and their scientific evidence." Radiology. 2021;299(3):572-582.</a></li>
+            <li><a href="https://doi.org/10.1038/s41591-023-02502-7" target="_blank">Rajpurkar P, Lungren MP. "The current and future state of AI interpretation of medical images." Nature Medicine. 2023;29:2175-2182.</a></li></ul>
+        </div>
+
+        <div class="share-section">
+            <p><strong>Bu yazıyı paylaşın</strong></p>
+            <div class="share-buttons">
+                <a href="https://twitter.com/intent/tweet?text=FDA%20Onayl%C4%B1%20Aidoc%20CARE%3A%20BT'de%2014%20Akut%20Bulgunun%20Triaj%C4%B1&url=https%3A%2F%2Ftyzd.org%2Fblog%2Ffda-onayli-aidoc-care-btde-14-akut-bulgunun-triaji.html" class="share-btn twitter" target="_blank">Twitter</a>
+                <a href="https://www.linkedin.com/shareArticle?mini=true&url=https%3A%2F%2Ftyzd.org%2Fblog%2Ffda-onayli-aidoc-care-btde-14-akut-bulgunun-triaji.html&title=FDA%20Onayl%C4%B1%20Aidoc%20CARE%3A%20BT'de%2014%20Akut%20Bulgunun%20Triaj%C4%B1" class="share-btn linkedin" target="_blank">LinkedIn</a>
+                <a href="https://wa.me/?text=FDA%20Onayl%C4%B1%20Aidoc%20CARE%3A%20BT'de%2014%20Akut%20Bulgunun%20Triaj%C4%B1%20https%3A%2F%2Ftyzd.org%2Fblog%2Ffda-onayli-aidoc-care-btde-14-akut-bulgunun-triaji.html" class="share-btn whatsapp" target="_blank">WhatsApp</a>
+            </div>
+        </div>
+    </article>
+
+    <footer>
+        <p>© 2026 <a href="../index.html">Tıpta Yapay Zeka Derneği</a> · Tüm hakları saklıdır.</p>
+    </footer>
+</body>
+</html>

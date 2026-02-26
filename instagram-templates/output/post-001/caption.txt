@@ -1,0 +1,21 @@
+🩻 Radyolojide yapay zeka yeni bir döneme giriyor!
+
+Aidoc, FDA'dan tek bir AI foundation modeli ile abdominal BT'de 14 farklı akut bulguyu eş zamanlı triaj edebilen çözümü için onay aldı — sektörde bir ilk.
+
+📊 Çok merkezli pivot çalışma sonuçları:
+• Sensitivite: ortalama %97 (→ %98,5'e kadar)
+• Spesifisite: ortalama %98 (→ %99,7'ye kadar)
+• Önceki nesle göre ~10x daha az yanlış alarm
+
+🏥 Gerçek dünya ölçeği:
+• 1.600+ sağlık merkezinde aktif
+• Yılda 60 milyon hasta vakası analizi
+
+💡 Neden önemli?
+Acil servislerde BT görüntüleri "ilk gelen ilk değerlendirilir" mantığıyla sıralanır. Karaciğer yaralanması, dalak rüptürü veya bağırsak obstrüksiyonu olan bir hasta, rutin taramaların arkasında bekleyebilir. Foundation model yaklaşımı, tüm akut patolojileri tek seferde tarayarak kritik vakaları otomatik olarak öne çıkarıyor.
+
+🇹🇷 Türkiye'de radyolojide AI kullanımı hızla artıyor. Bu tür kapsamlı triaj çözümleri, özellikle radyolog sayısının yetersiz kaldığı bölgelerde önemli fayda potansiyeli taşıyor.
+
+👉 Detaylı analiz için blog yazımıza göz atın: tyzd.org/blog
+
+#TıptaYapayZeka #TYZD #MedikalAI #Radyoloji #FDAOnay #DerinÖğrenme #SağlıktaTeknoloji

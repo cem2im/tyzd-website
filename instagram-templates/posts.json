@@ -1,1 +1,48 @@
-[]
+[
+  {
+    "id": 1,
+    "date": "2026-02-26",
+    "blogSlug": "fda-onayli-aidoc-care-btde-14-akut-bulgunun-triaji",
+    "caption": "🩻 Radyolojide yapay zeka yeni bir döneme giriyor!\n\nAidoc, FDA'dan tek bir AI foundation modeli ile abdominal BT'de 14 farklı akut bulguyu eş zamanlı triaj edebilen çözümü için onay aldı — sektörde bir ilk.\n\n📊 Çok merkezli pivot çalışma sonuçları:\n• Sensitivite: ortalama %97 (→ %98,5'e kadar)\n• Spesifisite: ortalama %98 (→ %99,7'ye kadar)\n• Önceki nesle göre ~10x daha az yanlış alarm\n\n🏥 Gerçek dünya ölçeği:\n• 1.600+ sağlık merkezinde aktif\n• Yılda 60 milyon hasta vakası analizi\n\n💡 Neden önemli?\nAcil servislerde BT görüntüleri \"ilk gelen ilk değerlendirilir\" mantığıyla sıralanır. Karaciğer yaralanması, dalak rüptürü veya bağırsak obstrüksiyonu olan bir hasta, rutin taramaların arkasında bekleyebilir. Foundation model yaklaşımı, tüm akut patolojileri tek seferde tarayarak kritik vakaları otomatik olarak öne çıkarıyor.\n\n🇹🇷 Türkiye'de radyolojide AI kullanımı hızla artıyor. Bu tür kapsamlı triaj çözümleri, özellikle radyolog sayısının yetersiz kaldığı bölgelerde önemli fayda potansiyeli taşıyor.\n\n👉 Detaylı analiz için blog yazımıza göz atın: tyzd.org/blog\n\n#TıptaYapayZeka #TYZD #MedikalAI #Radyoloji #FDAOnay #DerinÖğrenme #SağlıktaTeknoloji",
+    "slides": [
+      {
+        "id": "1-cover",
+        "template": "cover-slide.html",
+        "data": {
+          "HEADLINE": "BT'de 14 Akut Bulgu, Tek AI",
+          "SUBHEADLINE": "FDA onaylı Aidoc CARE: Radyolojide foundation model çağı",
+          "CATEGORY": "Radyoloji"
+        }
+      },
+      {
+        "id": "1-content-1",
+        "template": "content-slide.html",
+        "data": {
+          "PAGE_NUM": "2/4",
+          "TITLE": "Pivot Çalışma Sonuçları",
+          "BULLET_1": "Sensitivite: ort. %97 (→ %98,5'e kadar)",
+          "BULLET_2": "Spesifisite: ort. %98 (→ %99,7'ye kadar)",
+          "BULLET_3": "Önceki nesle göre ~10x az yanlış alarm"
+        }
+      },
+      {
+        "id": "1-content-2",
+        "template": "content-slide.html",
+        "data": {
+          "PAGE_NUM": "3/4",
+          "TITLE": "Gerçek Dünya Etkisi",
+          "BULLET_1": "1.600+ sağlık merkezinde aktif kullanım",
+          "BULLET_2": "Yılda 60 milyon hasta vakası analizi",
+          "BULLET_3": "Acil serviste akıllı önceliklendirme"
+        }
+      },
+      {
+        "id": "1-cta",
+        "template": "cta-slide.html",
+        "data": {
+          "CTA_URL": "tyzd.org"
+        }
+      }
+    ]
+  }
+]
