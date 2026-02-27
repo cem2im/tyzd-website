@@ -1,7 +1,17 @@
 [
   {
+    "topic": "Tiroid Kanser Tanısında FDA Onaylı 6 AI Sistemi: Ultrason Değerlendirmesinde Yapay Zeka — Thyroid dergisinde yayımlanan 2026 güncellemesi. S-Detect, Koios DS, AmCAD-UT dahil 6 FDA onaylı AI platformu tiroid nodüllerinin ultrason değerlendirmesinde yüksek performans gösteriyor. LLM'ler (ChatGPT-4o) ise klinik kullanım için henüz yetersiz bulundu. Kaynak: Thyroid dergisi, ATA (American Thyroid Association)",
+    "slug": "fda-onayli-ai-sistemleri-tiroid-kanser-tanisinda-ultrason",
+    "date": "2026-02-27"
+  },
+  {
     "topic": "FDA Aidoc CARE Foundation Model: Tek AI ile BT'de 14 Akut Bulgunun Eş Zamanlı Triajı",
     "slug": "fda-onayli-aidoc-care-btde-14-akut-bulgunun-triaji",
     "date": "2026-02-26"
+  },
+  {
+    "topic": "FDA Onaylı AI Sistemleri: Tiroid Kanser Tanısında Ultrason",
+    "slug": "fda-onayli-ai-sistemleri-tiroid-kanser-tanisinda-ultrason",
+    "date": "2026-02-27"
   }
 ]
