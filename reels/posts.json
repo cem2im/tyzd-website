@@ -1,0 +1,27 @@
+[
+  {
+    "id": 1,
+    "icon": "🩻",
+    "title": "FDA Onaylı Aidoc:",
+    "accent": "14 Akut Bulgu",
+    "title_after": "Eş Zamanlı Triaj",
+    "subtitle": "Tek bir AI ile BT taramalarında otomatik triaj",
+    "category": "Radyoloji",
+    "section_title": "Aidoc CARE Modeli",
+    "bullets": [
+      "1.600+ hastanede aktif kullanım",
+      "14 akut durum eş zamanlı tespit",
+      "Ortalama triaj süresi 1 dakikadan az"
+    ],
+    "stat_number": "%97",
+    "stat_text": "Sensitivite oranı",
+    "source": "FDA Pivot Çalışması",
+    "detail": "Aidoc CARE, <strong>CNN tabanlı foundation model</strong> kullanarak abdominal BT taramalarında 14 farklı akut bulguyu eş zamanlı olarak tespit ediyor.",
+    "section_title_2": "Türkiye ve Gelecek",
+    "bullets2": [
+      "CNN tabanlı foundation model mimarisi",
+      "Yıllık 60M+ hasta verisi analizi",
+      "Türkiye'de henüz onay bekleniyor"
+    ]
+  }
+]

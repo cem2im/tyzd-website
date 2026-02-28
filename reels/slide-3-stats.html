@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&display=swap" rel="stylesheet">
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+  width: 1080px; height: 1920px;
+  font-family: 'Inter', sans-serif;
+  background: #000;
+  color: #fff; display: flex; flex-direction: column; overflow: hidden; position: relative;
+}
+.grid-bg {
+  position: absolute; top: 0; left: 0; right: 0; bottom: 0;
+  background-image:
+    linear-gradient(rgba(20,184,166,0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(20,184,166,0.03) 1px, transparent 1px);
+  background-size: 60px 60px;
+}
+.glow-center {
+  position: absolute; top: 35%; left: 50%; transform: translate(-50%, -50%);
+  width: 800px; height: 800px;
+  background: radial-gradient(circle, rgba(20,184,166,0.15) 0%, rgba(6,182,212,0.08) 30%, transparent 65%);
+}
+.topbar {
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 50px 70px 0; z-index: 1;
+}
+.topbar-brand {
+  font-size: 24px; font-weight: 700;
+  background: linear-gradient(135deg, #14b8a6, #06b6d4);
+  -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+.topbar-page {
+  font-size: 22px; font-weight: 700; color: rgba(255,255,255,0.35);
+  letter-spacing: 2px;
+}
+.content {
+  flex: 1; display: flex; flex-direction: column;
+  align-items: center; justify-content: center;
+  padding: 40px 80px 40px; z-index: 1;
+  gap: 48px; text-align: center;
+}
+.stat-number {
+  font-size: 160px; font-weight: 900; line-height: 1;
+  background: linear-gradient(135deg, #14b8a6, #06b6d4, #0ea5e9);
+  -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+  background-clip: text;
+  filter: drop-shadow(0 0 40px rgba(20,184,166,0.3));
+}
+.stat-text {
+  font-size: 40px; font-weight: 700; line-height: 1.4;
+  max-width: 800px; color: rgba(255,255,255,0.85);
+}
+.source {
+  font-size: 22px; color: rgba(255,255,255,0.35);
+  letter-spacing: 1px;
+}
+.detail-card {
+  background: rgba(255,255,255,0.03);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(20,184,166,0.15);
+  border-left: 5px solid #14b8a6;
+  border-radius: 18px; padding: 36px 44px;
+  max-width: 860px; width: 100%; text-align: left;
+}
+.detail-card p {
+  font-size: 28px; line-height: 1.6; color: rgba(255,255,255,0.75);
+}
+.detail-card strong {
+  color: #14b8a6;
+}
+.footer {
+  padding: 36px 70px; display: flex; align-items: center;
+  justify-content: space-between; border-top: 2px solid rgba(255,255,255,0.06); z-index: 1;
+}
+.footer-brand {
+  font-size: 28px; font-weight: 700;
+  background: linear-gradient(135deg, #14b8a6, #06b6d4);
+  -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+.footer-tagline { font-size: 20px; color: rgba(255,255,255,0.4); }
+</style>
+</head>
+<body>
+<div class="grid-bg"></div>
+<div class="glow-center"></div>
+<div class="topbar">
+  <div class="topbar-brand">TYZD</div>
+  <div class="topbar-page">3/5</div>
+</div>
+<div class="content">
+  <div class="stat-number">{{STAT_NUMBER}}</div>
+  <div class="stat-text">{{STAT_TEXT}}</div>
+  <div class="source">Kaynak: {{SOURCE}}</div>
+  <div class="detail-card">
+    <p>{{DETAIL}}</p>
+  </div>
+</div>
+<div class="footer">
+  <div class="footer-brand">tyzd.org</div>
+  <div class="footer-tagline">🏛️ Tıpta Yapay Zeka Derneği</div>
+</div>
+</body>
+</html>

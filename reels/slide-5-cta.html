@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&family=Playfair+Display:wght@700;900&display=swap" rel="stylesheet">
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+  width: 1080px; height: 1920px;
+  font-family: 'Inter', sans-serif;
+  background: #000;
+  color: #fff; display: flex; flex-direction: column; overflow: hidden; position: relative;
+}
+.grid-bg {
+  position: absolute; top: 0; left: 0; right: 0; bottom: 0;
+  background-image:
+    linear-gradient(rgba(20,184,166,0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(20,184,166,0.03) 1px, transparent 1px);
+  background-size: 60px 60px;
+}
+.glow-top {
+  position: absolute; top: 20%; left: 50%; transform: translate(-50%, -50%);
+  width: 600px; height: 600px;
+  background: radial-gradient(circle, rgba(20,184,166,0.12) 0%, transparent 65%);
+}
+.glow-bottom {
+  position: absolute; bottom: 20%; left: 50%; transform: translateX(-50%);
+  width: 600px; height: 500px;
+  background: radial-gradient(circle, rgba(6,182,212,0.08) 0%, transparent 65%);
+}
+.content {
+  flex: 1; display: flex; flex-direction: column;
+  align-items: center; justify-content: center;
+  padding: 120px 80px 60px; text-align: center; z-index: 1;
+  gap: 44px;
+}
+.pre-text {
+  font-size: 28px; font-weight: 600; color: rgba(255,255,255,0.5);
+  text-transform: uppercase; letter-spacing: 4px;
+}
+.url {
+  font-family: 'Playfair Display', serif;
+  font-size: 90px; font-weight: 900; line-height: 1.1;
+  background: linear-gradient(135deg, #14b8a6, #06b6d4, #0ea5e9);
+  -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+  background-clip: text;
+  filter: drop-shadow(0 0 30px rgba(20,184,166,0.3));
+}
+.cta-btn {
+  display: inline-block;
+  background: linear-gradient(135deg, #14b8a6, #06b6d4);
+  border-radius: 99px; padding: 24px 64px;
+  font-size: 32px; font-weight: 800; color: #000;
+  letter-spacing: 2px;
+  box-shadow: 0 8px 32px rgba(20,184,166,0.35);
+}
+.divider {
+  width: 120px; height: 3px;
+  background: linear-gradient(90deg, #14b8a6, #06b6d4);
+  border-radius: 99px;
+}
+.logo-section {
+  display: flex; flex-direction: column; align-items: center; gap: 16px;
+}
+.logo-text {
+  font-size: 36px; font-weight: 800;
+}
+.logo-text .icon { margin-right: 8px; }
+.tagline {
+  font-size: 24px; color: rgba(255,255,255,0.5);
+  letter-spacing: 3px;
+}
+.trust-badges {
+  display: flex; gap: 12px; align-items: center;
+}
+.trust-badge {
+  font-size: 20px; color: rgba(255,255,255,0.4);
+}
+.trust-dot {
+  width: 4px; height: 4px; background: rgba(255,255,255,0.2);
+  border-radius: 50%;
+}
+.footer {
+  padding: 36px 70px; display: flex; align-items: center;
+  justify-content: space-between; border-top: 2px solid rgba(255,255,255,0.06); z-index: 1;
+}
+.footer-brand {
+  font-size: 28px; font-weight: 700;
+  background: linear-gradient(135deg, #14b8a6, #06b6d4);
+  -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+.footer-tagline { font-size: 20px; color: rgba(255,255,255,0.4); }
+</style>
+</head>
+<body>
+<div class="grid-bg"></div>
+<div class="glow-top"></div>
+<div class="glow-bottom"></div>
+<div class="content">
+  <div class="pre-text">Daha fazlası için</div>
+  <div class="url">tyzd.org</div>
+  <div class="cta-btn">Takip et 👆</div>
+  <div class="divider"></div>
+  <div class="logo-section">
+    <div class="logo-text"><span class="icon">🏛️</span>Tıpta Yapay Zeka Derneği</div>
+    <div class="tagline">Bilim • Teknoloji • Sağlık</div>
+  </div>
+  <div class="trust-badges">
+    <div class="trust-badge">Bilimsel</div>
+    <div class="trust-dot"></div>
+    <div class="trust-badge">Güvenilir</div>
+    <div class="trust-dot"></div>
+    <div class="trust-badge">Türkçe</div>
+  </div>
+</div>
+<div class="footer">
+  <div class="footer-brand">tyzd.org</div>
+  <div class="footer-tagline">🏛️ Tıpta Yapay Zeka Derneği</div>
+</div>
+</body>
+</html>

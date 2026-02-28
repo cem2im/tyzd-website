@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&family=Playfair+Display:wght@700;900&display=swap" rel="stylesheet">
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+  width: 1080px; height: 1920px;
+  font-family: 'Inter', sans-serif;
+  background: #000;
+  color: #fff; display: flex; flex-direction: column; overflow: hidden; position: relative;
+}
+.grid-bg {
+  position: absolute; top: 0; left: 0; right: 0; bottom: 0;
+  background-image:
+    linear-gradient(rgba(20,184,166,0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(20,184,166,0.03) 1px, transparent 1px);
+  background-size: 60px 60px;
+}
+.glow {
+  position: absolute; top: 30%; left: 50%; transform: translate(-50%, -50%);
+  width: 700px; height: 700px;
+  background: radial-gradient(circle, rgba(20,184,166,0.12) 0%, rgba(6,182,212,0.06) 40%, transparent 70%);
+}
+.glow-bottom {
+  position: absolute; bottom: 15%; left: 50%; transform: translateX(-50%);
+  width: 500px; height: 400px;
+  background: radial-gradient(circle, rgba(14,165,233,0.06) 0%, transparent 70%);
+}
+.content {
+  flex: 1; display: flex; flex-direction: column;
+  align-items: center;
+  padding: 120px 80px 60px; text-align: center; z-index: 1;
+  gap: 44px;
+}
+.ai-icon {
+  font-size: 130px;
+  filter: drop-shadow(0 0 40px rgba(20,184,166,0.5));
+}
+.badge {
+  display: inline-block; background: rgba(20,184,166,0.1);
+  border: 2px solid rgba(20,184,166,0.4); border-radius: 99px;
+  padding: 16px 40px; font-size: 22px; font-weight: 700;
+  color: #14b8a6; text-transform: uppercase; letter-spacing: 5px;
+}
+.title {
+  font-family: 'Playfair Display', serif;
+  font-size: 74px; font-weight: 900; line-height: 1.15;
+  max-width: 900px;
+}
+.title .accent {
+  background: linear-gradient(135deg, #14b8a6, #06b6d4);
+  -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+.subtitle {
+  font-size: 30px; font-weight: 500; opacity: 0.7;
+  max-width: 780px; line-height: 1.6;
+}
+.swipe {
+  font-size: 24px; color: rgba(255,255,255,0.4); letter-spacing: 3px;
+  text-transform: uppercase;
+  margin-top: auto;
+}
+.footer {
+  padding: 36px 70px; display: flex; align-items: center;
+  justify-content: space-between; border-top: 2px solid rgba(255,255,255,0.06); z-index: 1;
+}
+.footer-brand {
+  font-size: 28px; font-weight: 700;
+  background: linear-gradient(135deg, #14b8a6, #06b6d4);
+  -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+.footer-tagline { font-size: 20px; color: rgba(255,255,255,0.4); }
+.footer-tagline .icon { margin-right: 6px; }
+</style>
+</head>
+<body>
+<div class="grid-bg"></div>
+<div class="glow"></div>
+<div class="glow-bottom"></div>
+<div class="content">
+  <div class="ai-icon">{{ICON}}</div>
+  <div class="badge">{{CATEGORY}}</div>
+  <div class="title">{{TITLE_BEFORE}} <span class="accent">{{ACCENT}}</span> {{TITLE_AFTER}}</div>
+  <div class="subtitle">{{SUBTITLE}}</div>
+  <div class="swipe">Kaydır →</div>
+</div>
+<div class="footer">
+  <div class="footer-brand">tyzd.org</div>
+  <div class="footer-tagline"><span class="icon">🏛️</span>Tıpta Yapay Zeka Derneği</div>
+</div>
+</body>
+</html>

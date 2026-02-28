@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&display=swap" rel="stylesheet">
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+  width: 1080px; height: 1920px;
+  font-family: 'Inter', sans-serif;
+  background: #000;
+  color: #fff; display: flex; flex-direction: column; overflow: hidden; position: relative;
+}
+.grid-bg {
+  position: absolute; top: 0; left: 0; right: 0; bottom: 0;
+  background-image:
+    linear-gradient(rgba(20,184,166,0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(20,184,166,0.03) 1px, transparent 1px);
+  background-size: 60px 60px;
+}
+.glow {
+  position: absolute; top: 40%; left: 50%; transform: translate(-50%, -50%);
+  width: 500px; height: 500px;
+  background: radial-gradient(circle, rgba(20,184,166,0.08) 0%, transparent 70%);
+}
+.topbar {
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 50px 70px 0; z-index: 1;
+}
+.topbar-brand {
+  font-size: 24px; font-weight: 700;
+  background: linear-gradient(135deg, #14b8a6, #06b6d4);
+  -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+.topbar-page {
+  font-size: 22px; font-weight: 700; color: rgba(255,255,255,0.35);
+  letter-spacing: 2px;
+}
+.content {
+  flex: 1; display: flex; flex-direction: column;
+  align-items: center; justify-content: center;
+  padding: 40px 70px 40px; z-index: 1;
+  gap: 48px;
+}
+.section-title {
+  font-size: 48px; font-weight: 900; text-align: center;
+  background: linear-gradient(135deg, #14b8a6, #06b6d4, #0ea5e9);
+  -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+  background-clip: text;
+  max-width: 860px;
+}
+.bullets {
+  display: flex; flex-direction: column; gap: 28px;
+  width: 100%; max-width: 920px;
+}
+.bullet-card {
+  display: flex; align-items: flex-start; gap: 24px;
+  background: rgba(255,255,255,0.03);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(20,184,166,0.15);
+  border-radius: 20px; padding: 36px 40px;
+}
+.bullet-dot {
+  width: 16px; height: 16px; min-width: 16px;
+  background: linear-gradient(135deg, #14b8a6, #06b6d4);
+  border-radius: 50%; margin-top: 8px;
+  box-shadow: 0 0 12px rgba(20,184,166,0.4);
+}
+.bullet-text {
+  font-size: 30px; font-weight: 600; line-height: 1.5;
+  color: rgba(255,255,255,0.85);
+}
+.footer {
+  padding: 36px 70px; display: flex; align-items: center;
+  justify-content: space-between; border-top: 2px solid rgba(255,255,255,0.06); z-index: 1;
+}
+.footer-brand {
+  font-size: 28px; font-weight: 700;
+  background: linear-gradient(135deg, #14b8a6, #06b6d4);
+  -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+.footer-tagline { font-size: 20px; color: rgba(255,255,255,0.4); }
+</style>
+</head>
+<body>
+<div class="grid-bg"></div>
+<div class="glow"></div>
+<div class="topbar">
+  <div class="topbar-brand">TYZD</div>
+  <div class="topbar-page">{{PAGE}}/5</div>
+</div>
+<div class="content">
+  <div class="section-title">{{SECTION_TITLE}}</div>
+  <div class="bullets">
+    <div class="bullet-card">
+      <div class="bullet-dot"></div>
+      <div class="bullet-text">{{BULLET_1}}</div>
+    </div>
+    <div class="bullet-card">
+      <div class="bullet-dot"></div>
+      <div class="bullet-text">{{BULLET_2}}</div>
+    </div>
+    <div class="bullet-card">
+      <div class="bullet-dot"></div>
+      <div class="bullet-text">{{BULLET_3}}</div>
+    </div>
+  </div>
+</div>
+<div class="footer">
+  <div class="footer-brand">tyzd.org</div>
+  <div class="footer-tagline">🏛️ Tıpta Yapay Zeka Derneği</div>
+</div>
+</body>
+</html>
