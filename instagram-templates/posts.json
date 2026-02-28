@@ -1,5 +1,51 @@
 [
   {
+    "id": 3,
+    "date": "2026-02-28",
+    "blogSlug": "fda-onayli-aidoc-araci-bt-ile-14-durumun-tespiti",
+    "caption": "FDA, Aidoc'un BT taramalarından 14 durumu tespit eden AI aracını onayladı! 📈 Bu teknoloji, tanı süreçlerini hızlandırabilir ve Türkiye'de sağlık erişimini geliştirebilir. AI'nin tıbbi görüntülemedeki rolünü keşfedin. Bilgi amaçlıdır, tıbbi tavsiye değildir. #TıptaYapayZeka #TYZD #MedikalAI #SağlıktaTeknoloji #YapayZeka #DerinÖğrenme",
+    "slides": [
+      {
+        "id": "3-cover",
+        "template": "cover-slide.html",
+        "data": {
+          "HEADLINE": "Aidoc AI FDA Onaylandı!",
+          "SUBHEADLINE": "BT ile 14 durumun hızlı tespiti ve Türkiye uygulamaları",
+          "CATEGORY": "Radyoloji"
+        }
+      },
+      {
+        "id": "3-content-1",
+        "template": "content-slide.html",
+        "data": {
+          "PAGE_NUM": "2/4",
+          "TITLE": "Aidoc'un İşlevi",
+          "BULLET_1": "Evrişimli Sinir Ağları (CNN) ile BT analizleri",
+          "BULLET_2": "14 durumu otomatik triyaj eder",
+          "BULLET_3": "Doktor iş yükünü azaltır"
+        }
+      },
+      {
+        "id": "3-content-2",
+        "template": "content-slide.html",
+        "data": {
+          "PAGE_NUM": "3/4",
+          "TITLE": "Türkiye'de Etkileri",
+          "BULLET_1": "Sağlık Bakanlığı projelerinde potansiyel",
+          "BULLET_2": "Erken tanı için umut verici",
+          "BULLET_3": "Etk ve veri gizliliği önemli"
+        }
+      },
+      {
+        "id": "3-cta",
+        "template": "cta-slide.html",
+        "data": {
+          "CTA_URL": "tyzd.org"
+        }
+      }
+    ]
+  },
+  {
     "id": 2,
     "date": "2026-02-27",
     "blogSlug": "fda-onayli-ai-sistemleri-tiroid-kanser-tanisinda-ultrason",

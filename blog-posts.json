@@ -1,5 +1,51 @@
 [
   {
+    "slug": "fda-onayli-aidoc-araci-bt-ile-14-durumun-tespiti",
+    "title": "FDA Onaylı Aidoc Aracı: BT ile 14 Durumun Tespiti",
+    "description": "FDA, Aidoc'un BT taramalarından 14 durumu tespit eden AI aracını onayladı. Tıbbi görüntülemede AI'nin rolü ve Türkiye uygulamaları.",
+    "category": "radyoloji",
+    "categoryName": "Radyoloji",
+    "categoryIcon": "📡",
+    "categoryColor": "#06b6d4",
+    "date": "2026-02-28",
+    "readTime": 8,
+    "priority": "normal",
+    "area": "custom",
+    "url": "blog/fda-onayli-aidoc-araci-bt-ile-14-durumun-tespiti.html",
+    "instagram": {
+      "caption": "FDA, Aidoc'un BT taramalarından 14 durumu tespit eden AI aracını onayladı! 📈 Bu teknoloji, tanı süreçlerini hızlandırabilir ve Türkiye'de sağlık erişimini geliştirebilir. AI'nin tıbbi görüntülemedeki rolünü keşfedin. Bilgi amaçlıdır, tıbbi tavsiye değildir. #TıptaYapayZeka #TYZD #MedikalAI #SağlıktaTeknoloji #YapayZeka #DerinÖğrenme",
+      "slides": [
+        {
+          "type": "cover",
+          "headline": "Aidoc AI FDA Onaylandı!",
+          "subheadline": "BT ile 14 durumun hızlı tespiti ve Türkiye uygulamaları"
+        },
+        {
+          "type": "content",
+          "title": "Aidoc'un İşlevi",
+          "bullets": [
+            "Evrişimli Sinir Ağları (CNN) ile BT analizleri",
+            "14 durumu otomatik triyaj eder",
+            "Doktor iş yükünü azaltır"
+          ]
+        },
+        {
+          "type": "content",
+          "title": "Türkiye'de Etkileri",
+          "bullets": [
+            "Sağlık Bakanlığı projelerinde potansiyel",
+            "Erken tanı için umut verici",
+            "Etk ve veri gizliliği önemli"
+          ]
+        },
+        {
+          "type": "cta",
+          "text": "tyzd.org"
+        }
+      ]
+    }
+  },
+  {
     "slug": "fda-onayli-ai-sistemleri-tiroid-kanser-tanisinda-ultrason",
     "title": "FDA Onaylı AI Sistemleri: Tiroid Kanser Tanısında Ultrason",
     "description": "Tiroid nodüllerinin ultrason değerlendirmesinde 6 FDA onaylı AI platformunun performansı ve Türkiye'deki klinik uygulamaları.",
