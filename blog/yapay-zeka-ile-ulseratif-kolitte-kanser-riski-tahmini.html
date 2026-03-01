@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Yapay Zeka ile Ülseratif Kolitte Kanser Riski Tahmini | TYZD Blog</title>
+    <meta name="description" content="UC San Diego araştırmacıları, LLM tabanlı yapay zeka pipeline'ı ile 55.000 hastanın klinik notlarından kolorektal kanser riskini otomatik tahmin ediyor. Clinical Gastroenterology and Hepatology'de yayınlanan çığır açan çalışma.">
+    <meta property="og:title" content="Yapay Zeka ile Ülseratif Kolitte Kanser Riski Tahmini | TYZD">
+    <meta property="og:description" content="UC San Diego araştırmacıları, LLM tabanlı yapay zeka pipeline'ı ile 55.000 hastanın klinik notlarından kolorektal kanser riskini otomatik tahmin ediyor.">
+    <meta property="og:type" content="article">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg: #000000;
+            --bg-card: #0a0a0a;
+            --bg-elevated: #111111;
+            --border: rgba(255,255,255,0.08);
+            --border-hover: rgba(255,255,255,0.15);
+            --text: #ffffff;
+            --text-secondary: #a1a1aa;
+            --text-tertiary: #71717a;
+            --accent: #14b8a6;
+            --accent-secondary: #06b6d4;
+            --gradient: linear-gradient(135deg, #14b8a6 0%, #06b6d4 50%, #0ea5e9 100%);
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.8;
+            -webkit-font-smoothing: antialiased;
+        }
+        ::selection { background: var(--accent); color: white; }
+        a { color: var(--accent); text-decoration: none; }
+        a:hover { color: var(--accent-secondary); }
+
+        /* Header */
+        .header {
+            position: fixed;
+            top: 0; left: 0; right: 0;
+            z-index: 100;
+            background: rgba(0,0,0,0.8);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--border);
+            padding: 0 2rem;
+        }
+        .header-inner {
+            max-width: 1200px;
+            margin: 0 auto;
+            height: 64px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-weight: 600;
+            font-size: 15px;
+            color: var(--text);
+        }
+        .logo-mark {
+            width: 32px;
+            height: 32px;
+            background: var(--gradient);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .logo-mark svg { width: 18px; height: 18px; color: white; }
+        .back-link {
+            color: var(--text-secondary);
+            font-size: 14px;
+            font-weight: 500;
+            transition: color 0.2s;
+        }
+        .back-link:hover { color: var(--text); }
+
+        /* Article */
+        article {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 7rem 2rem 4rem;
+        }
+        .post-header { margin-bottom: 2rem; }
+        .post-category {
+            display: inline-block;
+            background: rgba(20,184,166,0.1);
+            border: 1px solid rgba(20,184,166,0.2);
+            color: var(--accent);
+            padding: 0.3rem 0.8rem;
+            border-radius: 100px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: 1rem;
+        }
+        h1 {
+            font-size: clamp(1.8rem, 4vw, 2.5rem);
+            font-weight: 600;
+            line-height: 1.2;
+            letter-spacing: -0.02em;
+            margin-bottom: 1rem;
+        }
+        .post-meta {
+            color: var(--text-tertiary);
+            font-size: 0.85rem;
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+        .post-image {
+            width: 100%;
+            height: 360px;
+            background: linear-gradient(135deg, rgba(20,184,166,0.15), rgba(6,182,212,0.1));
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            margin: 2rem 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 4rem;
+        }
+
+        /* Content */
+        .post-content { font-size: 1.05rem; line-height: 1.85; }
+        .post-content h2 {
+            font-size: 1.4rem;
+            font-weight: 600;
+            margin: 2.5rem 0 1rem;
+            letter-spacing: -0.01em;
+            background: var(--gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        .post-content h3 {
+            font-size: 1.15rem;
+            font-weight: 600;
+            margin: 1.5rem 0 0.75rem;
+        }
+        .post-content p {
+            margin-bottom: 1.25rem;
+            color: var(--text-secondary);
+        }
+        .post-content strong { color: var(--text); }
+        .post-content ul, .post-content ol {
+            margin: 1rem 0 1.5rem 1.5rem;
+            color: var(--text-secondary);
+        }
+        .post-content li { margin-bottom: 0.5rem; }
+        .post-content blockquote {
+            border-left: 3px solid var(--accent);
+            padding: 1rem 1.5rem;
+            margin: 1.5rem 0;
+            background: rgba(20,184,166,0.05);
+            border-radius: 0 8px 8px 0;
+            color: var(--text-secondary);
+            font-style: italic;
+        }
+
+        /* Key Points Box */
+        .key-points {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 1.5rem 2rem;
+            margin: 2rem 0;
+        }
+        .key-points h4 {
+            color: var(--accent);
+            margin-bottom: 1rem;
+            font-size: 1rem;
+        }
+        .key-points ul { margin: 0; padding-left: 1.2rem; }
+        .key-points li { color: var(--text-secondary); margin-bottom: 0.4rem; }
+
+        /* Sources */
+        .sources {
+            margin-top: 3rem;
+            padding-top: 2rem;
+            border-top: 1px solid var(--border);
+        }
+        .sources h4 { font-size: 0.95rem; margin-bottom: 0.75rem; color: var(--text-secondary); }
+        .sources ul { list-style: none; margin: 0; padding: 0; }
+        .sources li { font-size: 0.85rem; color: var(--text-tertiary); margin-bottom: 0.4rem; }
+
+        /* Share */
+        .share-section {
+            margin-top: 3rem;
+            padding: 2rem;
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            text-align: center;
+        }
+        .share-section p { color: var(--text-secondary); margin-bottom: 1rem; }
+        .share-buttons { display: flex; gap: 0.75rem; justify-content: center; flex-wrap: wrap; }
+        .share-btn {
+            padding: 0.6rem 1.2rem;
+            border-radius: 8px;
+            color: white;
+            font-weight: 500;
+            font-size: 0.85rem;
+            transition: transform 0.2s, opacity 0.2s;
+        }
+        .share-btn:hover { transform: translateY(-2px); opacity: 0.9; color: white; }
+        .share-btn.twitter { background: #1DA1F2; }
+        .share-btn.linkedin { background: #0A66C2; }
+        .share-btn.whatsapp { background: #25D366; }
+
+        /* Footer */
+        footer {
+            padding: 2rem;
+            border-top: 1px solid var(--border);
+            text-align: center;
+            margin-top: 4rem;
+        }
+        footer p { font-size: 0.85rem; color: var(--text-tertiary); }
+        footer a { color: var(--accent); }
+
+        @media (max-width: 640px) {
+            h1 { font-size: 1.5rem; }
+            article { padding: 5rem 1rem 2rem; }
+            .post-image { height: 200px; font-size: 3rem; }
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="header-inner">
+            <a href="../index.html" class="logo">
+                <div class="logo-mark">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M22 12h-4l-3 9L9 3l-3 9H2"/>
+                    </svg>
+                </div>
+                <span>TYZD</span>
+            </a>
+            <a href="../index.html#blog" class="back-link">← Blog'a Dön</a>
+        </div>
+    </header>
+
+    <article>
+        <div class="post-header">
+            <span class="post-category">🔬 Endoskopi</span>
+            <h1>Yapay Zeka ile Ülseratif Kolitte Kanser Riski Tahmini: 55.000 Hastada LLM Tabanlı Otomatik Risk Modeli</h1>
+            <div class="post-meta">
+                <span>📅 1 Mart 2026</span>
+                <span>⏱️ 9 dk okuma</span>
+                <span>✍️ TYZD Editör</span>
+            </div>
+        </div>
+
+        <div class="post-image">🔬</div>
+
+        <div class="post-content">
+            <h2>Giriş</h2>
+<p>Ülseratif kolit (ÜK) hastalarında kolorektal kanser riski genel popülasyona göre 2-4 kat daha yüksektir. Düşük dereceli displazi (LGD) saptanan hastalarda kanser progresyon riski değişkenlik gösterdiğinden, klinisyenler için sürveyans aralıklarını belirlemek büyük bir zorluktur. UC San Diego Tıp Fakültesi araştırmacıları, bu soruna çığır açan bir çözüm geliştirdi: <strong>Büyük dil modelleri (LLM) ile klinik notlardan otomatik risk faktörü çıkarımı yapan ve biyoistatistiksel modellerle entegre çalışan bir yapay zeka pipeline'ı</strong>. 17 Şubat 2026'da <em>Clinical Gastroenterology and Hepatology</em> dergisinde yayınlanan bu çalışma, ABD Gaziler İdaresi (VA) sağlık sistemindeki 55.000'den fazla hastanın verilerini kullanarak kolitle ilişkili kolorektal kanser riskini tahmin ediyor.</p>
+
+<h2>Çalışmanın Detayları: Otomatik Fenotipleme ile Risk Tahmini</h2>
+<p>Johnson B, Eddington H, Kabir M, Gupta S, Shah SC ve Curtius K tarafından yürütülen <strong>"Automated Phenotyping with AI Predicts Future Advanced Neoplasia Risk in Colitis-Associated Low-Grade Dysplasia"</strong> başlıklı çalışma, ABD'deki en büyük ÜK-LGD veri setini kullanmaktadır. Araştırma, VA sağlık sistemindeki 55.000'den fazla hastanın kolonoskopi ve patoloji raporlarını LLM'ler aracılığıyla otomatik olarak analiz etmiştir (🟢 Güçlü kanıt — büyük kohort, hakemli dergi).</p>
+<p>Çalışmanın temel yeniliği, LLM'lerin serbest metin formatındaki klinik notlardan dört kritik risk faktörünü otomatik olarak çıkarabilmesidir:</p>
+<ul>
+  <li><strong>Displazi boyutu:</strong> Lezyonun büyüklüğü</li>
+  <li><strong>Rezeksiyon tamlığı ve görünürlüğü:</strong> Lezyonun tamamen çıkarılıp çıkarılamadığı</li>
+  <li><strong>Displastik alan sayısı:</strong> Tek mi çoklu lezyon mu</li>
+  <li><strong>İnflamasyon şiddeti:</strong> Kolonun ne kadar iltihaplanmış olduğu</li>
+</ul>
+<blockquote>"Büyük dil modelleri, kolitle ilişkili kolorektal kanser risk faktörlerini — displazi lezyonunun ne kadar büyük olduğu, çoklu lezyon olup olmadığı ve kolonun aşırı iltihaplı olup olmadığı gibi — doğrudan klinik notların kendisinden doğru bir şekilde çıkardı." — Dr. Kit Curtius, UC San Diego</blockquote>
+
+<h2>Beş Risk Kategorisi ve Klinik Sonuçlar</h2>
+<p>AI pipeline'ı, hastaları beş farklı risk grubuna ayırmıştır. Bu gruplandırma, 10 yılı aşan gerçek dünya hasta sonuçlarıyla yüksek doğrulukla örtüşmektedir:</p>
+<ul>
+  <li><strong>En düşük risk grubu:</strong> Hastaların yaklaşık yarısı bu gruba düştü. Bu hastaların <strong>%99'unun 2 yıl içinde kanser tanısı almadığı</strong> doğru bir şekilde tahmin edildi</li>
+  <li><strong>Düşük-orta risk:</strong> Küçük, tek lezyonlu ve düşük inflamasyonlu hastalar</li>
+  <li><strong>Orta risk:</strong> Çoklu displastik alan veya orta şiddette inflamasyon</li>
+  <li><strong>Yüksek risk:</strong> Büyük veya çoklu lezyonlar, şiddetli inflamasyon</li>
+  <li><strong>En yüksek risk:</strong> Rezeke edilemeyen görünür lezyonlar — klinisyenlerin tipik olarak tahmin ettiğinden <strong>çok daha yüksek risk</strong> taşıyor</li>
+</ul>
+<p>Özellikle dikkat çekici bir bulgu: Rezeke edilemeyen görünür lezyonu olan hastalar, birçok klinisyenin tipik olarak tahmin ettiğinden önemli ölçüde daha yüksek risk altındadır. Bu, mevcut klinik sezginin yetersiz kaldığı bir alanı işaret etmektedir.</p>
+
+<h3>Klinik İş Akışına Entegrasyon</h3>
+<p>Araştırmacılar, bu AI modelinin klinik iş akışına doğal olarak entegre olabileceğini vurgulamaktadır. Sistem, elektronik sağlık kayıtlarındaki klinik notları otomatik olarak okuyarak bir risk skoru üretebilir. Dr. Curtius'a göre:</p>
+<blockquote>"Bu AI pipeline'ı klinik notları okuyarak risk skorunuzu söyleyebilir; şu anda sahip olduğumuz gibi risk faktörlerinin listesini alıp hasta ziyaretinde bunu bir sayıya dönüştürmenin gerçek bir yolu olmayan durumdan çok daha iyidir."</blockquote>
+<p>Bu yaklaşım, düşük riskli hastalar için gereksiz sürveyans kolonoskopilerini azaltma potansiyeli taşırken, yüksek riskli hastaların zamanında takip edilmesini de sağlayabilir (🟢 Güçlü kanıt).</p>
+
+<h2>Türkiye Perspektifi: İBH ve Sürveyans Zorlukları</h2>
+<p>Türkiye'de inflamatuvar bağırsak hastalıkları (İBH) prevalansı son 20 yılda önemli ölçüde artmıştır. Gastroenteroloji kliniklerinde ÜK hastalarının sürveyansı önemli bir iş yükü oluşturmaktadır. Bu AI modeli, Türkiye için birçok açıdan büyük potansiyel taşımaktadır:</p>
+<ul>
+  <li><strong>Kaynak optimizasyonu:</strong> Düşük riskli hastaların sürveyans aralıkları güvenle uzatılabilir, endoskopi ünitelerindeki yoğunluk azaltılabilir</li>
+  <li><strong>Kişiselleştirilmiş takip:</strong> Her hastaya özgü risk skoru ile daha hassas klinik kararlar</li>
+  <li><strong>Yapılandırılmamış veri değerlendirmesi:</strong> Türkçe klinik notlardan otomatik bilgi çıkarımı, Türkçe LLM'lerin gelişmesiyle mümkün olabilir</li>
+  <li><strong>KVKK uyumu:</strong> Hasta verilerinin yerel olarak işlenmesi, veri gizliliği gerekliliklerini karşılayabilir</li>
+</ul>
+<p>Sağlık Bakanlığı'nın dijital dönüşüm stratejisi ve e-Nabız altyapısı, bu tür AI araçlarının entegrasyonu için uygun bir zemin oluşturmaktadır. Ancak, Türk hasta popülasyonunda modelin validasyonu ve Türkçe klinik notlara adaptasyonu kritik adımlar olacaktır.</p>
+
+<h2>Teknik Altyapı: LLM'lerin Klinik NLP'deki Rolü</h2>
+<p>Bu çalışma, LLM'lerin sağlıkta yapılandırılmamış metin verilerini işleme kapasitesinin önemli bir göstergesidir. Geleneksel kural tabanlı doğal dil işleme (NLP) sistemlerinden farklı olarak, LLM'ler klinik notlardaki karmaşık ve değişken ifadeleri anlayabilmektedir. Bu, özellikle farklı doktorların farklı terminoloji kullandığı endoskopi ve patoloji raporlarında büyük avantaj sağlamaktadır.</p>
+<p>Mühendisler için önemli teknik detaylar:</p>
+<ul>
+  <li><strong>Otomatik fenotipleme:</strong> LLM'ler, yapılandırılmamış metin verilerinden yapılandırılmış risk faktörleri çıkarır</li>
+  <li><strong>Biyoistatistiksel model entegrasyonu:</strong> Çıkarılan faktörler, kanıta dayalı risk modeline beslenir</li>
+  <li><strong>Ölçeklenebilirlik:</strong> 55.000 hastanın kayıtları otomatik olarak işlenmiştir</li>
+  <li><strong>Validasyon:</strong> 10+ yıllık gerçek dünya sonuçlarıyla doğrulama yapılmıştır</li>
+</ul>
+
+<h2>Sınırlamalar ve Gelecek Adımlar</h2>
+<p>Çalışmanın bazı sınırlamaları bulunmaktadır:</p>
+<ul>
+  <li><strong>Tek merkez validasyonu:</strong> Yalnızca VA sağlık sistemi verileri kullanılmıştır; farklı popülasyonlarda validasyon gereklidir</li>
+  <li><strong>Demografik çeşitlilik:</strong> VA popülasyonu ağırlıklı olarak erkek hastalardan oluşmaktadır</li>
+  <li><strong>Genetik faktörler:</strong> Henüz genomik verilerin entegrasyonu yapılmamıştır</li>
+</ul>
+<p>Araştırmacıların gelecek adımları arasında AI aracının VA sistemi dışındaki hasta popülasyonlarında validasyonu ve genomik bilgilerin modele dahil edilmesi yer almaktadır. Dr. Curtius'un belirttiği gibi: "Genomik bilginin kanser progresyonunu yönlendirmede büyük rol oynadığını biliyoruz."</p>
+
+<h2>Sonuç</h2>
+<p>Bu çalışma, LLM'lerin klinik gastroenterolojide nasıl dönüştürücü bir rol oynayabileceğinin somut bir örneğidir. Yapay zeka, klinik notlardan otomatik risk çıkarımı yaparak klinisyenlerin karar verme sürecini güçlendirebilir, gereksiz prosedürleri azaltabilir ve yüksek riskli hastaların zamanında takibini sağlayabilir. Türkiye'nin gastroenteroloji alanındaki güçlü klinik deneyimi ve dijital altyapı yatırımları, bu tür AI araçlarının adaptasyonu için önemli fırsatlar sunmaktadır.</p>
+        </div>
+
+        <div class="key-points">
+            <h4>📌 Önemli Noktalar</h4>
+            <ul><li>UC San Diego araştırmacıları, 55.000 VA hastasının klinik notlarından LLM ile kolorektal kanser riskini otomatik tahmin eden bir AI pipeline'ı geliştirdi.</li>
+            <li>Model, hastaları 5 risk grubuna ayırdı; en düşük riskteki hastaların %99'u 2 yıl içinde kanser tanısı almadı.</li>
+            <li>Rezeke edilemeyen lezyonlu hastalar, klinisyenlerin tahmininden çok daha yüksek risk taşıyor.</li>
+            <li>Türkiye'de ÜK prevalansının artması, bu tür kişiselleştirilmiş sürveyans araçlarının önemini artırıyor.</li>
+            <li>Çalışma Clinical Gastroenterology and Hepatology'de 17 Şubat 2026'da yayınlandı.</li></ul>
+        </div>
+
+        <div class="sources">
+            <h4>📚 Kaynaklar</h4>
+            <ul><li><a href="https://doi.org/10.1016/j.cgh.2026.01.037" target="_blank">Johnson B, Eddington H, Kabir M, Gupta S, Shah SC, Curtius K. Automated phenotyping with AI predicts future advanced neoplasia risk in colitis-associated low-grade dysplasia. Clin Gastroenterol Hepatol. 2026. DOI: 10.1016/j.cgh.2026.01.037</a></li>
+            <li><a href="https://www.medicalnewstoday.com/articles/ai-tool-predicts-colorectal-cancer-risk-ulcerative-colitis-patients" target="_blank">Medical News Today. AI tool may offer early warning of colorectal cancer in ulcerative colitis. Şubat 2026.</a></li>
+            <li><a href="https://www.oncozine.com/large-language-models-aid-clinicians-in-predicting-colorectal-cancer-risk-in-ulcerative-colitis-patients/" target="_blank">Onco'Zine. Large Language Models aid Clinicians in Predicting Colorectal Cancer Risk in Ulcerative Colitis Patients. Şubat 2026.</a></li>
+            <li><a href="https://www.technologynetworks.com/informatics/news/ai-predicts-risk-of-colorectal-cancer-in-ulcerative-colitis-patients-409814" target="_blank">Technology Networks. AI Predicts Risk of Colorectal Cancer in Ulcerative Colitis Patients. Şubat 2026.</a></li>
+            <li><a href="https://www.newswise.com/articles/artificial-intelligence-predicts-colorectal-cancer-risk-in-ulcerative-colitis-patients" target="_blank">Newswise / UC San Diego Health. Artificial Intelligence Predicts Colorectal Cancer Risk in Ulcerative Colitis Patients. Şubat 2026.</a></li></ul>
+        </div>
+
+        <div class="share-section">
+            <p><strong>Bu yazıyı paylaşın</strong></p>
+            <div class="share-buttons">
+                <a href="https://twitter.com/intent/tweet?text=Yapay%20Zeka%20ile%20%C3%9Clseratif%20Kolitte%20Kanser%20Riski%20Tahmini&url=https%3A%2F%2Ftyzd.org%2Fblog%2Fyapay-zeka-ile-ulseratif-kolitte-kanser-riski-tahmini.html" class="share-btn twitter" target="_blank">Twitter</a>
+                <a href="https://www.linkedin.com/shareArticle?mini=true&url=https%3A%2F%2Ftyzd.org%2Fblog%2Fyapay-zeka-ile-ulseratif-kolitte-kanser-riski-tahmini.html&title=Yapay%20Zeka%20ile%20%C3%9Clseratif%20Kolitte%20Kanser%20Riski%20Tahmini" class="share-btn linkedin" target="_blank">LinkedIn</a>
+                <a href="https://wa.me/?text=Yapay%20Zeka%20ile%20%C3%9Clseratif%20Kolitte%20Kanser%20Riski%20Tahmini%20https%3A%2F%2Ftyzd.org%2Fblog%2Fyapay-zeka-ile-ulseratif-kolitte-kanser-riski-tahmini.html" class="share-btn whatsapp" target="_blank">WhatsApp</a>
+            </div>
+        </div>
+    </article>
+
+    <footer>
+        <p>© 2026 <a href="../index.html">Tıpta Yapay Zeka Derneği</a> · Tüm hakları saklıdır.</p>
+    </footer>
+</body>
+</html>

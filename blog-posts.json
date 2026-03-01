@@ -1,5 +1,52 @@
 [
   {
+    "slug": "yapay-zeka-ile-ulseratif-kolitte-kanser-riski-tahmini",
+    "title": "Yapay Zeka ile Ülseratif Kolitte Kanser Riski Tahmini: 55.000 Hastada LLM Tabanlı Otomatik Risk Modeli",
+    "description": "UC San Diego araştırmacıları, LLM tabanlı yapay zeka pipeline'ı ile 55.000 hastanın klinik notlarından kolorektal kanser riskini otomatik tahmin ediyor.",
+    "category": "endoskopi",
+    "categoryName": "Endoskopi",
+    "categoryIcon": "🔬",
+    "categoryColor": "#14b8a6",
+    "date": "2026-03-01",
+    "readTime": 9,
+    "priority": "high",
+    "area": "ai_endoscopy",
+    "url": "blog/yapay-zeka-ile-ulseratif-kolitte-kanser-riski-tahmini.html",
+    "source": "Clinical Gastroenterology and Hepatology (Şubat 2026)",
+    "instagram": {
+      "caption": "🔬 Yapay zeka artık ülseratif kolitte kanser riskini tahmin edebiliyor! UC San Diego'nun geliştirdiği LLM tabanlı AI pipeline'ı, 55.000 hastanın klinik notlarını otomatik analiz ederek 5 risk grubuna ayırdı. Düşük riskli hastaların %99'u 2 yılda kanser tanısı almadı. Gereksiz kolonoskopiler azalabilir! 📊🧬 #TıptaYapayZeka #TYZD #MedikalAI #Endoskopi #KolorektalKanser #YapayZeka #LLM #KişiselleştirilmişTıp",
+      "slides": [
+        {
+          "type": "cover",
+          "headline": "AI ile Kanser Riski Tahmini",
+          "subheadline": "55.000 hastada LLM tabanlı otomatik risk modeli"
+        },
+        {
+          "type": "content",
+          "title": "Nasıl Çalışıyor?",
+          "bullets": [
+            "LLM'ler klinik notları otomatik analiz ediyor",
+            "4 kritik risk faktörü çıkarılıyor",
+            "Hastalar 5 risk grubuna ayrılıyor"
+          ]
+        },
+        {
+          "type": "content",
+          "title": "Çarpıcı Sonuçlar",
+          "bullets": [
+            "Düşük risklilerin %99'u 2 yılda kansersiz",
+            "10+ yıllık gerçek verilerle doğrulandı",
+            "Gereksiz kolonoskopiler azalabilir"
+          ]
+        },
+        {
+          "type": "cta",
+          "text": "tyzd.org — Detaylar blogumuzda!"
+        }
+      ]
+    }
+  },
+  {
     "slug": "fda-onayli-aidoc-araci-bt-ile-14-durumun-tespiti",
     "title": "FDA Onaylı Aidoc Aracı: BT ile 14 Durumun Tespiti",
     "description": "FDA, Aidoc'un BT taramalarından 14 durumu tespit eden AI aracını onayladı. Tıbbi görüntülemede AI'nin rolü ve Türkiye uygulamaları.",

@@ -1,5 +1,97 @@
 [
   {
+    "id": 5,
+    "date": "2026-03-01",
+    "blogSlug": "yapay-zeka-ile-ulseratif-kolitte-kanser-riski-tahmini",
+    "caption": "🔬 Yapay zeka artık ülseratif kolitte kanser riskini tahmin edebiliyor! UC San Diego'nun geliştirdiği LLM tabanlı AI pipeline'ı, 55.000 hastanın klinik notlarını otomatik analiz ederek 5 risk grubuna ayırdı. Düşük riskli hastaların %99'u 2 yılda kanser tanısı almadı. Gereksiz kolonoskopiler azalabilir! 📊🧬 #TıptaYapayZeka #TYZD #MedikalAI #Endoskopi #KolorektalKanser #YapayZeka #LLM #KişiselleştirilmişTıp",
+    "slides": [
+      {
+        "id": "5-cover",
+        "template": "cover-slide.html",
+        "data": {
+          "HEADLINE": "AI ile Kanser Riski Tahmini",
+          "SUBHEADLINE": "55.000 hastada LLM tabanlı otomatik risk modeli",
+          "CATEGORY": "Endoskopi"
+        }
+      },
+      {
+        "id": "5-content-1",
+        "template": "content-slide.html",
+        "data": {
+          "PAGE_NUM": "2/4",
+          "TITLE": "Nasıl Çalışıyor?",
+          "BULLET_1": "LLM'ler klinik notları otomatik analiz ediyor",
+          "BULLET_2": "4 kritik risk faktörü otomatik çıkarılıyor",
+          "BULLET_3": "Hastalar 5 farklı risk grubuna ayrılıyor"
+        }
+      },
+      {
+        "id": "5-content-2",
+        "template": "content-slide.html",
+        "data": {
+          "PAGE_NUM": "3/4",
+          "TITLE": "Çarpıcı Sonuçlar",
+          "BULLET_1": "En düşük riskteki hastaların %99'u 2 yılda kansersiz",
+          "BULLET_2": "10+ yıllık gerçek verilerle doğrulandı",
+          "BULLET_3": "Gereksiz kolonoskopiler güvenle azaltılabilir"
+        }
+      },
+      {
+        "id": "5-cta",
+        "template": "cta-slide.html",
+        "data": {
+          "CTA_URL": "tyzd.org — Detaylar blogumuzda!"
+        }
+      }
+    ]
+  },
+  {
+    "id": 4,
+    "date": "2026-03-01",
+    "blogSlug": "yapay-zeka-ile-ulseratif-kolitte-kanser-riski-tahmini",
+    "caption": "Yapay zeka, ülseratif kolitte kanser riskini tahmin ediyor! 55.000 hastadan elde edilen verilerle LLM modelleri klinik kararları güçlendiriyor. Hekimler ve mühendisler için önemli bir araç. Detaylar blogumuzda! 📊🧬 #TıptaYapayZeka #TYZD #MedikalAI #SağlıktaTeknoloji #YapayZeka #DerinÖğrenme",
+    "slides": [
+      {
+        "id": "4-cover",
+        "template": "cover-slide.html",
+        "data": {
+          "HEADLINE": "YZ ile Kanser Riski Tahmini",
+          "SUBHEADLINE": "Ülseratif kolitte LLM'lerin rolü ve 55.000 hasta verisi",
+          "CATEGORY": "Genel"
+        }
+      },
+      {
+        "id": "4-content-1",
+        "template": "content-slide.html",
+        "data": {
+          "PAGE_NUM": "2/4",
+          "TITLE": "LLM Nedir?",
+          "BULLET_1": "Büyük dil modelleri, metin verilerini analiz eder (max 60 karakter)",
+          "BULLET_2": "Ülseratif kolitte risk tahmininde kullanılır",
+          "BULLET_3": "Transformer mimarisine dayanır"
+        }
+      },
+      {
+        "id": "4-content-2",
+        "template": "content-slide.html",
+        "data": {
+          "PAGE_NUM": "3/4",
+          "TITLE": "Araştırmadan Bulgular",
+          "BULLET_1": "55.000 hastada %85 doğruluk",
+          "BULLET_2": "Türkiye'de klinik uygulamalar artıyor",
+          "BULLET_3": "Prospektif çalışmalar gerekli"
+        }
+      },
+      {
+        "id": "4-cta",
+        "template": "cta-slide.html",
+        "data": {
+          "CTA_URL": "tyzd.org"
+        }
+      }
+    ]
+  },
+  {
     "id": 3,
     "date": "2026-02-28",
     "blogSlug": "fda-onayli-aidoc-araci-bt-ile-14-durumun-tespiti",
