@@ -1,5 +1,60 @@
 [
   {
+    "slug": "dijital-patolojide-yapay-zeka-spemo-ve-klinik-uygulamalar",
+    "title": "Dijital Patolojide Yapay Zeka: spEMO ve Klinik Uygulamalar",
+    "description": "Dijital patolojide AI'nin rolü, spEMO framework'ü ve platformlar gibi yenilikleri inceleyen bilimsel bir bakış. Hekimler ve mühendisler için erişilebilir bilgiler.",
+    "category": "patoloji",
+    "categoryName": "Patoloji",
+    "categoryIcon": "🧬",
+    "categoryColor": "#14b8a6",
+    "date": "2026-03-02",
+    "readTime": 8,
+    "priority": "normal",
+    "area": "custom",
+    "url": "blog/dijital-patolojide-yapay-zeka-spemo-ve-klinik-uygulamalar.html",
+    "instagram": {
+      "caption": "Dijital patolojide AI ile yenilikler: spEMO framework'ü multi-omik analizi güçlendiriyor! 📊 AISight Dx platformu teşhis hızını artırıyor. Türkiye'de klinik uygulamalar için umut verici gelişmeler. #TıptaYapayZeka #TYZD #PatolojiAI #SağlıkTeknolojisi #YapayZekaTürkiye #DijitalSağlık",
+      "slides": [
+        {
+          "type": "cover",
+          "headline": "AI ve Dijital Patoloji",
+          "subheadline": "spEMO ve platformlar ile teşhis devrimi"
+        },
+        {
+          "type": "content",
+          "title": "spEMO Framework'ü",
+          "bullets": [
+            "Spatial multi-omik analizi birleştirir",
+            "Foundation modelleri ve LLM'ler kullanır",
+            "Klinik verimliliği artırır"
+          ]
+        },
+        {
+          "type": "content",
+          "title": "AISight Dx'in Faydaları",
+          "bullets": [
+            "FDA onaylı ve yaygın",
+            "Görüntü analizinde yüksek doğruluk",
+            "Türkiye'de potansiyel uygulamalar"
+          ]
+        },
+        {
+          "type": "content",
+          "title": "Gelecekte AI",
+          "bullets": [
+            "Derin öğrenme ile verimli analiz",
+            "Etik ve eğitim önemleri",
+            "Türkiye perspektifi"
+          ]
+        },
+        {
+          "type": "cta",
+          "text": "tyzd.org"
+        }
+      ]
+    }
+  },
+  {
     "slug": "yapay-zeka-ile-ulseratif-kolitte-kanser-riski-tahmini",
     "title": "Yapay Zeka ile Ülseratif Kolitte Kanser Riski Tahmini: 55.000 Hastada LLM Tabanlı Otomatik Risk Modeli",
     "description": "UC San Diego araştırmacıları, LLM tabanlı yapay zeka pipeline'ı ile 55.000 hastanın klinik notlarından kolorektal kanser riskini otomatik tahmin ediyor.",

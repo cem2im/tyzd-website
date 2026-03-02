@@ -1,5 +1,10 @@
 [
   {
+    "topic": "Dijital Patolojide AI Devrimi: spEMO Framework (Nature Biomedical Engineering) patoloji foundation modelleri ve LLM'leri birleştirerek spatial multi-omik analiz yapıyor. Labcorp ve PathAI, FDA onaylı AISight Dx platformunu ABD genelinde yaygınlaştırıyor. Dijital patolojide derin öğrenme framework'ü (arxiv) verimli görüntü analizi sunuyor.",
+    "slug": "dijital-patolojide-yapay-zeka-spemo-ve-klinik-uygulamalar",
+    "date": "2026-03-02"
+  },
+  {
     "topic": "Yapay Zeka ile Ülseratif Kolitte Kolorektal Kanser Riski Tahmini: 55.000 Hastadan Elde Edilen Verilerle LLM Tabanlı Risk Modeli",
     "slug": "yapay-zeka-ile-ulseratif-kolitte-kanser-riski-tahmini",
     "date": "2026-03-01"

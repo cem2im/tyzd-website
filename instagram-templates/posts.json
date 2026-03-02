@@ -1,5 +1,62 @@
 [
   {
+    "id": 6,
+    "date": "2026-03-02",
+    "blogSlug": "dijital-patolojide-yapay-zeka-spemo-ve-klinik-uygulamalar",
+    "caption": "Dijital patolojide AI ile yenilikler: spEMO framework'ü multi-omik analizi güçlendiriyor! 📊 AISight Dx platformu teşhis hızını artırıyor. Türkiye'de klinik uygulamalar için umut verici gelişmeler. #TıptaYapayZeka #TYZD #PatolojiAI #SağlıkTeknolojisi #YapayZekaTürkiye #DijitalSağlık",
+    "slides": [
+      {
+        "id": "6-cover",
+        "template": "cover-slide.html",
+        "data": {
+          "HEADLINE": "AI ve Dijital Patoloji",
+          "SUBHEADLINE": "spEMO ve platformlar ile teşhis devrimi",
+          "CATEGORY": "Patoloji"
+        }
+      },
+      {
+        "id": "6-content-1",
+        "template": "content-slide.html",
+        "data": {
+          "PAGE_NUM": "2/5",
+          "TITLE": "spEMO Framework'ü",
+          "BULLET_1": "Spatial multi-omik analizi birleştirir",
+          "BULLET_2": "Foundation modelleri ve LLM'ler kullanır",
+          "BULLET_3": "Klinik verimliliği artırır"
+        }
+      },
+      {
+        "id": "6-content-2",
+        "template": "content-slide.html",
+        "data": {
+          "PAGE_NUM": "3/5",
+          "TITLE": "AISight Dx'in Faydaları",
+          "BULLET_1": "FDA onaylı ve yaygın",
+          "BULLET_2": "Görüntü analizinde yüksek doğruluk",
+          "BULLET_3": "Türkiye'de potansiyel uygulamalar"
+        }
+      },
+      {
+        "id": "6-content-3",
+        "template": "content-slide.html",
+        "data": {
+          "PAGE_NUM": "4/5",
+          "TITLE": "Gelecekte AI",
+          "BULLET_1": "Derin öğrenme ile verimli analiz",
+          "BULLET_2": "Etik ve eğitim önemleri",
+          "BULLET_3": "Türkiye perspektifi"
+        }
+      },
+      {
+        "id": "6-cta",
+        "template": "cta-slide.html",
+        "data": {
+          "CTA_URL": "tyzd.org"
+        }
+      }
+    ]
+  },
+  {
     "id": 5,
     "date": "2026-03-01",
     "blogSlug": "yapay-zeka-ile-ulseratif-kolitte-kanser-riski-tahmini",
