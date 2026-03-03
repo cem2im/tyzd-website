@@ -1,5 +1,61 @@
 [
   {
+    "slug": "yapay-zeka-ile-ilac-kesfinde-onemli-gelismeler-generate-biom",
+    "title": "AI ile İlaç Keşfinde Yeni Dönem: Generate:Biomedicines 425M$ IPO ve GB-0895 Faz 3'te",
+    "description": "Generate:Biomedicines 425 milyon dolarlık halka arzla NASDAQ'a girdi. AI-tasarlanan anti-TSLP antikoru GB-0895, konseptten Faz 3 klinik deneylere sadece 4 yılda ulaştı. 2026 Benchling raporuyla sektörel dönüşüm analizi.",
+    "category": "arastirma",
+    "categoryName": "Araştırma",
+    "categoryIcon": "📊",
+    "categoryColor": "#06b6d4",
+    "date": "2026-03-03",
+    "readTime": 8,
+    "priority": "normal",
+    "area": "custom",
+    "url": "blog/yapay-zeka-ile-ilac-kesfinde-onemli-gelismeler-generate-biom.html",
+    "instagram": {
+      "caption": "💊 AI ile ilaç keşfinde devrim! Generate:Biomedicines, 425M$ halka arzla NASDAQ'a girdi. AI-tasarlanan GB-0895 antikoru konseptten Faz 3'e sadece 4 yılda ulaştı! 🧬 Sektörün %80'i AI bütçesini artırıyor. Gerçek darboğaz: veri altyapısı. Detaylar blogumuzda! 🔬 #TıptaYapayZeka #TYZD #MedikalAI #İlaçKeşfi #YapayZeka #BiyoteknolojiAI #GenerateBiomedicines #DrugDiscovery",
+      "slides": [
+        {
+          "type": "cover",
+          "headline": "AI İlaç Keşfinde Yeni Dönem",
+          "subheadline": "Generate:Biomedicines 425M$ IPO — GB-0895 Faz 3'te"
+        },
+        {
+          "type": "content",
+          "title": "Generate:Biomedicines",
+          "bullets": [
+            "AI ile protein tasarımı yapan biyoteknoloji şirketi",
+            "425M$ halka arz — Novartis, Samsung, NVIDIA yatırımcı",
+            "GB-0895: Konseptten Faz 3'e sadece 4 yılda"
+          ]
+        },
+        {
+          "type": "content",
+          "title": "2026 Sektörel Dönüşüm",
+          "bullets": [
+            "Kuruluşların %80'i AI bütçesini artırıyor",
+            "%73 protein yapısı tahmini kullanıyor",
+            "Gerçek darboğaz: Veri kalitesi (#1 başarısızlık nedeni)"
+          ]
+        },
+        {
+          "type": "content",
+          "title": "Gelecek Perspektifi",
+          "bullets": [
+            "Pilottan platforma geçiş — builder fazı",
+            "Bilim insanlarının %66'sı LLM güveninin arttığını söylüyor",
+            "Türkiye: TÜBİTAK destekli projeler artıyor"
+          ]
+        },
+        {
+          "type": "cta",
+          "text": "tyzd.org — Detaylar blogumuzda!"
+        }
+      ]
+    },
+    "source": "BioSpace, Benchling 2026 Biotech AI Report, Drug Discovery News"
+  },
+  {
     "slug": "dijital-patolojide-yapay-zeka-spemo-ve-klinik-uygulamalar",
     "title": "Dijital Patolojide Yapay Zeka: spEMO ve Klinik Uygulamalar",
     "description": "Dijital patolojide AI'nin rolü, spEMO framework'ü ve platformlar gibi yenilikleri inceleyen bilimsel bir bakış. Hekimler ve mühendisler için erişilebilir bilgiler.",

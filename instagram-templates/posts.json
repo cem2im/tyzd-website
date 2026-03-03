@@ -1,5 +1,62 @@
 [
   {
+    "id": 7,
+    "date": "2026-03-03",
+    "blogSlug": "yapay-zeka-ile-ilac-kesfinde-onemli-gelismeler-generate-biom",
+    "caption": "💊 AI ile ilaç keşfinde devrim! Generate:Biomedicines, 425M$ halka arzla NASDAQ'a girdi. AI-tasarlanan GB-0895 antikoru konseptten Faz 3'e sadece 4 yılda ulaştı! 🧬 Sektörün %80'i AI bütçesini artırıyor. Gerçek darboğaz: veri altyapısı. Detaylar blogumuzda! 🔬 #TıptaYapayZeka #TYZD #MedikalAI #İlaçKeşfi #YapayZeka #BiyoteknolojiAI #GenerateBiomedicines #DrugDiscovery",
+    "slides": [
+      {
+        "id": "7-cover",
+        "template": "cover-slide.html",
+        "data": {
+          "HEADLINE": "AI İlaç Keşfinde Yeni Dönem",
+          "SUBHEADLINE": "Generate:Biomedicines 425M$ IPO — GB-0895 Faz 3'te",
+          "CATEGORY": "Araştırma"
+        }
+      },
+      {
+        "id": "7-content-1",
+        "template": "content-slide.html",
+        "data": {
+          "PAGE_NUM": "2/5",
+          "TITLE": "Generate:Biomedicines",
+          "BULLET_1": "AI ile protein tasarımı yapan biyoteknoloji şirketi",
+          "BULLET_2": "425M$ halka arz — Novartis, Samsung, NVIDIA yatırımcı",
+          "BULLET_3": "GB-0895: Konseptten Faz 3'e sadece 4 yılda"
+        }
+      },
+      {
+        "id": "7-content-2",
+        "template": "content-slide.html",
+        "data": {
+          "PAGE_NUM": "3/5",
+          "TITLE": "2026 Sektörel Dönüşüm",
+          "BULLET_1": "Kuruluşların %80'i AI bütçesini artırıyor",
+          "BULLET_2": "%73 protein yapısı tahmini kullanıyor",
+          "BULLET_3": "Gerçek darboğaz: Veri kalitesi (#1 başarısızlık nedeni)"
+        }
+      },
+      {
+        "id": "7-content-3",
+        "template": "content-slide.html",
+        "data": {
+          "PAGE_NUM": "4/5",
+          "TITLE": "Gelecek Perspektifi",
+          "BULLET_1": "Pilottan platforma geçiş — builder fazı",
+          "BULLET_2": "Bilim insanlarının %66'sı LLM güveninin arttığını söylüyor",
+          "BULLET_3": "Türkiye: TÜBİTAK destekli projeler artıyor"
+        }
+      },
+      {
+        "id": "7-cta",
+        "template": "cta-slide.html",
+        "data": {
+          "CTA_URL": "tyzd.org — Detaylar blogumuzda!"
+        }
+      }
+    ]
+  },
+  {
     "id": 6,
     "date": "2026-03-02",
     "blogSlug": "dijital-patolojide-yapay-zeka-spemo-ve-klinik-uygulamalar",
