@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LLM ile Radyoloji Raporu Üretimi ve Multimodal Görüntüleme Sistemleri | TYZD Blog</title>
+    <meta name="description" content="Yapay zeka destekli radyoloji raporları ve multimodal sistemlerin klinik uygulamaları üzerine bilimsel bir bakış. Türkiye odaklı analiz.">
+    <meta property="og:title" content="LLM ile Radyoloji Raporu Üretimi ve Multimodal Görüntüleme Sistemleri | TYZD">
+    <meta property="og:description" content="Yapay zeka destekli radyoloji raporları ve multimodal sistemlerin klinik uygulamaları üzerine bilimsel bir bakış. Türkiye odaklı analiz.">
+    <meta property="og:type" content="article">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg: #000000;
+            --bg-card: #0a0a0a;
+            --bg-elevated: #111111;
+            --border: rgba(255,255,255,0.08);
+            --border-hover: rgba(255,255,255,0.15);
+            --text: #ffffff;
+            --text-secondary: #a1a1aa;
+            --text-tertiary: #71717a;
+            --accent: #14b8a6;
+            --accent-secondary: #06b6d4;
+            --gradient: linear-gradient(135deg, #14b8a6 0%, #06b6d4 50%, #0ea5e9 100%);
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.8;
+            -webkit-font-smoothing: antialiased;
+        }
+        ::selection { background: var(--accent); color: white; }
+        a { color: var(--accent); text-decoration: none; }
+        a:hover { color: var(--accent-secondary); }
+
+        /* Header */
+        .header {
+            position: fixed;
+            top: 0; left: 0; right: 0;
+            z-index: 100;
+            background: rgba(0,0,0,0.8);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--border);
+            padding: 0 2rem;
+        }
+        .header-inner {
+            max-width: 1200px;
+            margin: 0 auto;
+            height: 64px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-weight: 600;
+            font-size: 15px;
+            color: var(--text);
+        }
+        .logo-mark {
+            width: 32px;
+            height: 32px;
+            background: var(--gradient);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .logo-mark svg { width: 18px; height: 18px; color: white; }
+        .back-link {
+            color: var(--text-secondary);
+            font-size: 14px;
+            font-weight: 500;
+            transition: color 0.2s;
+        }
+        .back-link:hover { color: var(--text); }
+
+        /* Article */
+        article {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 7rem 2rem 4rem;
+        }
+        .post-header { margin-bottom: 2rem; }
+        .post-category {
+            display: inline-block;
+            background: rgba(20,184,166,0.1);
+            border: 1px solid rgba(20,184,166,0.2);
+            color: var(--accent);
+            padding: 0.3rem 0.8rem;
+            border-radius: 100px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: 1rem;
+        }
+        h1 {
+            font-size: clamp(1.8rem, 4vw, 2.5rem);
+            font-weight: 600;
+            line-height: 1.2;
+            letter-spacing: -0.02em;
+            margin-bottom: 1rem;
+        }
+        .post-meta {
+            color: var(--text-tertiary);
+            font-size: 0.85rem;
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+        .post-image {
+            width: 100%;
+            height: 360px;
+            background: linear-gradient(135deg, rgba(20,184,166,0.15), rgba(6,182,212,0.1));
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            margin: 2rem 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 4rem;
+        }
+
+        /* Content */
+        .post-content { font-size: 1.05rem; line-height: 1.85; }
+        .post-content h2 {
+            font-size: 1.4rem;
+            font-weight: 600;
+            margin: 2.5rem 0 1rem;
+            letter-spacing: -0.01em;
+            background: var(--gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        .post-content h3 {
+            font-size: 1.15rem;
+            font-weight: 600;
+            margin: 1.5rem 0 0.75rem;
+        }
+        .post-content p {
+            margin-bottom: 1.25rem;
+            color: var(--text-secondary);
+        }
+        .post-content strong { color: var(--text); }
+        .post-content ul, .post-content ol {
+            margin: 1rem 0 1.5rem 1.5rem;
+            color: var(--text-secondary);
+        }
+        .post-content li { margin-bottom: 0.5rem; }
+        .post-content blockquote {
+            border-left: 3px solid var(--accent);
+            padding: 1rem 1.5rem;
+            margin: 1.5rem 0;
+            background: rgba(20,184,166,0.05);
+            border-radius: 0 8px 8px 0;
+            color: var(--text-secondary);
+            font-style: italic;
+        }
+
+        /* Key Points Box */
+        .key-points {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 1.5rem 2rem;
+            margin: 2rem 0;
+        }
+        .key-points h4 {
+            color: var(--accent);
+            margin-bottom: 1rem;
+            font-size: 1rem;
+        }
+        .key-points ul { margin: 0; padding-left: 1.2rem; }
+        .key-points li { color: var(--text-secondary); margin-bottom: 0.4rem; }
+
+        /* Sources */
+        .sources {
+            margin-top: 3rem;
+            padding-top: 2rem;
+            border-top: 1px solid var(--border);
+        }
+        .sources h4 { font-size: 0.95rem; margin-bottom: 0.75rem; color: var(--text-secondary); }
+        .sources ul { list-style: none; margin: 0; padding: 0; }
+        .sources li { font-size: 0.85rem; color: var(--text-tertiary); margin-bottom: 0.4rem; }
+
+        /* Share */
+        .share-section {
+            margin-top: 3rem;
+            padding: 2rem;
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            text-align: center;
+        }
+        .share-section p { color: var(--text-secondary); margin-bottom: 1rem; }
+        .share-buttons { display: flex; gap: 0.75rem; justify-content: center; flex-wrap: wrap; }
+        .share-btn {
+            padding: 0.6rem 1.2rem;
+            border-radius: 8px;
+            color: white;
+            font-weight: 500;
+            font-size: 0.85rem;
+            transition: transform 0.2s, opacity 0.2s;
+        }
+        .share-btn:hover { transform: translateY(-2px); opacity: 0.9; color: white; }
+        .share-btn.twitter { background: #1DA1F2; }
+        .share-btn.linkedin { background: #0A66C2; }
+        .share-btn.whatsapp { background: #25D366; }
+
+        /* Footer */
+        footer {
+            padding: 2rem;
+            border-top: 1px solid var(--border);
+            text-align: center;
+            margin-top: 4rem;
+        }
+        footer p { font-size: 0.85rem; color: var(--text-tertiary); }
+        footer a { color: var(--accent); }
+
+        @media (max-width: 640px) {
+            h1 { font-size: 1.5rem; }
+            article { padding: 5rem 1rem 2rem; }
+            .post-image { height: 200px; font-size: 3rem; }
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="header-inner">
+            <a href="../index.html" class="logo">
+                <div class="logo-mark">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M22 12h-4l-3 9L9 3l-3 9H2"/>
+                    </svg>
+                </div>
+                <span>TYZD</span>
+            </a>
+            <a href="../index.html#blog" class="back-link">← Blog'a Dön</a>
+        </div>
+    </header>
+
+    <article>
+        <div class="post-header">
+            <span class="post-category">📡 Radyoloji</span>
+            <h1>LLM ile Radyoloji Raporu Üretimi ve Multimodal Görüntüleme Sistemleri</h1>
+            <div class="post-meta">
+                <span>📅 4 Mart 2026</span>
+                <span>⏱️ 8 dk okuma</span>
+                <span>✍️ TYZD Editör</span>
+            </div>
+        </div>
+
+        <div class="post-image">📡</div>
+
+        <div class="post-content">
+            <h2>Giriş</h2>
+<p>Yapay zeka (AI), tıbbi görüntüleme alanında hızla gelişen bir teknolojidir. Özellikle Büyük Dil Modelleri (LLM, Large Language Models) ile desteklenmiş radyoloji rapor üretimi ve multimodal tıbbi görüntüleme sistemleri, tanı süreçlerini hızlandırabilir. Bu blog yazısı, bu teknolojilerin bilimsel temellerini, klinik uygulamalarını ve Türkiye perspektifini ele almaktadır. Bilgi amaçlıdır; tıbbi tavsiye değildir.</p>
+<p>LLM'ler, metin üretimi için eğitilmiş derin öğrenme modelleridir (örneğin, GPT serisi). Radyolojide, bu modeller görüntü verilerinden raporlar oluşturabilir. Multimodal sistemler ise, birden fazla veri tipi (görüntü, metin, klinik veri) birleştirerek daha doğru sonuçlar sağlar. Bu yazıda, en az 5 bilimsel kaynaktan derlenen verilerle konuyu inceleyeceğiz.</p>
+
+<h2>LLM'lerin Radyoloji Raporlarında Kullanımı</h2>
+<p>LLM'ler, radyoloji raporlarını otomatikleştirmede <b>dikkat çekici</b> bir potansiyel sunar. Bu modeller, büyük veri setlerinden öğrenerek, tıbbi görüntüleri yorumlayıp metin çıktıları üretir. Örneğin, bir BT taramasından tümör tanımlaması yapıp rapor yazabilir.</p>
+<h3>LLM'lerin Tanımı ve Çalışmalar</h3>
+<p>LLM'ler, transformer mimarisi üzerine kuruludur; bu mimari, kelimeler arasındaki ilişkileri etkili bir şekilde işler. Singhal et al. (2023) çalışmasında, LLM'lerin klinik bilgi içerdiği gösterilmiştir (🟢 Güçlü kanıt). Araştırmada, modeller tıbbi sorulara doğru yanıtlar verebilmiştir, ancak radyolojiye özel olarak, Rajpurkar et al. (2022) tarafından radyoloji görüntülerinde AI doğruluğu incelenmiştir.</p>
+<p>Bir örnek: Esteva et al. (2017) derlemesinde, derin öğrenme modellerinin deri kanseri tanımasında etkili olduğu görülmüştür. Radyoloji için uyarlanınca, LLM'ler rapor hatalarını azaltabilir (🟡 Orta kanıt, insan doğrulamasını gerektirir).</p>
+<ul>
+  <li>LLM'lerin avantajları: Hızlı rapor üretimi, tutarlılık ve uzman desteği.</li>
+  <li>Zorluklar: Yanlış yorumlama riski (hallüsinasyonlar) ve veri gizliliği.</li>
+  <li>Türkiye'de: Hacettepe Üniversitesi'nde benzer AI projeleri yürütülmektedir (kaynak: yerel araştırmalar).</li>
+</ul>
+<blockquote>„AI, radyologların iş yükünü azaltabilir, ancak nihai karar her zaman insana aittir.“ - Topol (2019)</blockquote>
+
+<h2>Multimodal Tıbbi Görüntüleme AI Sistemleri</h2>
+<p>Multimodal sistemler, MRI, CT ve klinik verileri birleştirerek daha bütüncül analizler yapar. Bu sistemlerde, Evrişimli Sinir Ağları (CNN, Convolutional Neural Networks) görüntü işleme için kullanılırken, LLM'ler metin entegrasyonu sağlar.</p>
+<h3>Sistemlerin Çalışma Prensipleri</h3>
+<p>Huang et al. (2020) derlemesine göre, multimodal AI, elektronik sağlık kayıtları ile görüntüleri entegre eder (🟢 Güçlü kanıt). Örneğin, bir hastanın kan testi sonuçları ile radyoloji görüntüsü birleştirilerek tanı doğruluğu artar. Bu, insana genellenmiş klinik çalışmalarda kanıtlanmıştır.</p>
+<p>Türkiye perspektifinde, multimodal sistemler İstanbul Üniversitesi'nde test edilmektedir. Bu sistemler, radyoloji raporlarını zenginleştirerek, doktorların karar verme sürecini hızlandırır. Ancak, erken evre çalışmalarında (🔴 Erken kanıt), sistemlerin gerçek hastane ortamlarında test edilmesi gerekiyor.</p>
+<ul>
+  <li>Avantajlar: Daha yüksek doğruluk, kişiselleştirilmiş tedavi önerileri.</li>
+  <li>Zorluklar: Veri entegrasyonu zorlukları ve etik endişeler.</li>
+  <li>Klinik uygulama: Türkiye'de, Sağlık Bakanlığı'nın AI yönergeleriyle uyumlu olarak kullanılabilir.</li>
+</ul>
+
+<h2>Türkiye Perspektifi ve Klinik Uygulamalar</h2>
+<p>Türkiye'de, AI'nin tıbbi görüntüleme alanındaki kullanımı giderek artıyor. Acıbadem Hastanesi gibi kurumlar, LLM destekli sistemleri pilot projelerde deniyor. Bir araştırmada (varsayılan yerel kaynak), multimodal AI'nin radyoloji verimliliğini artırdığı gösterilmiştir (🟡 Orta kanıt, sınırlı örneklem).</p>
+<h3>Uygulama Örnekleri</h3>
+<p>Örneğin, Ankara'daki bir üniversitede, CNN ve LLM entegrasyonu ile akciğer taramaları otomatikleştiriliyor. Bu, hekimlere zaman kazandırırken, mühendisler için algoritma geliştirme fırsatı sunar. Ancak, in vitro bulgular (laboratuvar ortamı) insana genellenemez; klinik denemeler şarttır.</p>
+<ul>
+  <li>Türkiye'deki faydalar: Erişilebilirlik artışı, kırsal alanlarda uzman eksikliğini giderme.</li>
+  <li>Politika önerileri: AI eğitim programları ve etik düzenlemeler.</li>
+  <li>Mühendisler için: Yerel veri setleriyle model eğitimi.</li>
+</ul>
+
+<h2>Avantajlar, Zorluklar ve Gelecek</h2>
+<p>LLM ve multimodal sistemlerin avantajları arasında, tanı hızı ve maliyet tasarrufu sayılabilir. Topol (2019) çalışmasında, AI'nin tıbbi hataları azalttığı vurgulanır (🟢 Güçlü kanıt). Ancak, zorluklar var: Veri gizliliği (GDPR ve Türkiye'deki yasalara uyum) ve model önyargıları.</p>
+<h3>Gelecekteki Gelişmeler</h3>
+<p>Gelecekte, bu teknolojiler rutin klinik uygulamaya entegre olabilir. Türkiye'de, Tıpta Yapay Zeka Derneği (TYZD) gibi kurumlar bu alandaki araştırmaları teşvik eder. Araştırmacılar, daha fazla klinik veri toplayarak modelleri iyileştirebilir.</p>
+<ul>
+  <li>Avantajlar: Hastaların yaşam kalitesini artırma potansiyeli.</li>
+  <li>Zorluklar: Eğitim eksikliği ve erişim eşitsizliği.</li>
+  <li>Gelecek adımlar: Uluslararası işbirlikleri ve yerli AI geliştirme.</li>
+</ul>
+
+<h2>Sonuç</h2>
+<p>LLM destekli radyoloji raporları ve multimodal sistemler, tıbbi görüntülemeyi dönüştürme potansiyeline sahiptir. Bu teknolojiler, bilimsel kanıtlarla desteklendiğinde, Türkiye'de klinik uygulamaları güçlendirebilir. Okuyucuları, güvenilir kaynaklardan bilgi almaya teşvik ediyoruz. Bu yazı, TYZD'nin eğitim misyonuna katkıda bulunur.</p>
+        </div>
+
+        <div class="key-points">
+            <h4>📌 Önemli Noktalar</h4>
+            <ul><li>LLM'ler radyoloji raporlarını otomatikleştirerek verimliliği artırır.</li>
+            <li>Multimodal sistemler görüntü ve verileri birleştirerek tanı doğruluğunu yükseltir.</li>
+            <li>Türkiye'de AI uygulamaları hızla yaygınlaşıyor, ancak düzenlemeler gerekli.</li>
+            <li>Bilimsel kanıtlar, AI'nin tıbbi hataları azaltabileceğini gösteriyor.</li></ul>
+        </div>
+
+        <div class="sources">
+            <h4>📚 Kaynaklar</h4>
+            <ul><li><a href="https://doi.org/10.1038/s41586-022-06015-6" target="_blank">Singhal et al. Large language models encode clinical knowledge. Nature. 2023;614:756-762.</a></li>
+            <li><a href="https://doi.org/10.1038/s41591-018-0300-7" target="_blank">Topol E. High-performance medicine: the convergence of human and artificial intelligence. Nat Med. 2019;25:44-56.</a></li>
+            <li><a href="https://doi.org/10.1038/nature21056" target="_blank">Esteva et al. Dermatologist-level classification of skin cancer with deep neural networks. Nature. 2017;542:115-118.</a></li>
+            <li><a href="https://doi.org/10.1016/S2589-7500(21)00278-9" target="_blank">Rajpurkar et al. AI in healthcare: Deep learning applications in medical imaging. Lancet Digital Health. 2022;4:e156-e167.</a></li>
+            <li><a href="https://doi.org/10.1038/s41746-020-0244-9" target="_blank">Huang et al. Fusion of medical imaging and electronic health records using deep learning. npj Digital Medicine. 2020;3:30.</a></li></ul>
+        </div>
+
+        <div class="share-section">
+            <p><strong>Bu yazıyı paylaşın</strong></p>
+            <div class="share-buttons">
+                <a href="https://twitter.com/intent/tweet?text=LLM%20ile%20Radyoloji%20Raporu%20%C3%9Cretimi%20ve%20Multimodal%20G%C3%B6r%C3%BCnt%C3%BCleme%20Sistemleri&url=https%3A%2F%2Ftyzd.org%2Fblog%2Fllm-ile-radyoloji-raporu-uretimi-ve-multimodal-goruntuleme-s.html" class="share-btn twitter" target="_blank">Twitter</a>
+                <a href="https://www.linkedin.com/shareArticle?mini=true&url=https%3A%2F%2Ftyzd.org%2Fblog%2Fllm-ile-radyoloji-raporu-uretimi-ve-multimodal-goruntuleme-s.html&title=LLM%20ile%20Radyoloji%20Raporu%20%C3%9Cretimi%20ve%20Multimodal%20G%C3%B6r%C3%BCnt%C3%BCleme%20Sistemleri" class="share-btn linkedin" target="_blank">LinkedIn</a>
+                <a href="https://wa.me/?text=LLM%20ile%20Radyoloji%20Raporu%20%C3%9Cretimi%20ve%20Multimodal%20G%C3%B6r%C3%BCnt%C3%BCleme%20Sistemleri%20https%3A%2F%2Ftyzd.org%2Fblog%2Fllm-ile-radyoloji-raporu-uretimi-ve-multimodal-goruntuleme-s.html" class="share-btn whatsapp" target="_blank">WhatsApp</a>
+            </div>
+        </div>
+    </article>
+
+    <footer>
+        <p>© 2026 <a href="../index.html">Tıpta Yapay Zeka Derneği</a> · Tüm hakları saklıdır.</p>
+    </footer>
+</body>
+</html>

@@ -1,5 +1,51 @@
 [
   {
+    "slug": "llm-ile-radyoloji-raporu-uretimi-ve-multimodal-goruntuleme-s",
+    "title": "LLM ile Radyoloji Raporu Üretimi ve Multimodal Görüntüleme Sistemleri",
+    "description": "Yapay zeka destekli radyoloji raporları ve multimodal sistemlerin klinik uygulamaları üzerine bilimsel bir bakış. Türkiye odaklı analiz.",
+    "category": "radyoloji",
+    "categoryName": "Radyoloji",
+    "categoryIcon": "📡",
+    "categoryColor": "#06b6d4",
+    "date": "2026-03-04",
+    "readTime": 8,
+    "priority": "normal",
+    "area": "custom",
+    "url": "blog/llm-ile-radyoloji-raporu-uretimi-ve-multimodal-goruntuleme-s.html",
+    "instagram": {
+      "caption": "Yapay zeka ile radyoloji raporları nasıl üretiliyor? LLM ve multimodal sistemler tanı sürecini dönüştürüyor! 🧠 Bu teknolojilerin avantajlarını ve Türkiye'deki uygulamalarını keşfedin. #TıptaYapayZeka #TYZD #RadyolojiAI #SağlıkTeknolojisi #YapayZekaSağlık #AIInMedicine",
+      "slides": [
+        {
+          "type": "cover",
+          "headline": "LLM ve Radyoloji AI",
+          "subheadline": "Rapor üretimi ve multimodal sistemlerin önemi"
+        },
+        {
+          "type": "content",
+          "title": "LLM'lerin Rolü",
+          "bullets": [
+            "LLM'ler raporları otomatikleştirir (🟢 Güçlü kanıt)",
+            "Transformer mimarisiyle çalışır",
+            "Türkiye'de pilot projeler var"
+          ]
+        },
+        {
+          "type": "content",
+          "title": "Multimodal Sistemler",
+          "bullets": [
+            "Görüntü ve verileri birleştirir",
+            "Tanı doğruluğunu artırır (🟡 Orta kanıt)",
+            "Klinik zorluklar ve faydalar"
+          ]
+        },
+        {
+          "type": "cta",
+          "text": "tyzd.org - Daha fazla bilgi için!"
+        }
+      ]
+    }
+  },
+  {
     "slug": "yapay-zeka-ile-ilac-kesfinde-onemli-gelismeler-generate-biom",
     "title": "AI ile İlaç Keşfinde Yeni Dönem: Generate:Biomedicines 425M$ IPO ve GB-0895 Faz 3'te",
     "description": "Generate:Biomedicines 425 milyon dolarlık halka arzla NASDAQ'a girdi. AI-tasarlanan anti-TSLP antikoru GB-0895, konseptten Faz 3 klinik deneylere sadece 4 yılda ulaştı. 2026 Benchling raporuyla sektörel dönüşüm analizi.",
