@@ -1,5 +1,60 @@
 [
   {
+    "slug": "klinik-pratikte-jeneratif-ai-uygulamalar-ve-mahremiyet",
+    "title": "Klinik Pratikte Jeneratif AI: Uygulamalar ve Mahremiyet",
+    "description": "Jeneratif AI'nin hemşirelikten karar desteğine etkileri, mahremiyet odaklı LLM'ler ve multimodal çalışmalar. Türkiye'deki gelişmelerle birlikte.",
+    "category": "arastirma",
+    "categoryName": "Araştırma",
+    "categoryIcon": "📊",
+    "categoryColor": "#06b6d4",
+    "date": "2026-03-05",
+    "readTime": 8,
+    "priority": "normal",
+    "area": "custom",
+    "url": "blog/klinik-pratikte-jeneratif-ai-uygulamalar-ve-mahremiyet.html",
+    "instagram": {
+      "caption": "Jeneratif AI, klinik pratikte hemşirelikten karar desteğine kadar geniş bir yelpazede kullanılıyor! Mahremiyeti koruyan LLM'ler ve multimodal çalışmalarla sağlıkta yenilikler artıyor. Türkiye'deki gelişmeleri keşfedin. 📊🛡️ #TıptaYapayZeka #TYZD #MedikalAI #SağlıktaTeknoloji #YapayZeka #AIveSağlık",
+      "slides": [
+        {
+          "type": "cover",
+          "headline": "Jeneratif AI Klinikte",
+          "subheadline": "Hemşirelikten mahremiyete kadar etkiler"
+        },
+        {
+          "type": "content",
+          "title": "AI'nin Hemşirelikte Faydaları",
+          "bullets": [
+            "Zaman tasarrufu sağlar",
+            "Hasta eğitimi kolaylaştırır",
+            "Türkiye'de araştırmalar artıyor"
+          ]
+        },
+        {
+          "type": "content",
+          "title": "Mahremiyet ve LLM'ler",
+          "bullets": [
+            "Gizlilik odaklı sistemler",
+            "Federated learning ile koruma",
+            "Etik önlemler gerekli"
+          ]
+        },
+        {
+          "type": "content",
+          "title": "Multimodal Çalışmalar",
+          "bullets": [
+            "Veri türlerini birleştirir",
+            "Teşhis doğruluğunu artırır",
+            "Türkiye perspektifi"
+          ]
+        },
+        {
+          "type": "cta",
+          "text": "tyzd.org"
+        }
+      ]
+    }
+  },
+  {
     "slug": "llm-ile-radyoloji-raporu-uretimi-ve-multimodal-goruntuleme-s",
     "title": "LLM ile Radyoloji Raporu Üretimi ve Multimodal Görüntüleme Sistemleri",
     "description": "Yapay zeka destekli radyoloji raporları ve multimodal sistemlerin klinik uygulamaları üzerine bilimsel bir bakış. Türkiye odaklı analiz.",
