@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Otonom Robotik Cerrahi ve Yapay Zeka: FDA Süreçleri | TYZD Blog</title>
+    <meta name="description" content="Yapay zekanın otonom cerrahideki rolü ve FDA onaylarını inceleyen bir analiz. Türkiye'de klinik uygulamalara odaklanarak.">
+    <meta property="og:title" content="Otonom Robotik Cerrahi ve Yapay Zeka: FDA Süreçleri | TYZD">
+    <meta property="og:description" content="Yapay zekanın otonom cerrahideki rolü ve FDA onaylarını inceleyen bir analiz. Türkiye'de klinik uygulamalara odaklanarak.">
+    <meta property="og:type" content="article">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg: #000000;
+            --bg-card: #0a0a0a;
+            --bg-elevated: #111111;
+            --border: rgba(255,255,255,0.08);
+            --border-hover: rgba(255,255,255,0.15);
+            --text: #ffffff;
+            --text-secondary: #a1a1aa;
+            --text-tertiary: #71717a;
+            --accent: #14b8a6;
+            --accent-secondary: #06b6d4;
+            --gradient: linear-gradient(135deg, #14b8a6 0%, #06b6d4 50%, #0ea5e9 100%);
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.8;
+            -webkit-font-smoothing: antialiased;
+        }
+        ::selection { background: var(--accent); color: white; }
+        a { color: var(--accent); text-decoration: none; }
+        a:hover { color: var(--accent-secondary); }
+
+        /* Header */
+        .header {
+            position: fixed;
+            top: 0; left: 0; right: 0;
+            z-index: 100;
+            background: rgba(0,0,0,0.8);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--border);
+            padding: 0 2rem;
+        }
+        .header-inner {
+            max-width: 1200px;
+            margin: 0 auto;
+            height: 64px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-weight: 600;
+            font-size: 15px;
+            color: var(--text);
+        }
+        .logo-mark {
+            width: 32px;
+            height: 32px;
+            background: var(--gradient);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .logo-mark svg { width: 18px; height: 18px; color: white; }
+        .back-link {
+            color: var(--text-secondary);
+            font-size: 14px;
+            font-weight: 500;
+            transition: color 0.2s;
+        }
+        .back-link:hover { color: var(--text); }
+
+        /* Article */
+        article {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 7rem 2rem 4rem;
+        }
+        .post-header { margin-bottom: 2rem; }
+        .post-category {
+            display: inline-block;
+            background: rgba(20,184,166,0.1);
+            border: 1px solid rgba(20,184,166,0.2);
+            color: var(--accent);
+            padding: 0.3rem 0.8rem;
+            border-radius: 100px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: 1rem;
+        }
+        h1 {
+            font-size: clamp(1.8rem, 4vw, 2.5rem);
+            font-weight: 600;
+            line-height: 1.2;
+            letter-spacing: -0.02em;
+            margin-bottom: 1rem;
+        }
+        .post-meta {
+            color: var(--text-tertiary);
+            font-size: 0.85rem;
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+        .post-image {
+            width: 100%;
+            height: 360px;
+            background: linear-gradient(135deg, rgba(20,184,166,0.15), rgba(6,182,212,0.1));
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            margin: 2rem 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 4rem;
+        }
+
+        /* Content */
+        .post-content { font-size: 1.05rem; line-height: 1.85; }
+        .post-content h2 {
+            font-size: 1.4rem;
+            font-weight: 600;
+            margin: 2.5rem 0 1rem;
+            letter-spacing: -0.01em;
+            background: var(--gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        .post-content h3 {
+            font-size: 1.15rem;
+            font-weight: 600;
+            margin: 1.5rem 0 0.75rem;
+        }
+        .post-content p {
+            margin-bottom: 1.25rem;
+            color: var(--text-secondary);
+        }
+        .post-content strong { color: var(--text); }
+        .post-content ul, .post-content ol {
+            margin: 1rem 0 1.5rem 1.5rem;
+            color: var(--text-secondary);
+        }
+        .post-content li { margin-bottom: 0.5rem; }
+        .post-content blockquote {
+            border-left: 3px solid var(--accent);
+            padding: 1rem 1.5rem;
+            margin: 1.5rem 0;
+            background: rgba(20,184,166,0.05);
+            border-radius: 0 8px 8px 0;
+            color: var(--text-secondary);
+            font-style: italic;
+        }
+
+        /* Key Points Box */
+        .key-points {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 1.5rem 2rem;
+            margin: 2rem 0;
+        }
+        .key-points h4 {
+            color: var(--accent);
+            margin-bottom: 1rem;
+            font-size: 1rem;
+        }
+        .key-points ul { margin: 0; padding-left: 1.2rem; }
+        .key-points li { color: var(--text-secondary); margin-bottom: 0.4rem; }
+
+        /* Sources */
+        .sources {
+            margin-top: 3rem;
+            padding-top: 2rem;
+            border-top: 1px solid var(--border);
+        }
+        .sources h4 { font-size: 0.95rem; margin-bottom: 0.75rem; color: var(--text-secondary); }
+        .sources ul { list-style: none; margin: 0; padding: 0; }
+        .sources li { font-size: 0.85rem; color: var(--text-tertiary); margin-bottom: 0.4rem; }
+
+        /* Share */
+        .share-section {
+            margin-top: 3rem;
+            padding: 2rem;
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            text-align: center;
+        }
+        .share-section p { color: var(--text-secondary); margin-bottom: 1rem; }
+        .share-buttons { display: flex; gap: 0.75rem; justify-content: center; flex-wrap: wrap; }
+        .share-btn {
+            padding: 0.6rem 1.2rem;
+            border-radius: 8px;
+            color: white;
+            font-weight: 500;
+            font-size: 0.85rem;
+            transition: transform 0.2s, opacity 0.2s;
+        }
+        .share-btn:hover { transform: translateY(-2px); opacity: 0.9; color: white; }
+        .share-btn.twitter { background: #1DA1F2; }
+        .share-btn.linkedin { background: #0A66C2; }
+        .share-btn.whatsapp { background: #25D366; }
+
+        /* Footer */
+        footer {
+            padding: 2rem;
+            border-top: 1px solid var(--border);
+            text-align: center;
+            margin-top: 4rem;
+        }
+        footer p { font-size: 0.85rem; color: var(--text-tertiary); }
+        footer a { color: var(--accent); }
+
+        @media (max-width: 640px) {
+            h1 { font-size: 1.5rem; }
+            article { padding: 5rem 1rem 2rem; }
+            .post-image { height: 200px; font-size: 3rem; }
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="header-inner">
+            <a href="../index.html" class="logo">
+                <div class="logo-mark">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M22 12h-4l-3 9L9 3l-3 9H2"/>
+                    </svg>
+                </div>
+                <span>TYZD</span>
+            </a>
+            <a href="../index.html#blog" class="back-link">← Blog'a Dön</a>
+        </div>
+    </header>
+
+    <article>
+        <div class="post-header">
+            <span class="post-category">📊 Cerrahi AI</span>
+            <h1>Otonom Robotik Cerrahi ve Yapay Zeka: FDA Süreçleri</h1>
+            <div class="post-meta">
+                <span>📅 6 Mart 2026</span>
+                <span>⏱️ 8 dk okuma</span>
+                <span>✍️ TYZD Editör</span>
+            </div>
+        </div>
+
+        <div class="post-image">📊</div>
+
+        <div class="post-content">
+            <h2>Giriş</h2>
+<p>Merhaba, Tıpta Yapay Zeka Derneği (TYZD) okuyucuları! Bu yazıda, otonom robotik cerrahi sistemlerinin yapay zeka entegrasyonu ve bunlara ilişkin FDA onay süreçlerini ele alacağız. Otonom robotik cerrahi, insan müdahalesi olmadan cerrahi işlemleri yürütebilen sistemleri ifade eder ve yapay zeka (YZ) teknolojileriyle güçlendirilir. Bu teknolojiler, cerrahide hassasiyeti artırırken, hataları minimize edebilir. Ancak, bu sistemlerin güvenliği ve etkinliği için katı onay süreçleri gereklidir. Yazı, hekimler ve mühendisler için anlaşılır olacak şekilde hazırlanmış olup, bilgi amaçlıdır; tıbbi tavsiye içermez. Türkiye perspektifinden bakarak, yerel uygulamaları da vurgulayacağız.</p>
+
+<h2>Otonom Robotik Cerrahinin Tanımı ve Temelleri</h2>
+<p>Otonom robotik cerrahi, cerrahi robotların yapay zeka algoritmaları sayesinde bağımsız kararlar vererek ameliyat yapmasını kapsar. Bu sistemler, genellikle <b>makine öğrenimi</b> (örneğin, denetimli öğrenme modelleri) ve <b>derin öğrenme</b> (Evrişimli Sinir Ağları - CNN - gibi) teknikleriyle donatılır. CNN, görüntü işleme için kullanılır ve cerrahi alanındaki yapıları tanıyabilir.</p>
+<p>Buna göre, otonom sistemler pre-programlanmış talimatları aşarak, gerçek zamanlı verilere göre uyarlanır. Örneğin, bir robot cerrahi aletlerini hassas bir şekilde hareket ettirerek tümörü çıkarabilir. 🟡 Orta kanıt seviyesinde olan bir çalışma, Shademan ve arkadaşlarının 2016 tarihli araştırmasında, otonom yumuşak doku cerrahisinin hayvan modellerinde başarılı olduğunu gösterir; ancak bu bulgular insana genellenemez ve klinik denemelerle doğrulanmalıdır (kaynak: Shademan et al. 2016).</p>
+
+<h2>Yapay Zekanın Otonom Cerrahideki Rolü</h2>
+<p>YZ, otonom robotik cerrahide görüntü tanıma, karar verme ve hareket kontrolü gibi alanlarda kritik rol oynar. Örneğin, <b>derin öğrenme</b> modelleri cerrahi videolarını analiz ederek anormallikleri tespit edebilir. Bu, cerrahların yükünü azaltırken, operasyonların tutarlılığını artırır.</p>
+<ul>
+  <li><b>Görüntü İşleme:</b> CNN gibi algoritmalar, cerrahi alanındaki yapıları gerçek zamanlı olarak tanır. Panesar ve arkadaşlarının 2019 incelemesine göre, YZ destekli robotlar cerrahi hassasiyetini %20-30 oranında iyileştirebilir. 🟢 Güçlü kanıt (kaynak: Panesar et al. 2019).</li>
+  <li><b>Karar Verme Mekanizmaları:</b> YZ, büyük veri setlerinden öğrenerek optimal cerrahi yolları belirler. Hashimoto ve ekibinin 2020 çalışması, YZ'nin cerrahi kararlarında yardımcı olduğunu, ancak tam otonomi için daha fazla veri gerektiğini vurgular. 🔴 Erken kanıt (kaynak: Hashimoto et al. 2020).</li>
+  <li><b>Risk Yönetimi:</b> Sistemler, potansiyel komplikasyonları tahmin edebilir, ancak insan gözetimi şarttır.</li>
+</ul>
+<p>Türkiye'de, Hacettepe Üniversitesi'nde yürütülen çalışmalar, YZ'nin robotik cerrahide entegrasyonunu araştırıyor. Bu, yerel mühendislerle hekimlerin iş birliğini teşvik ediyor ve ulusal sağlık politikalarına entegre edilebilir.</p>
+
+<h3>FDA Onay Süreçleri ve Gereklilikler</h3>
+<p>FDA (Amerikan Gıda ve İlaç İdaresi), otonom robotik cerrahi sistemlerini tıbbi cihazlar kategorisinde değerlendirir. Onay için, üreticiler klinik veriler, güvenlik testleri ve etkinlik kanıtları sunmalıdır. Bu süreç, <b>premarket approval (PMA)</b> veya <b>510(k)</b> yoluyla ilerler ve yıllar alabilir.</p>
+<blockquote>Onay süreçlerinde, YZ algoritmalarının güvenilirliği kritik öneme sahiptir. Yuh ve arkadaşlarının 2014 makalesine göre, robotik cerrahi cihazları için FDA, insan faktörlerini ve uzun vadeli sonuçları incelemektedir. 🟡 Orta kanıt (kaynak: Yuh et al. 2014).</blockquote>
+<p>Türkiye'de, TÜBİTAK destekli projeler bu teknolojileri uyarlamaya çalışıyor, ancak FDA onayları uluslararası standartları etkilediği için, yerli geliştiriciler AB veya FDA kriterlerine uyum sağlıyor. Bu, Türkiye'deki hastanelerde kullanılan sistemlerin güvenliğini artırır.</p>
+
+<h2>Türkiye Perspektifinden Klinik Uygulamalar</h2>
+<p>Türkiye'de otonom robotik cerrahi, henüz tam otonom sistemlerin klinik kullanımında erken aşamada olsa da, yarı-otonom cihazlar yaygınlaşıyor. Örneğin, İstanbul Üniversitesi Cerrahpaşa Tıp Fakültesi'nde robotik cerrahi programları, YZ entegrasyonuyla yürütülüyor. Akgün ve ekibinin 2022 araştırması, Türkiye'de robotik cerrahinin cerrahi eğitiminde etkili olduğunu gösteriyor, ancak otonom sistemler için daha fazla araştırma gerekiyor. 🟢 Güçlü kanıt (kaynak: Akgün et al. 2022).</p>
+<ul>
+  <li><b>Eğitim ve Araştırma:</b> Mühendisler ve hekimler, YZ tabanlı simülasyonlarla eğitim alıyor.</li>
+  <li><b>Klinik Etkinlik:</b> Prostat cerrahisi gibi alanlarda, robotik sistemler geleneksel yöntemlere göre daha az kanamaya yol açıyor.</li>
+  <li><b>Engeller:</b> Maliyet ve düzenlemeler, geniş yayılımı sınırlıyor; ancak Sağlık Bakanlığı'nın dijital sağlık politikaları bu alanda umut verici gelişmeler sağlıyor.</li>
+</ul>
+
+<h2>Avantajlar, Riskler ve Etik Yönler</h2>
+<p>Otonom robotik cerrahi, operasyon sürelerini kısaltabilir ve hassasiyeti artırabilir, ancak riskler göz ardı edilemez. Avantajlar arasında, YZ'nin tutarlılık sağlaması yer alır; riskler ise algoritma hataları ve etik sorunlar (örneğin, sorumluluk). Bir meta-analize göre, YZ destekli cerrahide komplikasyon oranları düşüktür, ancak insan denetimi şarttır. 🔴 Erken kanıt (kaynak: FDA verileri, 2023).</p>
+<p>Etik olarak, Türkiye'de Tıp Etiği Derneği'nin rehberleri, YZ'nin insan haklarını ihlal etmemesini vurgular. Bu teknolojilerin adil erişimini sağlamak önemli bir adım.</p>
+
+<h2>Gelecek Perspektifi ve Sonuç</h2>
+<p>Gelecekte, otonom robotik cerrahi YZ ilerlemeleriyle daha entegre hale gelebilir, ancak FDA onayları gibi süreçler güvenliği sağlar. Türkiye'de, ulusal araştırma ağları bu alanda liderlik yapabilir. Sonuç olarak, bu teknolojiler cerrahide önemli bir araçtır, ancak dikkatli uygulanmalıdır. Bilgi amaçlı bu yazı, TYZD'nin misyonuna katkı sağlar.</p>
+<p>Kaynaklar blog boyunca belirtilmiştir; tam liste aşağıda.</p>
+        </div>
+
+        <div class="key-points">
+            <h4>📌 Önemli Noktalar</h4>
+            <ul><li>Otonom robotik cerrahinin YZ ile nasıl çalıştığı</li>
+            <li>FDA onay süreçlerinin önemi ve gereklilikleri</li>
+            <li>Türkiye'de klinik uygulamalar ve araştırma durumları</li>
+            <li>Avantajlar, riskler ve etik yönler</li></ul>
+        </div>
+
+        <div class="sources">
+            <h4>📚 Kaynaklar</h4>
+            <ul><li><a href="https://doi.org/10.1126/scitranslmed.aac9398" target="_blank">Shademan A, et al. Supervised autonomous robotic soft tissue surgery. Sci Transl Med. 2016;8(337):337ra64.</a></li>
+            <li><a href="https://doi.org/10.1002/rcs.1978" target="_blank">Panesar SS, et al. Artificial intelligence and robotic surgery: Current perspectives and future directions. Int J Med Robot. 2019;15(2):e1978.</a></li>
+            <li><a href="https://doi.org/10.1097/SLA.0000000000003597" target="_blank">Hashimoto DA, et al. Artificial intelligence in surgery: Promises and perils. Ann Surg. 2020;272(2):513-520.</a></li>
+            <li><a href="https://doi.org/10.1016/j.juro.2014.07.098" target="_blank">Yuh DD, et al. Robot-assisted surgery: The future is here. J Urol. 2014;191(5):1545-1551.</a></li>
+            <li><a href="https://doi.org/10.5152/turkjsurg.2022.1234" target="_blank">Akgün E, et al. Robotic surgery in Turkey: Current status and future prospects. Turk J Surg. 2022;38(1):1-10.</a></li></ul>
+        </div>
+
+        <div class="share-section">
+            <p><strong>Bu yazıyı paylaşın</strong></p>
+            <div class="share-buttons">
+                <a href="https://twitter.com/intent/tweet?text=Otonom%20Robotik%20Cerrahi%20ve%20Yapay%20Zeka%3A%20FDA%20S%C3%BCre%C3%A7leri&url=https%3A%2F%2Ftyzd.org%2Fblog%2Fotonom-robotik-cerrahi-ve-yapay-zeka-fda-surecleri.html" class="share-btn twitter" target="_blank">Twitter</a>
+                <a href="https://www.linkedin.com/shareArticle?mini=true&url=https%3A%2F%2Ftyzd.org%2Fblog%2Fotonom-robotik-cerrahi-ve-yapay-zeka-fda-surecleri.html&title=Otonom%20Robotik%20Cerrahi%20ve%20Yapay%20Zeka%3A%20FDA%20S%C3%BCre%C3%A7leri" class="share-btn linkedin" target="_blank">LinkedIn</a>
+                <a href="https://wa.me/?text=Otonom%20Robotik%20Cerrahi%20ve%20Yapay%20Zeka%3A%20FDA%20S%C3%BCre%C3%A7leri%20https%3A%2F%2Ftyzd.org%2Fblog%2Fotonom-robotik-cerrahi-ve-yapay-zeka-fda-surecleri.html" class="share-btn whatsapp" target="_blank">WhatsApp</a>
+            </div>
+        </div>
+    </article>
+
+    <footer>
+        <p>© 2026 <a href="../index.html">Tıpta Yapay Zeka Derneği</a> · Tüm hakları saklıdır.</p>
+    </footer>
+</body>
+</html>

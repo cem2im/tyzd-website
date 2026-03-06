@@ -1,5 +1,51 @@
 [
   {
+    "slug": "otonom-robotik-cerrahi-ve-yapay-zeka-fda-surecleri",
+    "title": "Otonom Robotik Cerrahi ve Yapay Zeka: FDA Süreçleri",
+    "description": "Yapay zekanın otonom cerrahideki rolü ve FDA onaylarını inceleyen bir analiz. Türkiye'de klinik uygulamalara odaklanarak.",
+    "category": "genel",
+    "categoryName": "Cerrahi AI",
+    "categoryIcon": "🤖",
+    "categoryColor": "#0ea5e9",
+    "date": "2026-03-06",
+    "readTime": 8,
+    "priority": "normal",
+    "area": "custom",
+    "url": "blog/otonom-robotik-cerrahi-ve-yapay-zeka-fda-surecleri.html",
+    "instagram": {
+      "caption": "🛠️ Otonom robotik cerrahi ve YZ: İnsan yardımı olmadan ameliyatlar nasıl mümkün oluyor? FDA onay süreçlerini ve Türkiye'deki uygulamaları keşfedin! Bu teknoloji, cerrahide hassasiyeti artırırken riskleri de beraberinde getiriyor. Bilgi amaçlı, tıbbi tavsiye değildir. #TıptaYapayZeka #TYZD #MedikalAI #SağlıktaTeknoloji #YapayZeka #RobotikCerrahi",
+      "slides": [
+        {
+          "type": "cover",
+          "headline": "Otonom Cerrahi ve YZ",
+          "subheadline": "FDA onayları ve Türkiye'deki gelişmeler üzerine"
+        },
+        {
+          "type": "content",
+          "title": "YZ'nin Rolü",
+          "bullets": [
+            "CNN ile görüntü tanıma",
+            "Karar verme algoritmaları",
+            "Risk yönetimi avantajları"
+          ]
+        },
+        {
+          "type": "content",
+          "title": "FDA Süreçleri",
+          "bullets": [
+            "Klinik test gereklilikleri",
+            "Güvenlik odaklı onaylar",
+            "Türkiye'de uyum çalışmaları"
+          ]
+        },
+        {
+          "type": "cta",
+          "text": "tyzd.org"
+        }
+      ]
+    }
+  },
+  {
     "slug": "klinik-pratikte-jeneratif-ai-uygulamalar-ve-mahremiyet",
     "title": "Klinik Pratikte Jeneratif AI: Uygulamalar ve Mahremiyet",
     "description": "Jeneratif AI'nin hemşirelikten karar desteğine etkileri, mahremiyet odaklı LLM'ler ve multimodal çalışmalar. Türkiye'deki gelişmelerle birlikte.",

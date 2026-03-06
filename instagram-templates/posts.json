@@ -1,5 +1,51 @@
 [
   {
+    "id": 10,
+    "date": "2026-03-06",
+    "blogSlug": "otonom-robotik-cerrahi-ve-yapay-zeka-fda-surecleri",
+    "caption": "🛠️ Otonom robotik cerrahi ve YZ: İnsan yardımı olmadan ameliyatlar nasıl mümkün oluyor? FDA onay süreçlerini ve Türkiye'deki uygulamaları keşfedin! Bu teknoloji, cerrahide hassasiyeti artırırken riskleri de beraberinde getiriyor. Bilgi amaçlı, tıbbi tavsiye değildir. #TıptaYapayZeka #TYZD #MedikalAI #SağlıktaTeknoloji #YapayZeka #RobotikCerrahi",
+    "slides": [
+      {
+        "id": "10-cover",
+        "template": "cover-slide.html",
+        "data": {
+          "HEADLINE": "Otonom Cerrahi ve YZ",
+          "SUBHEADLINE": "FDA onayları ve Türkiye'deki gelişmeler üzerine",
+          "CATEGORY": "Araştırma"
+        }
+      },
+      {
+        "id": "10-content-1",
+        "template": "content-slide.html",
+        "data": {
+          "PAGE_NUM": "2/4",
+          "TITLE": "YZ'nin Rolü",
+          "BULLET_1": "CNN ile görüntü tanıma",
+          "BULLET_2": "Karar verme algoritmaları",
+          "BULLET_3": "Risk yönetimi avantajları"
+        }
+      },
+      {
+        "id": "10-content-2",
+        "template": "content-slide.html",
+        "data": {
+          "PAGE_NUM": "3/4",
+          "TITLE": "FDA Süreçleri",
+          "BULLET_1": "Klinik test gereklilikleri",
+          "BULLET_2": "Güvenlik odaklı onaylar",
+          "BULLET_3": "Türkiye'de uyum çalışmaları"
+        }
+      },
+      {
+        "id": "10-cta",
+        "template": "cta-slide.html",
+        "data": {
+          "CTA_URL": "tyzd.org"
+        }
+      }
+    ]
+  },
+  {
     "id": 9,
     "date": "2026-03-05",
     "blogSlug": "klinik-pratikte-jeneratif-ai-uygulamalar-ve-mahremiyet",
