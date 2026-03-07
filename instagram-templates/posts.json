@@ -1,5 +1,51 @@
 [
   {
+    "id": 11,
+    "date": "2026-03-07",
+    "blogSlug": "yapay-zeka-ile-kolon-kanseri-erken-teshisi-ve-kolonoskopi-ha",
+    "caption": "Yapay zeka, kolon kanseri erken teşhisinde büyük bir yardımcı! 🔍 Kolonoskopi sırasında polip tespitini artırıyor ve hazırlık sürecini optimize ediyor. Güncel araştırmalarla Türkiye sağlık sistemine etkilerini keşfedin. 📊 Bilgi paylaşımı için Tıpta Yapay Zeka Derneği'ne katılın. #TıptaYapayZeka #TYZD #SağlıktaAI #KolonKanseri #ErkenTeşhis #MedikalTeknoloji #BilimselAraştırma",
+    "slides": [
+      {
+        "id": "11-cover",
+        "template": "cover-slide.html",
+        "data": {
+          "HEADLINE": "AI ve Kolon Kanseri",
+          "SUBHEADLINE": "Erken teşhisin geleceği: Araştırmalar ve uygulamalar",
+          "CATEGORY": "Endoskopi"
+        }
+      },
+      {
+        "id": "11-content-1",
+        "template": "content-slide.html",
+        "data": {
+          "PAGE_NUM": "2/4",
+          "TITLE": "Erken Teşhis Avantajları",
+          "BULLET_1": "AI ile polip tespit hassasiyeti artar",
+          "BULLET_2": "CNN modelleri görüntüleri analiz eder",
+          "BULLET_3": "Türkiye'de klinik entegrasyon örnekleri"
+        }
+      },
+      {
+        "id": "11-content-2",
+        "template": "content-slide.html",
+        "data": {
+          "PAGE_NUM": "3/4",
+          "TITLE": "Kolonoskopi Hazırlığı",
+          "BULLET_1": "AI, hazırlık kalitesini tahmin eder",
+          "BULLET_2": "Kişiselleştirilmiş planlar sunar",
+          "BULLET_3": "Etik ve sınırlamalar dikkate alınmalı"
+        }
+      },
+      {
+        "id": "11-cta",
+        "template": "cta-slide.html",
+        "data": {
+          "CTA_URL": "tyzd.org"
+        }
+      }
+    ]
+  },
+  {
     "id": 10,
     "date": "2026-03-06",
     "blogSlug": "otonom-robotik-cerrahi-ve-yapay-zeka-fda-surecleri",

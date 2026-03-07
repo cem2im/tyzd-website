@@ -1,5 +1,51 @@
 [
   {
+    "slug": "yapay-zeka-ile-kolon-kanseri-erken-teshisi-ve-kolonoskopi-ha",
+    "title": "Yapay Zeka ile Kolon Kanseri Erken Teşhisi ve Kolonoskopi Hazırlığı",
+    "description": "Yapay zeka'nın kolon kanseri erken tespitindeki uygulamaları ve kolonoskopi hazırlığını inceleyen güncel araştırmalar. Türkiye perspektifiyle klinik faydalar.",
+    "category": "endoskopi",
+    "categoryName": "Endoskopi",
+    "categoryIcon": "🔬",
+    "categoryColor": "#14b8a6",
+    "date": "2026-03-07",
+    "readTime": 8,
+    "priority": "normal",
+    "area": "custom",
+    "url": "blog/yapay-zeka-ile-kolon-kanseri-erken-teshisi-ve-kolonoskopi-ha.html",
+    "instagram": {
+      "caption": "Yapay zeka, kolon kanseri erken teşhisinde büyük bir yardımcı! 🔍 Kolonoskopi sırasında polip tespitini artırıyor ve hazırlık sürecini optimize ediyor. Güncel araştırmalarla Türkiye sağlık sistemine etkilerini keşfedin. 📊 Bilgi paylaşımı için Tıpta Yapay Zeka Derneği'ne katılın. #TıptaYapayZeka #TYZD #SağlıktaAI #KolonKanseri #ErkenTeşhis #MedikalTeknoloji #BilimselAraştırma",
+      "slides": [
+        {
+          "type": "cover",
+          "headline": "AI ve Kolon Kanseri",
+          "subheadline": "Erken teşhisin geleceği: Araştırmalar ve uygulamalar"
+        },
+        {
+          "type": "content",
+          "title": "Erken Teşhis Avantajları",
+          "bullets": [
+            "AI ile polip tespit hassasiyeti artar",
+            "CNN modelleri görüntüleri analiz eder",
+            "Türkiye'de klinik entegrasyon örnekleri"
+          ]
+        },
+        {
+          "type": "content",
+          "title": "Kolonoskopi Hazırlığı",
+          "bullets": [
+            "AI, hazırlık kalitesini tahmin eder",
+            "Kişiselleştirilmiş planlar sunar",
+            "Etik ve sınırlamalar dikkate alınmalı"
+          ]
+        },
+        {
+          "type": "cta",
+          "text": "tyzd.org"
+        }
+      ]
+    }
+  },
+  {
     "slug": "otonom-robotik-cerrahi-ve-yapay-zeka-fda-surecleri",
     "title": "Otonom Robotik Cerrahi ve Yapay Zeka: FDA Süreçleri",
     "description": "Yapay zekanın otonom cerrahideki rolü ve FDA onaylarını inceleyen bir analiz. Türkiye'de klinik uygulamalara odaklanarak.",
