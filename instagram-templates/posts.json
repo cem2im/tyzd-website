@@ -1,5 +1,51 @@
 [
   {
+    "id": 12,
+    "date": "2026-03-08",
+    "blogSlug": "fdanin-radyolojide-ai-onaylari-meme-kanserinde-ve-tiroid-ult",
+    "caption": "FDA'nın radyolojideki AI onayları, meme kanseri cerrahisi ve tiroid ultrasonunda dikkat çekici gelişmeler sağlıyor! Bu teknolojiler tanı doğruluğunu artırabilir, ancak doğru uygulama şart. Türkiye'de AI entegrasyonu için araştırmalar devam ediyor. Bilgilendirici bir bakış! 📊🩻 #TıptaYapayZeka #TYZD #MedikalAI #RadyolojiAI #SağlıkTeknolojisi #YapayZekaSağlık",
+    "slides": [
+      {
+        "id": "12-cover",
+        "template": "cover-slide.html",
+        "data": {
+          "HEADLINE": "FDA ve AI Radyolojide",
+          "SUBHEADLINE": "Meme kanseri ile tiroid ultrasonu onayları",
+          "CATEGORY": "Radyoloji"
+        }
+      },
+      {
+        "id": "12-content-1",
+        "template": "content-slide.html",
+        "data": {
+          "PAGE_NUM": "2/4",
+          "TITLE": "Meme Kanseri'nde AI",
+          "BULLET_1": "AI mamografiyi hızlandırır",
+          "BULLET_2": "Cerrahi planlamayı iyileştirir",
+          "BULLET_3": "🟢 Güçlü kanıtlar mevcut"
+        }
+      },
+      {
+        "id": "12-content-2",
+        "template": "content-slide.html",
+        "data": {
+          "PAGE_NUM": "3/4",
+          "TITLE": "Tiroid Ultrasonunda AI",
+          "BULLET_1": "Nodül tespitini otomatikleştirir",
+          "BULLET_2": "Tanı hassasiyetini artırır",
+          "BULLET_3": "Türkiye'de pilot çalışmalar var"
+        }
+      },
+      {
+        "id": "12-cta",
+        "template": "cta-slide.html",
+        "data": {
+          "CTA_URL": "tyzd.org"
+        }
+      }
+    ]
+  },
+  {
     "id": 11,
     "date": "2026-03-07",
     "blogSlug": "yapay-zeka-ile-kolon-kanseri-erken-teshisi-ve-kolonoskopi-ha",

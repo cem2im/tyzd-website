@@ -1,5 +1,51 @@
 [
   {
+    "slug": "fdanin-radyolojide-ai-onaylari-meme-kanserinde-ve-tiroid-ult",
+    "title": "FDA'nın Radyolojide AI Onayları: Meme Kanserinde ve Tiroid Ultrasonunda",
+    "description": "FDA'nın radyoloji alanındaki AI onaylarını inceleyen bir analiz: Meme kanseri cerrahisi ve tiroid ultrasonu uygulamaları, klinik faydaları ve Türkiye perspektifi.",
+    "category": "radyoloji",
+    "categoryName": "Radyoloji",
+    "categoryIcon": "📡",
+    "categoryColor": "#06b6d4",
+    "date": "2026-03-08",
+    "readTime": 8,
+    "priority": "normal",
+    "area": "custom",
+    "url": "blog/fdanin-radyolojide-ai-onaylari-meme-kanserinde-ve-tiroid-ult.html",
+    "instagram": {
+      "caption": "FDA'nın radyolojideki AI onayları, meme kanseri cerrahisi ve tiroid ultrasonunda dikkat çekici gelişmeler sağlıyor! Bu teknolojiler tanı doğruluğunu artırabilir, ancak doğru uygulama şart. Türkiye'de AI entegrasyonu için araştırmalar devam ediyor. Bilgilendirici bir bakış! 📊🩻 #TıptaYapayZeka #TYZD #MedikalAI #RadyolojiAI #SağlıkTeknolojisi #YapayZekaSağlık",
+      "slides": [
+        {
+          "type": "cover",
+          "headline": "FDA ve AI Radyolojide",
+          "subheadline": "Meme kanseri ile tiroid ultrasonu onayları"
+        },
+        {
+          "type": "content",
+          "title": "Meme Kanseri'nde AI",
+          "bullets": [
+            "AI mamografiyi hızlandırır",
+            "Cerrahi planlamayı iyileştirir",
+            "🟢 Güçlü kanıtlar mevcut"
+          ]
+        },
+        {
+          "type": "content",
+          "title": "Tiroid Ultrasonunda AI",
+          "bullets": [
+            "Nodül tespitini otomatikleştirir",
+            "Tanı hassasiyetini artırır",
+            "Türkiye'de pilot çalışmalar var"
+          ]
+        },
+        {
+          "type": "cta",
+          "text": "tyzd.org"
+        }
+      ]
+    }
+  },
+  {
     "slug": "yapay-zeka-ile-kolon-kanseri-erken-teshisi-ve-kolonoskopi-ha",
     "title": "Yapay Zeka ile Kolon Kanseri Erken Teşhisi ve Kolonoskopi Hazırlığı",
     "description": "Yapay zeka'nın kolon kanseri erken tespitindeki uygulamaları ve kolonoskopi hazırlığını inceleyen güncel araştırmalar. Türkiye perspektifiyle klinik faydalar.",
