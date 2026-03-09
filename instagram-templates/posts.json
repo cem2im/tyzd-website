@@ -1,5 +1,51 @@
 [
   {
+    "id": 13,
+    "date": "2026-03-09",
+    "blogSlug": "dijital-patolojide-ai-kestirme-yol-problemi-ve-guven-tabanli-cozumler",
+    "caption": "Dijital patoloji AI modelleri 'kestirme yol' öğreniyor mu? 🧬 Annals of Oncology'deki güven tabanlı model bu soruna nasıl çözüm getiriyor, Türkiye'de neler yapılmalı? Kanser tanısında AI'nin gerçek potansiyeli ve riskleri hakkında güncel bir analiz. #TıptaYapayZeka #TYZD #DigitalPathology #PatolojiAI #SağlıkTeknolojisi #YapayZekaSağlık #KanserTanısı",
+    "slides": [
+      {
+        "id": "13-cover",
+        "template": "cover-slide.html",
+        "data": {
+          "HEADLINE": "AI Patolojide Kestirme Yol",
+          "SUBHEADLINE": "Güven tabanlı modeller sorunu nasıl çözüyor?",
+          "CATEGORY": "Patoloji"
+        }
+      },
+      {
+        "id": "13-content-1",
+        "template": "content-slide.html",
+        "data": {
+          "PAGE_NUM": "2/4",
+          "TITLE": "Kestirme Yol Problemi",
+          "BULLET_1": "AI bazen artefaktı biyoloji sanıyor",
+          "BULLET_2": "Kurum değiştirince doğruluk düşüyor",
+          "BULLET_3": "🟡 Çok merkezli çalışmalarda ortaya çıktı"
+        }
+      },
+      {
+        "id": "13-content-2",
+        "template": "content-slide.html",
+        "data": {
+          "PAGE_NUM": "3/4",
+          "TITLE": "Güven Tabanlı AI Modeli",
+          "BULLET_1": "Belirsiz vakaları patoloğa yönlendiriyor",
+          "BULLET_2": "Annals of Oncology 2026 yayını",
+          "BULLET_3": "🟡 İnsan-AI iş birliği modeli"
+        }
+      },
+      {
+        "id": "13-cta",
+        "template": "cta-slide.html",
+        "data": {
+          "CTA_URL": "tyzd.org"
+        }
+      }
+    ]
+  },
+  {
     "id": 12,
     "date": "2026-03-08",
     "blogSlug": "fdanin-radyolojide-ai-onaylari-meme-kanserinde-ve-tiroid-ult",

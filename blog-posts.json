@@ -1,5 +1,51 @@
 [
   {
+    "slug": "dijital-patolojide-ai-kestirme-yol-problemi-ve-guven-tabanli-cozumler",
+    "title": "Dijital Patolojide AI: Kestirme Yol Problemi ve Güven Tabanlı Çözümler",
+    "description": "Dijital patoloji AI modellerinin 'kestirme yol öğrenmesi' sorunu ve Annals of Oncology'de yayımlanan güven tabanlı patoloji modelinin klinik etkileri. Türkiye perspektifiyle değerlendirme.",
+    "category": "patoloji",
+    "categoryName": "Patoloji",
+    "categoryIcon": "🧬",
+    "categoryColor": "#14b8a6",
+    "date": "2026-03-09",
+    "readTime": 8,
+    "priority": "normal",
+    "area": "ai_pathology",
+    "url": "blog/dijital-patolojide-ai-kestirme-yol-problemi-ve-guven-tabanli-cozumler.html",
+    "instagram": {
+      "caption": "Dijital patoloji AI modelleri 'kestirme yol' öğreniyor mu? 🧬 Annals of Oncology'deki güven tabanlı model bu soruna nasıl çözüm getiriyor, Türkiye'de neler yapılmalı? Kanser tanısında AI'nin gerçek potansiyeli ve riskleri hakkında güncel bir analiz. #TıptaYapayZeka #TYZD #DigitalPathology #PatolojiAI #SağlıkTeknolojisi #YapayZekaSağlık #KanserTanısı",
+      "slides": [
+        {
+          "type": "cover",
+          "headline": "AI Patolojide Kestirme Yol",
+          "subheadline": "Güven tabanlı modeller sorunu nasıl çözüyor?"
+        },
+        {
+          "type": "content",
+          "title": "Kestirme Yol Problemi",
+          "bullets": [
+            "AI bazen artefaktı biyoloji sanıyor",
+            "Kurum değiştirince doğruluk düşüyor",
+            "🟡 Çok merkezli çalışmalarda ortaya çıktı"
+          ]
+        },
+        {
+          "type": "content",
+          "title": "Güven Tabanlı AI Modeli",
+          "bullets": [
+            "Belirsiz vakaları patoloğa yönlendiriyor",
+            "Annals of Oncology 2026 yayını",
+            "🟡 İnsan-AI iş birliği modeli"
+          ]
+        },
+        {
+          "type": "cta",
+          "text": "tyzd.org"
+        }
+      ]
+    }
+  },
+  {
     "slug": "fdanin-radyolojide-ai-onaylari-meme-kanserinde-ve-tiroid-ult",
     "title": "FDA'nın Radyolojide AI Onayları: Meme Kanserinde ve Tiroid Ultrasonunda",
     "description": "FDA'nın radyoloji alanındaki AI onaylarını inceleyen bir analiz: Meme kanseri cerrahisi ve tiroid ultrasonu uygulamaları, klinik faydaları ve Türkiye perspektifi.",

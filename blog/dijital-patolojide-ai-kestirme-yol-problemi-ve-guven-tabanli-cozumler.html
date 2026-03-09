@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dijital Patolojide AI: Kestirme Yol Problemi ve Güven Tabanlı Çözümler | TYZD Blog</title>
+    <meta name="description" content="Dijital patoloji AI modellerinin 'kestirme yol öğrenmesi' sorunu ve Annals of Oncology'de yayımlanan güven tabanlı patoloji modelinin klinik etkileri. Türkiye perspektifiyle değerlendirme.">
+    <meta property="og:title" content="Dijital Patolojide AI: Kestirme Yol Problemi ve Güven Tabanlı Çözümler | TYZD">
+    <meta property="og:description" content="Dijital patoloji AI modellerinin 'kestirme yol öğrenmesi' sorunu ve Annals of Oncology'de yayımlanan güven tabanlı patoloji modelinin klinik etkileri. Türkiye perspektifiyle değerlendirme.">
+    <meta property="og:type" content="article">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg: #000000;
+            --bg-card: #0a0a0a;
+            --bg-elevated: #111111;
+            --border: rgba(255,255,255,0.08);
+            --border-hover: rgba(255,255,255,0.15);
+            --text: #ffffff;
+            --text-secondary: #a1a1aa;
+            --text-tertiary: #71717a;
+            --accent: #14b8a6;
+            --accent-secondary: #06b6d4;
+            --gradient: linear-gradient(135deg, #14b8a6 0%, #06b6d4 50%, #0ea5e9 100%);
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.8;
+            -webkit-font-smoothing: antialiased;
+        }
+        ::selection { background: var(--accent); color: white; }
+        a { color: var(--accent); text-decoration: none; }
+        a:hover { color: var(--accent-secondary); }
+
+        /* Header */
+        .header {
+            position: fixed;
+            top: 0; left: 0; right: 0;
+            z-index: 100;
+            background: rgba(0,0,0,0.8);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--border);
+            padding: 0 2rem;
+        }
+        .header-inner {
+            max-width: 1200px;
+            margin: 0 auto;
+            height: 64px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-weight: 600;
+            font-size: 15px;
+            color: var(--text);
+        }
+        .logo-mark {
+            width: 32px;
+            height: 32px;
+            background: var(--gradient);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .logo-mark svg { width: 18px; height: 18px; color: white; }
+        .back-link {
+            color: var(--text-secondary);
+            font-size: 14px;
+            font-weight: 500;
+            transition: color 0.2s;
+        }
+        .back-link:hover { color: var(--text); }
+
+        /* Article */
+        article {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 7rem 2rem 4rem;
+        }
+        .post-header { margin-bottom: 2rem; }
+        .post-category {
+            display: inline-block;
+            background: rgba(20,184,166,0.1);
+            border: 1px solid rgba(20,184,166,0.2);
+            color: var(--accent);
+            padding: 0.3rem 0.8rem;
+            border-radius: 100px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: 1rem;
+        }
+        h1 {
+            font-size: clamp(1.8rem, 4vw, 2.5rem);
+            font-weight: 600;
+            line-height: 1.2;
+            letter-spacing: -0.02em;
+            margin-bottom: 1rem;
+        }
+        .post-meta {
+            color: var(--text-tertiary);
+            font-size: 0.85rem;
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+        .post-image {
+            width: 100%;
+            height: 280px;
+            background: var(--gradient);
+            border-radius: 16px;
+            margin: 2rem 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 5rem;
+            opacity: 0.85;
+        }
+        .post-content { font-size: 1.05rem; line-height: 1.85; }
+        .post-content h2 {
+            font-size: 1.4rem;
+            font-weight: 600;
+            margin: 2rem 0 0.75rem;
+            letter-spacing: -0.01em;
+        }
+        .post-content h3 {
+            font-size: 1.15rem;
+            font-weight: 600;
+            margin: 1.5rem 0 0.5rem;
+        }
+        .post-content p { margin-bottom: 1.1rem; color: var(--text-secondary); }
+        .post-content strong { color: var(--text); }
+        .post-content ul, .post-content ol {
+            padding-left: 1.5rem;
+            margin-bottom: 1rem;
+            color: var(--text-secondary);
+        }
+        .post-content li { margin-bottom: 0.5rem; }
+        .post-content blockquote {
+            border-left: 3px solid var(--accent);
+            padding: 1rem 1.5rem;
+            margin: 1.5rem 0;
+            background: var(--bg-elevated);
+            border-radius: 0 8px 8px 0;
+            color: var(--text-secondary);
+            font-style: italic;
+        }
+        .key-points {
+            background: var(--bg-elevated);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 1.5rem;
+            margin: 2rem 0;
+        }
+        .key-points h4 { font-size: 1rem; margin-bottom: 0.75rem; }
+        .key-points ul { list-style: none; padding: 0; }
+        .key-points li {
+            padding: 0.4rem 0;
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            border-bottom: 1px solid var(--border);
+        }
+        .key-points li:last-child { border-bottom: none; }
+        .sources {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 1.5rem;
+            margin: 2rem 0;
+        }
+        .sources h4 { font-size: 0.95rem; margin-bottom: 0.75rem; color: var(--text-secondary); }
+        .sources ul { list-style: none; margin: 0; padding: 0; }
+        .sources li { font-size: 0.85rem; color: var(--text-tertiary); margin-bottom: 0.4rem; }
+        .share-section {
+            padding: 2rem;
+            margin: 2rem 0;
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            text-align: center;
+        }
+        .share-section p { color: var(--text-secondary); margin-bottom: 1rem; }
+        .share-buttons { display: flex; gap: 0.75rem; justify-content: center; flex-wrap: wrap; }
+        .share-btn {
+            padding: 0.6rem 1.2rem;
+            border-radius: 8px;
+            color: white;
+            font-weight: 500;
+            font-size: 0.85rem;
+            transition: transform 0.2s, opacity 0.2s;
+        }
+        .share-btn:hover { transform: translateY(-2px); opacity: 0.9; color: white; }
+        .share-btn.twitter { background: #1DA1F2; }
+        .share-btn.linkedin { background: #0A66C2; }
+        .share-btn.whatsapp { background: #25D366; }
+
+        /* Footer */
+        footer {
+            padding: 2rem;
+            border-top: 1px solid var(--border);
+            text-align: center;
+            margin-top: 4rem;
+        }
+        footer p { font-size: 0.85rem; color: var(--text-tertiary); }
+        footer a { color: var(--accent); }
+
+        @media (max-width: 640px) {
+            h1 { font-size: 1.5rem; }
+            article { padding: 5rem 1rem 2rem; }
+            .post-image { height: 200px; font-size: 3rem; }
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="header-inner">
+            <a href="../index.html" class="logo">
+                <div class="logo-mark">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M22 12h-4l-3 9L9 3l-3 9H2"/>
+                    </svg>
+                </div>
+                <span>TYZD</span>
+            </a>
+            <a href="../index.html#blog" class="back-link">← Blog'a Dön</a>
+        </div>
+    </header>
+
+    <article>
+        <div class="post-header">
+            <span class="post-category">🧬 Patoloji</span>
+            <h1>Dijital Patolojide AI: Kestirme Yol Problemi ve Güven Tabanlı Çözümler</h1>
+            <div class="post-meta">
+                <span>📅 9 Mart 2026</span>
+                <span>⏱️ 8 dk okuma</span>
+                <span>✍️ TYZD Editör</span>
+            </div>
+        </div>
+
+        <div class="post-image">🧬</div>
+
+        <div class="post-content">
+            <h2>Giriş</h2>
+            <p>Dijital patoloji, yapay zeka (AI) ile buluştuğunda kanser tanısını hızlandırmayı vaat ediyor. Ancak son araştırmalar, derin öğrenme modellerinin bazen histopatolojik slaytları gerçek biyolojik örüntüler yerine <strong>artefakt ve teknik kısayollar</strong> üzerinden sınıflandırdığını ortaya koyuyor. Bu "kestirme yol öğrenmesi" (shortcut learning) sorunu, klinik güvenilirliği ciddi ölçüde tehdit ediyor.</p>
+            <p>Bu yazıda, Annals of Oncology'de (2026) yayımlanan güven tabanlı AI patoloji modelini, kestirme yol problemine ilişkin güncel bulguları ve bu gelişmelerin Türkiye'deki dijital patoloji uygulamaları için ne anlam ifade ettiğini ele alıyoruz. İçerik bilgilendirme amaçlıdır; tıbbi tavsiye yerine geçmez. AI terimleri için kısa açıklamalar eklenmiştir: <em>CNN</em> (Evrişimli Sinir Ağı — görüntü analizi için kullanılan derin öğrenme mimarisi), <em>WSI</em> (Whole Slide Image — tam doku kesiti dijital görüntüsü), <em>güven skoru</em> (modelin tahminine ne kadar emin olduğunu gösteren sayısal değer).</p>
+            <p>Kanıt seviyeleri: 🟢 Güçlü kanıt (RKÇ/sistematik derleme), 🟡 Orta kanıt (gözlemsel/kohort), 🔴 Erken kanıt (pilot/kavram kanıtı).</p>
+
+            <h2>Kestirme Yol Öğrenmesi: AI Patoloji "Kopya Çekiyor" Mu?</h2>
+            <p>2026 başında birden fazla bağımsız çalışma, dijital patoloji modellerinin bazı veri setlerinde beklenmedik davranışlar sergilediğini gösterdi. Clinical Key ve çeşitli tıbbi haber kaynaklarında "AI pathology models caught cheating" başlığıyla yer bulan bu çalışmalar, modellerin kanser sınıflandırmasını doku morfolojisinden değil; boyama yoğunluğu, slayt kalitesi veya laboratuvar kaynağı gibi <strong>teknik artefaktlardan</strong> yaptığını ortaya koydu (🟡 Orta kanıt).</p>
+            <p>Bu durum, modelin yüksek doğruluk oranı raporlamasına karşın gerçek dünya performansının dramatik düşmesine yol açabilir. Örneğin, bir kurumda %95 doğruluk sağlayan bir model, farklı boyama protokolü kullanan başka bir hastanede %60'ın altına düşebilir.</p>
+            <blockquote>"Derin öğrenme modelleri, insanın fark etmeyeceği istatistiksel ipuçlarını öğrenmede son derece yeteneklidir — sorun, bu ipuçlarının her zaman biyolojik anlam taşımamasıdır." — Güncel patoloji AI araştırmacılarının ortak değerlendirmesi</blockquote>
+            <ul>
+                <li><strong>Tipik kestirme yol kaynakları:</strong> Slayt kenar artefaktları, boyama batch farklılıkları, doku işleme farklılıkları, skaner modeli izleri.</li>
+                <li><strong>Risk boyutu:</strong> Çok merkezli doğrulama yapılmadan yayımlanan modeller en fazla risk taşımaktadır.</li>
+                <li><strong>Tespit yöntemi:</strong> Dikkat haritaları (attention maps) ve gradyan görselleştirme, modelin neye "baktığını" gösterir.</li>
+            </ul>
+
+            <h2>Güven Tabanlı AI Patoloji Modeli: Annals of Oncology (2026)</h2>
+            <p>PubMed'de PMID 41791652 numarasıyla yayımlanan çalışmada, Annals of Oncology dergisi kapsamında geliştirilen güven tabanlı AI modeli, kanser patolojisinde <strong>tanı önerisini güven skoru ile birlikte</strong> sunuyor (🟡 Orta kanıt). Bu yaklaşım birkaç açıdan önem taşıyor:</p>
+            <ol>
+                <li><strong>Belirsiz vakaları işaretleme:</strong> Model, düşük güvenli tahminleri patoloğa yönlendirerek kör noktaları azaltıyor.</li>
+                <li><strong>Kestirme yol tuzağını azaltma:</strong> Güven kalibrasyonu, modelin artefakta aşırı güvenmesini sınırlıyor.</li>
+                <li><strong>İnsan-AI iş birliği:</strong> Yüksek güvenli vakalar hızla işlenirken sınır vakaları deneyimli patologlar tarafından değerlendiriliyor.</li>
+            </ol>
+            <p>Çalışma, birden fazla kanser türünü kapsayan bir kohort üzerinde test edilmiş ve güven eşiği uygulandığında yanlış pozitif oranının belirgin biçimde düştüğü görülmüştür. Ancak araştırmacılar, modelin prospektif klinik ortamlarda daha geniş ölçekli doğrulama gerektirdiğini vurguluyor.</p>
+
+            <h3>Güven Skoru Neden Kritik?</h3>
+            <p>Klasik AI modelleri tek bir tahmin çıktısı verirken güven tabanlı modeller ek bir boyut sunuyor: "Bu tahminden ne kadar eminim?" Bu fark, klinik pratikte iki önemli sonuç doğuruyor:</p>
+            <ul>
+                <li>Patolog, modelin "emin olduğu" vakalarda zamandan tasarruf eder ve yüksek hacimli tarama bölümlerinde verimlilik artar.</li>
+                <li>Modelin belirsiz bulduğu vakalar, birden fazla uzman gözünden geçerek tanı hataları azaltılır.</li>
+            </ul>
+
+            <h2>Dijital Patolojide AI'nın Güncel Durumu</h2>
+            <p>2025-2026 yıllarında patoloji AI araştırmaları birçok alanda ilerledi. Meme kanseri dijital patoloji veri tabanlarının standardizasyonunu inceleyen Çin kaynaklı çalışmada (PubMed 41795984, 2026), ulusal düzeyde ortak veri havuzu oluşturmanın model genelleşebilirliğini artırdığı gösterildi (🟡 Orta kanıt). Bu yaklaşım, kestirme yol sorununu azaltmanın en pratik yollarından biri olarak değerlendiriliyor: model ne kadar çeşitli ve çok merkezli veriye maruz kalırsa, bir kuruma özgü artefaktlara o kadar az bağımlı oluyor.</p>
+            <p>Colorektal kanser lenfatik metastazlarında CCDC3 mekanizmalarını keşfeden NPJ Digital Medicine çalışması (PubMed 41792471, 2026) ise AI'nın yalnızca tanı değil, <strong>hastalık mekanizması keşfi</strong> için de nasıl kullanılabileceğini gösteriyor (🔴 Erken kanıt). Bu, patoloji AI'sının geleceğinin salt sınıflandırmanın ötesine geçebileceğine işaret ediyor.</p>
+
+            <h3>Meme Kanseri Lenf Nodu Metastazı Tespiti</h3>
+            <p>Google News kaynaklı güncel haberlerde (2026), yüksek performanslı açık kaynak kodlu AI modellerinin meme kanseri lenf nodu metastazı tespitinde patologlara yakın hassasiyet sağladığı bildirildi. Bu modeller, CAMELYON veri setleriyle eğitilmiş olup dikkat haritası tabanlı yorumlanabilirlik özellikleri içeriyor — kestirme yol tespitini kolaylaştıran tam da bu tür şeffaflık mekanizmaları.</p>
+
+            <h2>Türkiye Perspektifi: Dijital Patolojide Ne Durumdayız?</h2>
+            <p>Türkiye'de dijital patoloji altyapısı hızla gelişiyor; büyük üniversite ve eğitim araştırma hastaneleri tam dijital iş akışlarına geçiyor. Ancak AI model güvenilirliği konusunda yerel farkındalık henüz sınırlı.</p>
+            <ul>
+                <li><strong>Veri çeşitliliği sorunu:</strong> Türk hasta kohortlarında yapılan doğrulama çalışmaları yeterli değil; Batı veya Doğu Asya verileriyle eğitilen modeller farklı demografik ve boyama protokolü farklılıkları nedeniyle tutarsız sonuç verebilir.</li>
+                <li><strong>Kestirme yol riski:</strong> Kurumdan kuruma değişen boyama protokolleri ve farklı skaner modelleri, artefakt tabanlı modellerin performansını tehdit ediyor.</li>
+                <li><strong>Fırsat alanı:</strong> TÜBİTAK ve Sağlık Bakanlığı destekli çok merkezli dijital patoloji veri havuzu oluşturulması, hem kestirme yol sorununu azaltır hem de uluslararası literatüre katkı sağlar.</li>
+                <li><strong>Mevcut çalışmalar:</strong> Bazı üniversite hastanelerinde pilot AI patoloji projeleri yürütülüyor; ancak sonuçların sistematik yayımlanması ve çok merkezli doğrulama henüz yetersiz (🔴 Erken kanıt).</li>
+            </ul>
+
+            <h2>Klinisyenler ve Mühendisler İçin Pratik Çıkarımlar</h2>
+            <p>Bu alanda çalışan herkese somut öneriler:</p>
+            <ul>
+                <li><strong>Yorumlanabilirlik araçlarını kullanın:</strong> Dikkat haritası veya GradCAM görselleştirmeleri olmayan patoloji AI modellerine klinik ortamda dikkatli yaklaşın.</li>
+                <li><strong>Çok merkezli doğrulama isteyin:</strong> Tek kurum verisiyle raporlanan doğruluk oranları yanıltıcı olabilir.</li>
+                <li><strong>Güven skoru entegre edin:</strong> Modelin emin olmadığı vakaları otomatik olarak ikincil incelemeye yönlendiren iş akışları tasarlayın.</li>
+                <li><strong>Boyama standardizasyonu:</strong> Aynı AI modelini farklı bölümlerde kullanan kurumların boyama ve doku işleme protokollerini harmonize etmesi kritik.</li>
+            </ul>
+
+            <h2>Sonuç</h2>
+            <p>Dijital patoloji AI'sı gerçek klinik potansiyel taşıyor; ancak "kestirme yol öğrenmesi" sorunu, bu potansiyelin kör bir hevesle değil bilinçli bir eleştirel bakışla hayata geçirilmesini zorunlu kılıyor. Güven tabanlı modeller, insan-AI iş birliğini güçlendiren umut verici bir yaklaşım sunuyor. Türkiye'de dijital patoloji alanında faaliyet gösteren klinisyen, araştırmacı ve mühendislerin bu gelişmeleri yakından takip etmesi ve yerel doğrulama çalışmalarını hızlandırması büyük önem taşıyor. Bu yazı bilgilendirme amaçlıdır; tıbbi karar almak için uzman görüşü alınmalıdır.</p>
+        </div>
+
+        <div class="key-points">
+            <h4>📌 Önemli Noktalar</h4>
+            <ul>
+                <li>Derin öğrenme patoloji modelleri, gerçek biyoloji yerine teknik artefaktları öğrenebilir.</li>
+                <li>Güven tabanlı AI patoloji modeli, belirsiz vakaları patoloğa yönlendirerek hata oranını düşürüyor.</li>
+                <li>Çok merkezli veri ve yorumlanabilirlik araçları, kestirme yol sorununu azaltmanın temel yolları.</li>
+                <li>Türkiye'de dijital patoloji AI çalışmaları için yerel çok merkezli doğrulama kritik önemde.</li>
+            </ul>
+        </div>
+
+        <div class="sources">
+            <h4>📚 Kaynaklar</h4>
+            <ul>
+                <li><a href="https://pubmed.ncbi.nlm.nih.gov/41791652/" target="_blank">A confidence-based, artificial intelligence pathology model for diagnosis. Annals of Oncology. 2026. PMID: 41791652.</a></li>
+                <li><a href="https://pubmed.ncbi.nlm.nih.gov/41795984/" target="_blank">Standardizing breast cancer digital pathology databases for artificial intelligence. Chinese Journal of Pathology. 2026. PMID: 41795984.</a></li>
+                <li><a href="https://pubmed.ncbi.nlm.nih.gov/41792471/" target="_blank">Combining AI to reveal CCDC3-mediated pathways of colorectal cancer. NPJ Digital Medicine. 2026. PMID: 41792471.</a></li>
+                <li><a href="https://www.clinicalkey.com" target="_blank">Deep Learning Pathology Models Caught 'Cheating,' Study Finds. ClinicalKey News. 2026.</a></li>
+                <li><a href="https://doi.org/10.1038/s41591-019-0508-1" target="_blank">Campanella G et al. Clinical-grade computational pathology using whole slide images on large-scale data. Nature Medicine. 2019;25:1301–1309.</a></li>
+                <li><a href="https://doi.org/10.1016/j.media.2021.102264" target="_blank">Srinidhi CL et al. Deep neural network models for computational histopathology: A survey. Medical Image Analysis. 2021;67:101813.</a></li>
+            </ul>
+        </div>
+
+        <div class="share-section">
+            <p><strong>Bu yazıyı paylaşın</strong></p>
+            <div class="share-buttons">
+                <a href="https://twitter.com/intent/tweet?text=Dijital%20Patolojide%20AI%3A%20Kestirme%20Yol%20Problemi%20ve%20G%C3%BCven%20Tabanl%C4%B1%20%C3%87%C3%B6z%C3%BCmler&url=https%3A%2F%2Ftyzd.org%2Fblog%2Fdijital-patolojide-ai-kestirme-yol-problemi-ve-guven-tabanli-cozumler.html" class="share-btn twitter" target="_blank">Twitter</a>
+                <a href="https://www.linkedin.com/shareArticle?mini=true&url=https%3A%2F%2Ftyzd.org%2Fblog%2Fdijital-patolojide-ai-kestirme-yol-problemi-ve-guven-tabanli-cozumler.html&title=Dijital%20Patolojide%20AI%3A%20Kestirme%20Yol%20Problemi%20ve%20G%C3%BCven%20Tabanl%C4%B1%20%C3%87%C3%B6z%C3%BCmler" class="share-btn linkedin" target="_blank">LinkedIn</a>
+                <a href="https://wa.me/?text=Dijital%20Patolojide%20AI%3A%20Kestirme%20Yol%20Problemi%20ve%20G%C3%BCven%20Tabanl%C4%B1%20%C3%87%C3%B6z%C3%BCmler%20https%3A%2F%2Ftyzd.org%2Fblog%2Fdijital-patolojide-ai-kestirme-yol-problemi-ve-guven-tabanli-cozumler.html" class="share-btn whatsapp" target="_blank">WhatsApp</a>
+            </div>
+        </div>
+    </article>
+
+    <footer>
+        <p>© 2026 <a href="../index.html">Tıpta Yapay Zeka Derneği</a> · Tüm hakları saklıdır.</p>
+    </footer>
+</body>
+</html>
