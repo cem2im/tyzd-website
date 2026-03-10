@@ -1,5 +1,51 @@
 [
   {
+    "id": 14,
+    "date": "2026-03-10",
+    "blogSlug": "gpt5-ve-gpt4o-ile-ecgden-stemi-tespiti-llmlerin-etkisi",
+    "caption": "🔍 GPT-4o ve GPT-5 ile ECG'den STEMI tespiti nasıl mümkün oluyor? LLM'lerin kardiyolojiye katkısını keşfedin! Bu analiz, bilimsel araştırmalara dayalı olarak AI'nin tanı hızını artırma potansiyelini vurguluyor. Türkiye'de klinik uygulamalar için umut verici gelişmeler var. #TıptaYapayZeka #TYZD #MedikalAI #SağlıktaTeknoloji #YapayZeka #KardiyolojiAI #BilimselAI",
+    "slides": [
+      {
+        "id": "14-cover",
+        "template": "cover-slide.html",
+        "data": {
+          "HEADLINE": "LLM'ler ECG'de Devrim Mi?",
+          "SUBHEADLINE": "GPT-4o ile STEMI tespiti ve Türkiye perspektifi",
+          "CATEGORY": "Büyük Dil Modelleri"
+        }
+      },
+      {
+        "id": "14-content-1",
+        "template": "content-slide.html",
+        "data": {
+          "PAGE_NUM": "2/4",
+          "TITLE": "LLM'lerin Faydaları",
+          "BULLET_1": "Hızlı STEMI tanı sağlar",
+          "BULLET_2": "Hekim kararlarını destekler",
+          "BULLET_3": "Türkiye'de tele-tıp için ideal"
+        }
+      },
+      {
+        "id": "14-content-2",
+        "template": "content-slide.html",
+        "data": {
+          "PAGE_NUM": "3/4",
+          "TITLE": "Araştırma Bulguları",
+          "BULLET_1": "🟢 Güçlü kanıt: %95 hassasiyet",
+          "BULLET_2": "🔴 Erken kanıt: GPT-5 potansiyeli",
+          "BULLET_3": "Türkiye'de AI entegrasyonu artıyor"
+        }
+      },
+      {
+        "id": "14-cta",
+        "template": "cta-slide.html",
+        "data": {
+          "CTA_URL": "tyzd.org"
+        }
+      }
+    ]
+  },
+  {
     "id": 13,
     "date": "2026-03-09",
     "blogSlug": "dijital-patolojide-ai-kestirme-yol-problemi-ve-guven-tabanli-cozumler",

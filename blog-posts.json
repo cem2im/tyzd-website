@@ -1,5 +1,51 @@
 [
   {
+    "slug": "gpt5-ve-gpt4o-ile-ecgden-stemi-tespiti-llmlerin-etkisi",
+    "title": "GPT-5 ve GPT-4o ile ECG'den STEMI Tespiti: LLM'lerin Etkisi",
+    "description": "LLM'lerin 12-derivasyonlu ECG'den STEMI tespitindeki rolünü inceleyen analiz. Kardiyoloji AI'sinin klinik potansiyeli ve Türkiye perspektifi.",
+    "category": "llm",
+    "categoryName": "Büyük Dil Modelleri",
+    "categoryIcon": "🤖",
+    "categoryColor": "#06b6d4",
+    "date": "2026-03-10",
+    "readTime": 8,
+    "priority": "normal",
+    "area": "custom",
+    "url": "blog/gpt5-ve-gpt4o-ile-ecgden-stemi-tespiti-llmlerin-etkisi.html",
+    "instagram": {
+      "caption": "🔍 GPT-4o ve GPT-5 ile ECG'den STEMI tespiti nasıl mümkün oluyor? LLM'lerin kardiyolojiye katkısını keşfedin! Bu analiz, bilimsel araştırmalara dayalı olarak AI'nin tanı hızını artırma potansiyelini vurguluyor. Türkiye'de klinik uygulamalar için umut verici gelişmeler var. #TıptaYapayZeka #TYZD #MedikalAI #SağlıktaTeknoloji #YapayZeka #KardiyolojiAI #BilimselAI",
+      "slides": [
+        {
+          "type": "cover",
+          "headline": "LLM'ler ECG'de Devrim Mi?",
+          "subheadline": "GPT-4o ile STEMI tespiti ve Türkiye perspektifi"
+        },
+        {
+          "type": "content",
+          "title": "LLM'lerin Faydaları",
+          "bullets": [
+            "Hızlı STEMI tanı sağlar",
+            "Hekim kararlarını destekler",
+            "Türkiye'de tele-tıp için ideal"
+          ]
+        },
+        {
+          "type": "content",
+          "title": "Araştırma Bulguları",
+          "bullets": [
+            "🟢 Güçlü kanıt: %95 hassasiyet",
+            "🔴 Erken kanıt: GPT-5 potansiyeli",
+            "Türkiye'de AI entegrasyonu artıyor"
+          ]
+        },
+        {
+          "type": "cta",
+          "text": "tyzd.org"
+        }
+      ]
+    }
+  },
+  {
     "slug": "dijital-patolojide-ai-kestirme-yol-problemi-ve-guven-tabanli-cozumler",
     "title": "Dijital Patolojide AI: Kestirme Yol Problemi ve Güven Tabanlı Çözümler",
     "description": "Dijital patoloji AI modellerinin 'kestirme yol öğrenmesi' sorunu ve Annals of Oncology'de yayımlanan güven tabanlı patoloji modelinin klinik etkileri. Türkiye perspektifiyle değerlendirme.",
