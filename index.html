@@ -1344,6 +1344,26 @@
             margin-top: 24px;
         }
         .featured-partners strong { color: var(--text-secondary); font-weight: 600; }
+        .featured-program { display: grid; gap: 10px; margin-bottom: 28px; }
+        .featured-program .program-day {
+            display: flex;
+            align-items: baseline;
+            gap: 12px;
+            padding: 10px 14px;
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            background: var(--bg-elevated);
+            font-size: 14px;
+            color: var(--text-secondary);
+        }
+        .featured-program .program-day b {
+            color: var(--accent-secondary);
+            font-weight: 600;
+            white-space: nowrap;
+            font-size: 13px;
+            letter-spacing: 0.04em;
+            text-transform: uppercase;
+        }
         @media (max-width: 1024px) {
             .featured-card { grid-template-columns: 1fr; gap: 36px; padding: 32px; }
             .featured-poster { max-width: 440px; margin: 0 auto; width: 100%; }
@@ -1456,12 +1476,18 @@
                                 Una Hotel Regina, Bari, İtalya
                             </span>
                         </div>
+                        <div class="featured-program">
+                            <div class="program-day"><b>1. Gün</b><span>Açılış — hipertansiyon ve diyabette güncel kılavuzlar</span></div>
+                            <div class="program-day"><b>2. Gün</b><span>Basamaklı tedavi, RAAS blokajı, inkretinomimetikler, DPP-4 inhibitörleri ve hipertansiyon &amp; diyabet yönetiminde yapay zeka, olgu sunumları</span></div>
+                            <div class="program-day"><b>3. Gün</b><span>DVT/PE'de antikoagülan tedavi, kişiselleştirilmiş tıp ve gelecek perspektifleri</span></div>
+                        </div>
                         <div class="hero-buttons" style="justify-content: flex-start;">
-                            <a href="#iletisim" class="btn btn-primary">
-                                Bilgi Al
-                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                            <a href="assets/symposium-bari-2026-program.pdf" target="_blank" rel="noopener" class="btn btn-primary">
+                                Bilimsel Program (PDF)
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
                             </a>
                             <a href="assets/symposium-bari-2026.jpg" target="_blank" rel="noopener" class="btn btn-secondary">Afişi Görüntüle</a>
+                            <a href="#iletisim" class="btn btn-secondary">Bilgi Al</a>
                         </div>
                         <div class="featured-partners">Ortak organizasyon: <strong>TYZD</strong> × <strong>AICPR</strong> (Associazione Italiana Cardiologia Clinica Preventiva e Riabilitativa)</div>
                     </div>
